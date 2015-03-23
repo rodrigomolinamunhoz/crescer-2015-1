@@ -2,4 +2,4 @@
 # Projeto Crescer 2015/1
 Repositório utilizado durante as aulas do crescer 
 
-![CWI Software](https://pbs.twimg.com/profile_images/469550031322619905/89OGS1Rt.png "CWI Software")
+![CWI Software](https://cloud.githubusercontent.com/assets/2975955/6779644/f3f198d8-d13c-11e4-9361-08b8e673a49d.png "CWI Software")
