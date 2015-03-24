@@ -10,3 +10,9 @@ Repositório utilizado durante as aulas do crescer
 3. Instalando o Eclipse 
 4. Instalando o Sourcetree
 
+
+### Instalando o Java 8 (JDK)
+
+1. Acesse a página http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+1. Em  Java SE Development Kit 8u<xx> clique em *Accept License Agreement*
+1. Baixe a versão compatível com o seu sistema operacional	
