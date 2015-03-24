@@ -21,7 +21,7 @@ Repositório utilizado pela CWI Software durante as aulas do projeto Crescer. N�
   	1. Escolha um nome de usuário, email e senha 
   	1. (Dica) Evite apelidos no nome de usuário para facilitar a identificação! Prefira utilizar o seu nome/sobrenome (exemplos: `marlonbernardes`, `bernardobrezende`)
   	1. (Dica 2) É possível alterar o nome de usuário após o cadastro. 
-  	1. Clique no botão verde para (sign up) para realizar o cadastro.
+  	1. Clique no botão verde (sign up) para realizar o cadastro.
 
 <a name="java8"></a>
 ### Instalando o Java 8 (JDK)
