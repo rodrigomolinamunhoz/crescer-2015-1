@@ -6,10 +6,22 @@ Repositório utilizado pela CWI Software durante as aulas do projeto Crescer
 
 ## Configuração do ambiente de desenvolvimento
 
+  1. [Criando uma conta no GitHub](#github)
   1. [Instalando a Java 8 (JDK)](#java8)
   1. [Instalando o BlueJ](#bluej)
   1. [Instalando o Eclipse](#eclipse)
-  1. [Instalando o Sourcetree](#sourcetree)
+  1. [Instalando o SourceTree](#sourcetree)
+
+
+<a name="github"></a>
+### Criando uma conta no GitHub
+
+  1. Acesse o site [github.com](https://github.com/)
+  1. Na tela inicial será possível criar uma conta no site. 
+  	1. Escolha um nome de usuário, email e senha 
+  	1. (Dica) Evite apelidos no nome de usuário para facilitar a identificação! Prefira utilizar o seu nome/sobrenome (exemplos: `marlonbernardes`, `bernardobrezende`)
+  	1. (Dica 2) É possível alterar o nome de usuário após o cadastro. 
+  	1. Clique no botão verde para (sign up) para realizar o cadastro.
 
 <a name="java8"></a>
 ### Instalando o Java 8 (JDK)
@@ -41,3 +53,8 @@ Repositório utilizado pela CWI Software durante as aulas do projeto Crescer
   1. Pronto. Abra o eclipse para testar se deu certo.
 
 <a name="sourcetree"></a>
+### Instalando o SourceTree
+
+  1. Acesse a página de download do SourceTree [clicando aqui](http://www.sourcetreeapp.com)
+  1. Faça o download do aplicativo e execute o instalador
+  1. Será necessário criar uma conta no git
