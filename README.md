@@ -57,4 +57,4 @@ Repositório utilizado pela CWI Software durante as aulas do projeto Crescer
 
   1. Acesse a página de download do SourceTree [clicando aqui](http://www.sourcetreeapp.com)
   1. Faça o download do aplicativo e execute o instalador
-  1. Será necessário criar uma conta no git
+  1. Será necessário criar uma conta no GitHub para utilizar o programa durante as aulas
