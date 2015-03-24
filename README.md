@@ -30,11 +30,11 @@ Repositório utilizado pela CWI Software durante as aulas do projeto Crescer. N�
   1. Em  Java SE Development Kit 8u<xx> clique em *Accept License Agreement*
   1. Baixe a versão compatível com o seu sistema operacional	
   1. Execute o arquivo e siga os passos de instalação
-  1. Para verificar se a instalação deu certo, abra o prompt de comando/terminal e veja se o comando abaixo executa sem erros:
+  1. Para verificar se a instalação deu certo, abra o prompt de comando/terminal e veja se o comando abaixo executa sem erros
 
-	```
-		java -version
-	```
+  ```		
+  java -version
+  ```
 	
 <a name="bluej"></a>
 ### Instalando o BlueJ
