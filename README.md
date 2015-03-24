@@ -32,7 +32,7 @@ Repositório utilizado durante as aulas do crescer
 
 ### Instalando o Eclipse
 
-1. Acesse a página de download do Eclipse **EE** [clicando aqui](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr2)
+1. Acesse a página de download do **Eclipse EE** [clicando aqui](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr2)
 1. No menu a direita, em Download links, selecione a versão de acordo com o seu sistema operacional
 1. Na próxima tela clique na setinha verde para realizar o download 
 1. Após o download apenas extraia o arquivo em um local da sua preferência 
