@@ -14,7 +14,7 @@ Repositório utilizado durante as aulas do crescer
 
 ### Instalando o Java 8 (JDK)
 
-1. Acesse a página de downloads do Oracle [aqui](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+1. Acesse a página de downloads da Oracle [clicando aqui](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 1. Em  Java SE Development Kit 8u<xx> clique em *Accept License Agreement*
 1. Baixe a versão compatível com o seu sistema operacional	
 1. Execute o arquivo e siga os passos de instalação
@@ -29,3 +29,11 @@ Repositório utilizado durante as aulas do crescer
 1. Acesse [BlueJ.org](http://www.bluej.org/)
 1. Caso você já tenha o Java instalado, baixe apenas o arquivo BlueJ installer de acordo com o seu sistema operacional
 1. Execute o arquivo e siga os passos de instalação
+
+### Instalando o Eclipse
+
+1. Acesse a página de download do Eclipse **EE** [clicando aqui](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr2)
+1. No menu a direita, em Download links, selecione a versão de acordo com o seu sistema operacional
+1. Na próxima tela clique na setinha verde para realizar o download 
+1. Após o download apenas extraia o arquivo em um local da sua preferência 
+1. Pronto. Abra o eclipse para testar se deu certo.
