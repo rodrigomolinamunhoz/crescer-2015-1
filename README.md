@@ -23,6 +23,7 @@ Repositório utilizado durante as aulas do crescer
 	```
 		java -version
 	```
+	
 <a name="bluej"></a>
 ### Instalando o BlueJ
 
