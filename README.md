@@ -3,6 +3,7 @@
 Repositório utilizado pela CWI Software durante as aulas do projeto Crescer. Não conhece? Então [clique aqui!](http://www.cwi.com.br/Empresa/Crescer)
 
 <img src="https://cloud.githubusercontent.com/assets/2975955/6779644/f3f198d8-d13c-11e4-9361-08b8e673a49d.png" height="250">
+<img src="https://cloud.githubusercontent.com/assets/2975955/6825138/e3a2ed92-d2d6-11e4-9e57-a1e0e3aa59ca.png" height="250">
 
 ## Configuração do ambiente de desenvolvimento
 
