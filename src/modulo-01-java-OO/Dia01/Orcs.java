@@ -2,13 +2,13 @@
 /**
  * Write a description of class Orcs here.
  * 
- * @author (your name) 
+ * @author Rodrigo Molina 
  * @version (a version number or a date)
  */
 public class Orcs
 {
     // instance variables - replace the example below with your own
-    public int vida = 110;
+    private int vida = 110;
 
     /**
      * Constructor for objects of class Orcs
@@ -17,7 +17,12 @@ public class Orcs
     {
        
     }
-    
+    /**
+     * @param recebe o parametro da classe Elfo com o ataque, perdendo 10 de vida.
+     */
+    public void tiraVida(){
+     this.vida -= 10;
+    }
    
    
 }

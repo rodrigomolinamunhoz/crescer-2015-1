@@ -11,7 +11,7 @@ public class Elfo
     // Versão correção do tema!!
     
     private String nome;
-    private int flechas;
+    private int flechas, experiencia;
 
     // type initializer
     {
@@ -36,12 +36,14 @@ public class Elfo
     }
     
     /**
-     * Atira uma flecha e perde uma unidade e a vida do orc diminui.
+     * @param Atira uma flecha e perde uma unidade de flecha, ganha experiencia e a vida do orc diminui no metodo da classe orc.
      */
     public void atirarFlecha(Orcs n) {
         //flechas = flechas - 1;
         flechas--;
-        n.vida = n.vida - 10;
+        experiencia++;
+        n.tiraVida();
+        
     }
 
     /*
