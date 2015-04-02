@@ -11,7 +11,7 @@ public class Elfo
     // Versão correção do tema!!
     
     private String nome;
-    private int flechas, experiencia;
+    private int flechas;
 
     // type initializer
     {
@@ -29,19 +29,19 @@ public class Elfo
         this(umNome);
         // this.nome = nome;
         this.flechas = flechas;
-    }
-    
+    } 
+       
     public Elfo(String nome) {
         this.nome = nome;
     }
     
     /**
-     * Atira uma flecha e perde uma unidade.
+     * Atira uma flecha e perde uma unidade e a vida do orc diminui.
      */
-    public void atirarFlecha() {
+    public void atirarFlecha(Orcs n) {
         //flechas = flechas - 1;
         flechas--;
-        experiencia++;
+        n.vida = n.vida - 10;
     }
 
     /*
