@@ -35,11 +35,14 @@ public class Elfo
     
     /**
      * Atira uma flecha e perde uma unidade.
+     * 
+     * @param umOrc Orc que receberá uma flechada.
      */
-    public void atirarFlecha() {
+    public void atirarFlecha(Orc umOrc) {
         //flechas = flechas - 1;
         flechas--;
         experiencia++;
+        umOrc.recebeAtaque();
     }
     
     /*public void setFlechas(int novaQtdFlechas) {
