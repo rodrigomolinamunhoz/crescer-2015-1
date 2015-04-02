@@ -3,6 +3,7 @@
  * Define objetos Elfo
  * 
  * @author CWI Software
+ * 
  * somente esta linha
  */
 public class Elfo
@@ -40,11 +41,11 @@ public class Elfo
         flechas--;
         experiencia++;
     }
-    
+    /*
     public void setNome(String novoNome) {
         nome = novoNome;
     }
-    
+    */
     /*public void setFlechas(int novaQtdFlechas) {
         if (novaQtdFlechas > flechas) {
             flechas = novaQtdFlechas;
