@@ -23,6 +23,10 @@ public class Orcs
     public void tiraVida(){
      this.vida -= 10;
     }
+    
+    public int getVida(){
+        return this.vida;
+    }
    
    
 }
