@@ -14,7 +14,7 @@ import org.junit.Test;
 public class OrcsTest
 {
     /**
-     * Default constructor for test class OrcsTest
+     * @param método que testa se o Orc nasce com 110 de vida.
      * 
      */
     @Test
@@ -28,11 +28,7 @@ public class OrcsTest
         int esperado = 110;
         int resultadoObtido = umOrc.getVida();
         assertEquals(resultadoObtido, esperado);
-    }
-    
-    public void receberAtaque(){}
-    
-    
+    } 
 
     
 }

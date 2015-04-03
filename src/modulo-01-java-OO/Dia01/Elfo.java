@@ -17,6 +17,10 @@ public class Elfo
     {
         flechas = 42;
     }
+     public Elfo()
+    {
+       
+    }
     
     /**
      * Cria objetos Elfo
@@ -44,6 +48,10 @@ public class Elfo
         experiencia++;
         n.tiraVida();
         
+    }
+    
+     public int getFlechas(){
+        return this.flechas;
     }
 
     /*
