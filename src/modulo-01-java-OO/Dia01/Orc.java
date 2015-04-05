@@ -2,6 +2,7 @@
  * Define objetos do tipo Orc
  * 
  * @author CWI Software
+ * @author Rodrigo Molina
  */
 public class Orc
 {

@@ -30,8 +30,3 @@ public class OrcTest
     public void orcRecebeAtaque() {
     }
 }
-
-
-
-
-

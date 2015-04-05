@@ -27,4 +27,13 @@ public class ElfoTest
         int resultadoObtido = numFlechasPadrao.getFlechas();
         assertEquals(resultadoObtido, esperado);
     }
+     /**
+     * @param método que testa se o Elfo recebe nome de acordo com o que foi escrito.
+     * 
+     */
+    @Test
+    public void testaNomeElfo() {
+        Elfo nomeEscrito = new Elfo("Rodrigo");        
+        assertEquals("Rodrigo", nomeEscrito.getNome());
+    }
 }
