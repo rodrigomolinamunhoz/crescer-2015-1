@@ -40,6 +40,7 @@ public class Elfo
     }
     
     /**
+<<<<<<< HEAD
      * @param Atira uma flecha e perde uma unidade de flecha, ganha experiencia e a vida do orc diminui no metodo da classe orc.
      */
     public void atirarFlecha(Orcs n) {
@@ -48,6 +49,17 @@ public class Elfo
         experiencia++;
         n.tiraVida();
         
+=======
+     * Atira uma flecha e perde uma unidade.
+     * 
+     * @param umOrc Orc que receberá uma flechada.
+     */
+    public void atirarFlecha(Orc umOrc) {
+        //flechas = flechas - 1;
+        flechas--;
+        experiencia++;
+        umOrc.recebeAtaque();
+>>>>>>> 6fbcffc4d0c351d0d84ab721e1dd116f0988c35a
     }
     
      public int getFlechas(){

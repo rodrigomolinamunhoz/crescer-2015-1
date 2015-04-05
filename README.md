@@ -59,3 +59,10 @@ Repositório utilizado pela CWI Software durante as aulas do projeto Crescer. N�
   1. Acesse a página de download do SourceTree [clicando aqui](http://www.sourcetreeapp.com)
   1. Faça o download do aplicativo e execute o instalador
   1. Será necessário criar uma conta no GitHub para utilizar o programa durante as aulas
+
+<a name="oraclexe"></a>
+### Instalando o OracleXE
+
+  1. Acesse a página de download do Oracle XE [clicando aqui](http://www.oracle.com/technetwork/database/database-technologies/express-edition/downloads/index.html)
+  1. Faça o download e execute o instalador
+  1. Next -> Next -> [...] -> Finish
