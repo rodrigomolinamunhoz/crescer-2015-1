@@ -9,17 +9,11 @@ import org.junit.Test;
  * A classe de teste ElfoTest.
  *
  * @author  Rodrigo Molina
- * @version 05/04/2015
+ * @version 02/04/2015
  */
 public class ElfoTest
 {
-    /**
-     * Construtor default para a classe de teste ElfoTest
-     */
-    public ElfoTest()
-    {
-        
-    }
+    
     
       /**
      * @param método que testa o número padrão de flechas que seria 42.
