@@ -75,34 +75,7 @@ public class Elfo
     public int getExperiencia() {
         return this.experiencia;
     }
-    
-    public String toString(){
-        
-        String textoFlechas = this.flechas == 1 ? "flecha" : "flechas";
-        String textoExperiencia = this.experiencia == 1 ? "nível" : "níveis";
-        
-        return this.nome + " possui " + this.flechas + " " + textoFlechas + " " + experiencia + " " + textoExperiencia + " " + "experiência";
-        
-        //StringBuilder buider = new StringBuilder();
-        
-    }
-    
-    public Status getStatus(){
-    
-    }
-
-    /*public void setFlechas(int novaQtdFlechas) {
-        if (novaQtdFlechas > flechas) {
-            flechas = novaQtdFlechas;
-        }
-    }*/
-    
-    // camelCase: public void atirarFlechaDourada
-    // PascalCase: public void AtirarFlechaDourada
-<<<<<<< HEAD
    
-=======
-    
     /**
      * Retorna o nome do elfo, sua quantidade de flechas e seus níveis de experiência.
      * 
@@ -161,7 +134,15 @@ public class Elfo
     }
     
     
+
     
->>>>>>> 688eeedee8cb8fca74b8fbc3cf9b0e810f80b6cf
+    
+    /*public void setFlechas(int novaQtdFlechas) {
+        if (novaQtdFlechas > flechas) {
+            flechas = novaQtdFlechas;
+        }
+    }*/
+    
+    // camelCase: public void atirarFlechaDourada
     
 }

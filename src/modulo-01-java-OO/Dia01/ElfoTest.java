@@ -178,17 +178,6 @@ public class ElfoTest
     }
     
     @Test
-<<<<<<< HEAD
-    public void elfoToString() {
-        // Arrange
-        Elfo elfo = new Elfo();
-        // Act
-        // Assert
-        String esperado =  elfo.getNome() + " possui " + elfo.getFlechas() + " flechas e " + elfo.getExperiencia() + " níveis de experiência";
-        
-        assertEquals(esperado, elfo.toString());
-    }
-=======
     public void elfoToStringPadrao() {
         // Arrange
         Elfo elfo = new Elfo("Faustão");
@@ -198,18 +187,5 @@ public class ElfoTest
         // Assert
         assertEquals(resultadoEsperado, resultadoObtido);
     }
-    
->>>>>>> 688eeedee8cb8fca74b8fbc3cf9b0e810f80b6cf
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
 }
 

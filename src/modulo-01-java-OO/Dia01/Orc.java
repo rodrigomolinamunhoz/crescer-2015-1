@@ -29,26 +29,18 @@ public class Orc
     public void recebeAtaque() {
         this.vida -= 10;
         // this.vida = this.vida - 10;
+        status = Status.FERIDO;
+        if(this.vida <= 0){
+            status = Status.MORTO;
+        }
        
     }
     
     public int getVida() {
         return this.vida;
     }
-    
-    /**
-<<<<<<< HEAD
-     * Imprime a vida atual do orc
-     * 
-     * @return String com vida atual do orc. Ex:
-     * "Vida atual: 110."
-     */
-    public String toString(){
-        return "Vida atual: " + this.vida;
-    }
-    
-=======
-     * Imprime a vida atual do Orc.
+
+     /* Imprime a vida atual do Orc.
      * 
      * @return String com a vida atual do orc. Ex:
      * 
@@ -57,5 +49,10 @@ public class Orc
     public String toString() {
         return "Vida atual: " + this.vida;
     }
->>>>>>> 688eeedee8cb8fca74b8fbc3cf9b0e810f80b6cf
+    
+    public Status getStatus(){
+        status = this.status;
+        return status;
+    }
+
 }
