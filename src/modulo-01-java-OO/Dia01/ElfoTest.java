@@ -33,8 +33,9 @@ public class ElfoTest
      */
     @Test
     public void nomeElfo() {
-        Elfo nomeEscrito = new Elfo("Rodrigo");        
-        assertEquals("Rodrigo", nomeEscrito.getNome());
+        String esperado = "Rodrigo";
+        Elfo nomeEscrito = new Elfo(esperado);        
+        assertEquals(esperado, nomeEscrito.getNome());
     }
     
       /**
