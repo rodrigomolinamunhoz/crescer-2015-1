@@ -98,6 +98,7 @@ public class OrcTest
     }
     
     @Test
+<<<<<<< HEAD
     public void orcToStringRetornavidaPadrao(){
         Orc orc = new Orc();
         
@@ -108,6 +109,65 @@ public class OrcTest
         
     }
 }    
+=======
+    public void orcToStringRetornaVidaPadrao() {
+        // Arrange
+        Orc orc = new Orc();
+        // Act
+        String resultadoObtido = orc.toString();
+        // Assert
+        String esperado = "Vida atual: 110";
+        assertEquals(esperado, resultadoObtido);
+    }
+    
+    @Test
+    public void orcToStringAposReceberAtaque() {
+        // Arrange
+        Orc orc = new Orc();
+        // Act
+        orc.recebeAtaque();
+        String resultadoObtido = orc.toString();
+        // Assert
+        String esperado = "Vida atual: 100";
+        assertEquals(esperado, resultadoObtido);
+    }
+    
+    @Test
+    public void orcToStringAposReceberDozeAtaques() {
+        // Arrange - Montagem dos dados de teste
+        Orc umOrc = new Orc();
+        // Act
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        String resultadoObtido = umOrc.toString();
+        // Assert
+        String esperado = "Vida atual: -10";
+        assertEquals(esperado, resultadoObtido);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}
+>>>>>>> 688eeedee8cb8fca74b8fbc3cf9b0e810f80b6cf
 
 
 

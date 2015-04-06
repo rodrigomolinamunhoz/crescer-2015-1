@@ -37,6 +37,7 @@ public class Orc
     }
     
     /**
+<<<<<<< HEAD
      * Imprime a vida atual do orc
      * 
      * @return String com vida atual do orc. Ex:
@@ -46,4 +47,15 @@ public class Orc
         return "Vida atual: " + this.vida;
     }
     
+=======
+     * Imprime a vida atual do Orc.
+     * 
+     * @return String com a vida atual do orc. Ex:
+     * 
+     * "Vida atual: 110"
+     */
+    public String toString() {
+        return "Vida atual: " + this.vida;
+    }
+>>>>>>> 688eeedee8cb8fca74b8fbc3cf9b0e810f80b6cf
 }
