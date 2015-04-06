@@ -29,6 +29,11 @@ public class Elfo
         this.flechas = flechas;
     }
     
+    /**
+     * Cria um elfo informando nome.
+     * 
+     * @param nome Nome a ser dado para o Elfo.
+     */
     public Elfo(String nome) {
         this.nome = nome;
     }
