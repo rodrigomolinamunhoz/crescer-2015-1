@@ -111,7 +111,7 @@ public class ElfoTest
         assertEquals(nomeEsperado, elfo.getNome());
         assertEquals(flechasEsperadas, elfo.getFlechas());
     }
-<<<<<<< HEAD
+
       /**
      * @param método que testa o método de atirar flechas o numero de experiencia aumenta.
      * 
@@ -125,7 +125,7 @@ public class ElfoTest
         int experienciaNova = testaMetodo.getExperiencia();
         assertTrue(experienciaNova > experiencia);
     }
-=======
+
     
     @Test
     public void elfoAtiraFlechaEmUmOrc() {
@@ -187,6 +187,6 @@ public class ElfoTest
     
     
     
->>>>>>> 48edd962379c28721428de9fe01092bd5fc74457
+
 }
 
