@@ -36,4 +36,49 @@ public class ElfoTest
         Elfo nomeEscrito = new Elfo("Rodrigo");        
         assertEquals("Rodrigo", nomeEscrito.getNome());
     }
+    
+      /**
+     * @param método que testa o método de atirar flechas conferindo se o numero de flechas é diminuido.
+     * 
+     */
+    @Test
+    public void testaDiminuiFlecha(){
+        Elfo testaMetodo = new Elfo();
+        Orc umOrc = new Orc();
+        int flecha = testaMetodo.getFlechas();
+        testaMetodo.atirarFlecha(umOrc);
+        int flechaNova = testaMetodo.getFlechas();
+        assertTrue(flechaNova < flecha);
+    }
+      /**
+     * @param método que testa o método de atirar flechas o numero de experiencia aumenta.
+     * 
+     */
+    @Test
+    public void testaRecebeExperiencia(){
+        Elfo testaMetodo = new Elfo();
+        Orc umOrc = new Orc();
+        int experiencia = testaMetodo.getExperiencia();
+        testaMetodo.atirarFlecha(umOrc);
+        int experienciaNova = testaMetodo.getExperiencia();
+        assertTrue(experienciaNova > experiencia);
+    }
+      /**
+     * @param método que testa se o nome é inserido na String nome.
+     * 
+     */
+    @Test
+    public void testaRecebeNomeNulo(){
+        Elfo nomeEscrito = new Elfo("Rodrigo");
+        assertNotNull(nomeEscrito.getNome());
+    }
+     /**
+     * @param método que testa se a flecha não está nula.
+     * 
+     */    
+     @Test
+    public void testaRecebeFlechaNula(){
+        Elfo flecha = new Elfo();
+        assertNotNull(flecha.getFlechas());
+    }
 }

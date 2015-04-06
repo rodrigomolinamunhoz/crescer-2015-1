@@ -57,6 +57,10 @@ public class Elfo
     public String getNome(){
         return this.nome = nome;
     }
+    
+    public int getExperiencia(){
+        return this.experiencia = experiencia;
+    }
     /*
     public void setNome(String novoNome) {
         nome = novoNome;
