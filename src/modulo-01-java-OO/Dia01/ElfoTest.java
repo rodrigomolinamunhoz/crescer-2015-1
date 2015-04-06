@@ -20,7 +20,7 @@ public class ElfoTest
      * 
      */
     @Test
-    public void testaNumFlechasPadrao(){
+    public void numFlechasPadrao(){
         Elfo numFlechasPadrao;
         numFlechasPadrao = new Elfo();
         int esperado = 42;
@@ -32,7 +32,7 @@ public class ElfoTest
      * 
      */
     @Test
-    public void testaNomeElfo() {
+    public void nomeElfo() {
         Elfo nomeEscrito = new Elfo("Rodrigo");        
         assertEquals("Rodrigo", nomeEscrito.getNome());
     }
@@ -42,7 +42,7 @@ public class ElfoTest
      * 
      */
     @Test
-    public void testaDiminuiFlecha(){
+    public void diminuiFlecha(){
         Elfo testaMetodo = new Elfo();
         Orc umOrc = new Orc();
         int flecha = testaMetodo.getFlechas();
@@ -55,7 +55,7 @@ public class ElfoTest
      * 
      */
     @Test
-    public void testaRecebeExperiencia(){
+    public void recebeExperiencia(){
         Elfo testaMetodo = new Elfo();
         Orc umOrc = new Orc();
         int experiencia = testaMetodo.getExperiencia();
@@ -68,7 +68,7 @@ public class ElfoTest
      * 
      */
     @Test
-    public void testaRecebeNomeNulo(){
+    public void recebeNomeNulo(){
         Elfo nomeEscrito = new Elfo("Rodrigo");
         assertNotNull(nomeEscrito.getNome());
     }
@@ -77,7 +77,7 @@ public class ElfoTest
      * 
      */    
      @Test
-    public void testaRecebeFlechaNula(){
+    public void recebeFlechaNula(){
         Elfo flecha = new Elfo();
         assertNotNull(flecha.getFlechas());
     }
