@@ -1,5 +1,4 @@
 
-
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
@@ -27,29 +26,90 @@ public class ElfoTest
         int resultadoObtido = numFlechasPadrao.getFlechas();
         assertEquals(resultadoObtido, esperado);
     }
-     /**
+      /**
      * @param método que testa se o Elfo recebe nome de acordo com o que foi escrito.
      * 
      */
     @Test
-    public void nomeElfo() {
-        String esperado = "Rodrigo";
-        Elfo nomeEscrito = new Elfo(esperado);        
-        assertEquals(esperado, nomeEscrito.getNome());
+    public void elfoNasceComNomeInformado() {
+        // Arrange
+        String esperado = "Celeborn";        
+        // Act
+        Elfo elfo = new Elfo(esperado);
+        // Assert
+        assertEquals(esperado, elfo.getNome());
     }
     
+    @Test
+    public void elfoNasceComNomeVazio() {
+        // Arrange
+        String esperado = "";        
+        // Act
+        Elfo elfo = new Elfo(esperado);
+        // Assert
+        assertEquals(esperado, elfo.getNome());
+    }
+    
+    @Test
+    public void elfoNasceComNomeNulo() {
+        // Arrange
+        String esperado = null;        
+        // Act
+        Elfo elfo = new Elfo(esperado);
+        // Assert
+        assertEquals(esperado, elfo.getNome());
+    }   
+    
       /**
-     * @param método que testa o método de atirar flechas conferindo se o numero de flechas é diminuido.
+     * @param método que testa um elfo com as 42 flechas por padrão.
      * 
      */
     @Test
-    public void diminuiFlecha(){
-        Elfo testaMetodo = new Elfo();
-        Orc umOrc = new Orc();
-        int flecha = testaMetodo.getFlechas();
-        testaMetodo.atirarFlecha(umOrc);
-        int flechaNova = testaMetodo.getFlechas();
-        assertTrue(flechaNova < flecha);
+    public void elfoNasceCom42FlechasPorPadrao() {
+        // Arrange
+        int esperado = 42;
+        // Act
+        Elfo elfo = new Elfo("um nome qualquer");
+        // Assert
+        assertEquals(esperado, elfo.getFlechas());
+    }
+    
+    
+    
+    @Test
+    public void elfoNasceComNomeEMuitasFlechasInformados() {
+        // Arrange
+        String nomeEsperado = "Robin";
+        int flechasEsperadas = 567853;
+        // Act
+        Elfo elfo = new Elfo(nomeEsperado, flechasEsperadas);
+        // Assert
+        assertEquals(nomeEsperado, elfo.getNome());
+        assertEquals(flechasEsperadas, elfo.getFlechas());
+    }
+    
+    @Test
+    public void elfoNasceComNomeEPoucasFlechasInformados() {
+        // Arrange
+        String nomeEsperado = "Robin";
+        int flechasEsperadas = 12;
+        // Act
+        Elfo elfo = new Elfo(nomeEsperado, flechasEsperadas);
+        // Assert
+        assertEquals(nomeEsperado, elfo.getNome());
+        assertEquals(flechasEsperadas, elfo.getFlechas());
+    }
+    
+    @Test
+    public void elfoNasceComNomeEFlechasNegativasInformados() {
+        // Arrange
+        String nomeEsperado = "Robin";
+        int flechasEsperadas = -567853;
+        // Act
+        Elfo elfo = new Elfo(nomeEsperado, flechasEsperadas);
+        // Assert
+        assertEquals(nomeEsperado, elfo.getNome());
+        assertEquals(flechasEsperadas, elfo.getFlechas());
     }
       /**
      * @param método que testa o método de atirar flechas o numero de experiencia aumenta.
@@ -64,22 +124,5 @@ public class ElfoTest
         int experienciaNova = testaMetodo.getExperiencia();
         assertTrue(experienciaNova > experiencia);
     }
-      /**
-     * @param método que testa se o nome é inserido na String nome.
-     * 
-     */
-    @Test
-    public void recebeNomeNulo(){
-        Elfo nomeEscrito = new Elfo("Rodrigo");
-        assertNotNull(nomeEscrito.getNome());
-    }
-     /**
-     * @param método que testa se a flecha não está nula.
-     * 
-     */    
-     @Test
-    public void recebeFlechaNula(){
-        Elfo flecha = new Elfo();
-        assertNotNull(flecha.getFlechas());
-    }
 }
+
