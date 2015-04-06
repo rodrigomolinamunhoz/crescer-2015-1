@@ -24,11 +24,14 @@ public class TestesIntegrados
         int flechasEsperadas = 40;
         int vidaEsperadaOrc1 = 100;
         int vidaEsperadaOrc2 = 100;
+        String toStringEsperadoOrc = "Vida atual: 100";
         
         assertEquals(experienciaEsperada, elfo.getExperiencia());
         assertEquals(flechasEsperadas, elfo.getFlechas());
         assertEquals(vidaEsperadaOrc1, orc1.getVida());
         assertEquals(vidaEsperadaOrc2, orc2.getVida());
+        assertEquals(toStringEsperadoOrc, orc1.toString());
+        assertEquals(toStringEsperadoOrc, orc2.toString());
     }
     
     
