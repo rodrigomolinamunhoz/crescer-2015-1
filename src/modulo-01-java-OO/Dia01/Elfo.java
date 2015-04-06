@@ -64,14 +64,18 @@ public class Elfo
         return this.nome;
     }
     
-    public int getExperiencia(){
-        return this.experiencia = experiencia;
-    }
+
     /*
     public void setNome(String novoNome) {
         nome = novoNome;
     }
     */
+   
+
+    public int getExperiencia() {
+        return this.experiencia;
+    }
+    
 
     /*public void setFlechas(int novaQtdFlechas) {
         if (novaQtdFlechas > flechas) {

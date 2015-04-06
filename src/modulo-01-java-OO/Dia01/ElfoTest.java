@@ -111,6 +111,7 @@ public class ElfoTest
         assertEquals(nomeEsperado, elfo.getNome());
         assertEquals(flechasEsperadas, elfo.getFlechas());
     }
+<<<<<<< HEAD
       /**
      * @param método que testa o método de atirar flechas o numero de experiencia aumenta.
      * 
@@ -124,5 +125,68 @@ public class ElfoTest
         int experienciaNova = testaMetodo.getExperiencia();
         assertTrue(experienciaNova > experiencia);
     }
+=======
+    
+    @Test
+    public void elfoAtiraFlechaEmUmOrc() {
+        // Arrange
+        Elfo elfo = new Elfo("Legolas");
+        Orc orc = new Orc();
+        // Act
+        elfo.atirarFlecha(orc);
+        // Assert
+        int experienciaEsperada = 1;
+        int flechasEsperadas = 41;
+        
+        assertEquals(experienciaEsperada, elfo.getExperiencia());
+        assertEquals(flechasEsperadas, elfo.getFlechas());
+    }
+    
+    @Test
+    public void elfoAtiraFlechasDuasVezesNoMesmoOrc() {
+        // Arrange
+        Elfo elfo = new Elfo("Legolas");
+        Orc orc = new Orc();
+        // Act
+        elfo.atirarFlecha(orc);
+        elfo.atirarFlecha(orc);
+        // Assert
+        int experienciaEsperada = 2;
+        int flechasEsperadas = 40;
+        
+        assertEquals(experienciaEsperada, elfo.getExperiencia());
+        assertEquals(flechasEsperadas, elfo.getFlechas());
+    }
+    
+    @Test
+    public void elfoAtiraFlechasCincoVezesNoMesmoOrc() {
+        // Arrange
+        Elfo elfo = new Elfo("Legolas", 4);
+        Orc orc = new Orc();
+        // Act
+        elfo.atirarFlecha(orc);
+        elfo.atirarFlecha(orc);
+        elfo.atirarFlecha(orc);
+        elfo.atirarFlecha(orc);
+        elfo.atirarFlecha(orc);
+        // Assert
+        int experienciaEsperada = 5;
+        int flechasEsperadas = -1;
+        
+        assertEquals(experienciaEsperada, elfo.getExperiencia());
+        assertEquals(flechasEsperadas, elfo.getFlechas());
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+>>>>>>> 48edd962379c28721428de9fe01092bd5fc74457
 }
 
