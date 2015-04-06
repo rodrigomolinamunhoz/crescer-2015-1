@@ -27,10 +27,75 @@ public class OrcTest
     }
     
     @Test
-    public void orcRecebeAtaque() {
+    public void orcRecebeAtaqueUmaVez() {
+        // Arrange - Montagem dos dados de teste
+        Orc umOrc = new Orc();
+        // Act
+        umOrc.recebeAtaque();
+        // Assert - Verificação
+        int esperado = 100;
+        int resultadoObtido = umOrc.getVida();
+        
+        assertEquals(esperado, resultadoObtido);
     }
+    
+    @Test
+    public void orcRecebeAtaqueDuasVezes() {
+        // Arrange - Montagem dos dados de teste
+        Orc umOrc = new Orc();
+        // Act
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        // Assert - Verificação
+        int esperado = 90;
+        int resultadoObtido = umOrc.getVida();
+        
+        assertEquals(esperado, resultadoObtido);
+    }
+    
+    @Test
+    public void orcRecebeAtaqueCincoVezes() {
+        // Arrange - Montagem dos dados de teste
+        Orc umOrc = new Orc();
+        // Act
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        // Assert - Verificação
+        int esperado = 60;
+        int resultadoObtido = umOrc.getVida();
+        
+        assertEquals(esperado, resultadoObtido);
+    }
+    
+    @Test
+    public void orcRecebeAtaqueDozeVezes() {
+        // Arrange - Montagem dos dados de teste
+        Orc umOrc = new Orc();
+        // Act
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        // Assert - Verificação
+        int esperado = -10;
+        int resultadoObtido = umOrc.getVida();
+        
+        assertEquals(esperado, resultadoObtido);
+    }
+    
+    
 }
-
 
 
 
