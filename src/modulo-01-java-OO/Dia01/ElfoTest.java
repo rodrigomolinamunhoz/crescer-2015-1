@@ -177,6 +177,16 @@ public class ElfoTest
         assertEquals(flechasEsperadas, elfo.getFlechas());
     }
     
+    @Test
+    public void elfoToString() {
+        // Arrange
+        Elfo elfo = new Elfo();
+        // Act
+        // Assert
+        String esperado =  elfo.getNome() + " possui " + elfo.getFlechas() + " flechas e " + elfo.getExperiencia() + " níveis de experiência";
+        
+        assertEquals(esperado, elfo.toString());
+    }
     
     
     

@@ -7,9 +7,11 @@
 public class Orc
 {
     private int vida = 110;
+    private Status status;
 
     {
         //vida = 110;
+        status = Status.VIVO;
     }
     
     /**
@@ -27,6 +29,7 @@ public class Orc
     public void recebeAtaque() {
         this.vida -= 10;
         // this.vida = this.vida - 10;
+       
     }
     
     public int getVida() {
@@ -42,4 +45,5 @@ public class Orc
     public String toString(){
         return "Vida atual: " + this.vida;
     }
+    
 }

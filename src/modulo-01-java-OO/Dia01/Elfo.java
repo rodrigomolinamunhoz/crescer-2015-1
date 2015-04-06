@@ -76,6 +76,20 @@ public class Elfo
         return this.experiencia;
     }
     
+    public String toString(){
+        
+        String textoFlechas = this.flechas == 1 ? "flecha" : "flechas";
+        String textoExperiencia = this.experiencia == 1 ? "nível" : "níveis";
+        
+        return this.nome + " possui " + this.flechas + " " + textoFlechas + " " + experiencia + " " + textoExperiencia + " " + "experiência";
+        
+        //StringBuilder buider = new StringBuilder();
+        
+    }
+    
+    public Status getStatus(){
+    
+    }
 
     /*public void setFlechas(int novaQtdFlechas) {
         if (novaQtdFlechas > flechas) {
@@ -86,4 +100,5 @@ public class Elfo
     // camelCase: public void atirarFlechaDourada
     // PascalCase: public void AtirarFlechaDourada
    
+    
 }
