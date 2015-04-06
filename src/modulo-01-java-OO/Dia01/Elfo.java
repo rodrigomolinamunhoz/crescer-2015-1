@@ -58,6 +58,10 @@ public class Elfo
         return this.flechas;
     }
     
+    public int getExperiencia() {
+        return this.experiencia;
+    }
+    
     /*public void setFlechas(int novaQtdFlechas) {
         if (novaQtdFlechas > flechas) {
             flechas = novaQtdFlechas;
