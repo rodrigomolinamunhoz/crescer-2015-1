@@ -50,7 +50,7 @@ public class Orc
         return "Vida atual: " + this.vida;
     }
     
-    public Status getStatus(){
+    public Status statusOrc(){
         status = this.status;
         return status;
     }

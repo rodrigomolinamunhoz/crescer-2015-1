@@ -13,6 +13,7 @@ public class Elfo
     
     private String nome;
     private int flechas, experiencia;
+    private Status status;
 
     // type initializer
     {
@@ -53,6 +54,7 @@ public class Elfo
         //flechas = flechas - 1;
         flechas--;
         experiencia++;
+        status = Status.ATACANDO;
         umOrc.recebeAtaque();
     }
     
