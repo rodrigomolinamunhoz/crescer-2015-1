@@ -6,15 +6,13 @@
  */
 public class Orc
 {
-    private int vida,experiencia,resultadoNome,resultadoVida;
-    private double resultadoExperiencia;
-    private Status status;
+    private int vida = 110;
+    private int experiencia,numero;
+    private Status status = Status.VIVO;;
     private String nome;
     
-
     {
-        vida = 110;
-        status = Status.VIVO;
+        
     }
     
     /**
@@ -37,11 +35,12 @@ public class Orc
      * Atualmente 10 de dano será decrementado.
      */
     public void recebeAtaque() {
+        double numero = this.gerarNumero();
         this.vida -= 10;
         // this.vida = this.vida - 10;
-        status = Status.FERIDO;
+        this.status = (Status.FERIDO);
         if(this.vida <= 0){
-            status = Status.MORTO;
+            this.status =(Status.MORTO);
         }
        
     }
@@ -65,29 +64,46 @@ public class Orc
         return status;
     }
     
-    public String getNome()
-    {
+    public String getNome(){
         return this.nome;
     }
     
-    private void gerarNumero()
+    public int setExperiencia(){
+        return this.experiencia = experiencia;
+    }
+    
+   public void setStatus(String status) {
+       status = status;
+   }
+   
+   public Status getStatus(){
+        return this.status;
+    }
+    
+    private double gerarNumero()
     { 
-       if (this.nome.length() > 5){
+       double numero = 0.0;
+       if (this.nome.length() > 5 && this.nome.length() != 0){
            
-          resultadoNome = this.nome.length() + 65;
+          numero = this.nome.length() + 65;
        } else {
-          resultadoNome = this.nome.length() - 60;  
+          numero = this.nome.length() - 60;  
        }
-       if(this.vida > 30 && this.vida < 60){
-            resultadoVida = this.vida * 2;  
+       if(this.status == (Status.FUGINDO)){
+           numero = numero / 2;
+       } else if (this.status == (Status.FUGINDO) && this.status == (Status.CACANDO)) {
+           numero = numero + 1;
+       }
+       if(this.vida >= 30 && this.vida <= 60){
+            numero = this.vida * 2;  
        } else if (getVida() < 20){
-            resultadoVida = this.vida * 3;
+            numero = this.vida * 3;
        }
        if(this.experiencia % 2 == 0){
-           resultadoExperiencia = experiencia * experiencia * experiencia; 
+           numero = numero * numero * numero; 
        } else {
-           resultadoExperiencia = experiencia * experiencia;
+           numero = numero * numero;
        }
-       
-    }
+       return numero;
+   }
 }
