@@ -27,6 +27,19 @@ public class OrcTest
     }
     
     @Test
+    public void orcNasceVivo() {
+        // Arrange - Montagem dos dados de teste
+        Orc umOrc;
+        // Act - Execução da ação de testes
+        umOrc = new Orc();
+        // Assert - Verificação
+        Status esperado = Status.VIVO;
+        Status obtido = umOrc.getStatus();
+        
+        assertEquals(esperado, obtido);
+    }
+    
+    @Test
     public void orcRecebeAtaqueUmaVez() {
         // Arrange - Montagem dos dados de teste
         Orc umOrc = new Orc();
@@ -71,6 +84,19 @@ public class OrcTest
     }
     
     @Test
+    public void orcFicaFeridoAoReceberAtaque() {
+        // Arrange - Montagem dos dados de teste
+        Orc umOrc = new Orc();
+        // Act
+        umOrc.recebeAtaque();
+        // Assert - Verificação
+        Status esperado = Status.FERIDO;
+        Status resultadoObtido = umOrc.getStatus();
+        
+        assertEquals(esperado, resultadoObtido);
+    }
+    
+    @Test
     public void orcRecebeAtaqueDozeVezes() {
         // Arrange - Montagem dos dados de teste
         Orc umOrc = new Orc();
@@ -88,7 +114,7 @@ public class OrcTest
         umOrc.recebeAtaque();
         umOrc.recebeAtaque();
         // Assert - Verificação
-        int esperado = -10;
+        int esperado = 0;
         int resultadoObtido = umOrc.getVida();
         
         assertEquals(esperado, resultadoObtido);
@@ -136,7 +162,7 @@ public class OrcTest
         umOrc.recebeAtaque();
         String resultadoObtido = umOrc.toString();
         // Assert
-        String esperado = "Vida atual: -10";
+        String esperado = "Vida atual: 0";
         assertEquals(esperado, resultadoObtido);
     }
     
@@ -176,6 +202,29 @@ public class OrcTest
         // Assert - Verificação
         String resultadoObtido = umOrc.getNome();
         
+        assertEquals(esperado, resultadoObtido);
+    }
+    
+    @Test
+    public void orcMorreAposDozeFlechadas() {
+        // Arrange - Montagem dos dados de teste
+        Orc umOrc = new Orc();
+        Status esperado = Status.MORTO;
+        // Act
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        umOrc.recebeAtaque();
+        Status resultadoObtido = umOrc.getStatus();
+        // Assert
         assertEquals(esperado, resultadoObtido);
     }
 }

@@ -7,6 +7,7 @@ public class Orc
 {
     private int experiencia, vida = 110;
     private String nome;
+    private Status status = Status.VIVO;
 
     {
         //vida = 110;
@@ -29,8 +30,19 @@ public class Orc
      * Atualmente 10 de dano será decrementado.
      */
     public void recebeAtaque() {
-        this.vida -= 10;
-        // this.vida = this.vida - 10;
+        
+        int danoVida = 10;
+        
+        if (this.vida >= danoVida) {
+            this.vida -= danoVida;
+            // this.vida = this.vida - 10;
+            this.status = Status.FERIDO;
+        } 
+        
+        if (this.vida == 0) {
+            this.status = Status.MORTO;
+        }
+
     }
     
     public String getNome() {
@@ -43,6 +55,10 @@ public class Orc
     
     public int getVida() {
         return this.vida;
+    }
+    
+    public Status getStatus() {
+        return this.status;
     }
     
     /**
