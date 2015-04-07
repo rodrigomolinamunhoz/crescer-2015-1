@@ -6,7 +6,8 @@
  */
 public class Orc
 {
-    private int vida,experiencia;
+    private int vida,experiencia,resultadoNome,resultadoVida;
+    private double resultadoExperiencia;
     private Status status;
     private String nome;
     
@@ -27,6 +28,7 @@ public class Orc
     public Orc(String nome, int experiencia)
     {
         this.nome = nome;
+        gerarNumero();
         this.experiencia = experiencia;
     } 
     
@@ -66,5 +68,26 @@ public class Orc
     public String getNome()
     {
         return this.nome;
+    }
+    
+    private void gerarNumero()
+    { 
+       if (this.nome.length() > 5){
+           
+          resultadoNome = this.nome.length() + 65;
+       } else {
+          resultadoNome = this.nome.length() - 60;  
+       }
+       if(this.vida > 30 && this.vida < 60){
+            resultadoVida = this.vida * 2;  
+       } else if (getVida() < 20){
+            resultadoVida = this.vida * 3;
+       }
+       if(this.experiencia % 2 == 0){
+           resultadoExperiencia = experiencia * experiencia * experiencia; 
+       } else {
+           resultadoExperiencia = experiencia * experiencia;
+       }
+       
     }
 }
