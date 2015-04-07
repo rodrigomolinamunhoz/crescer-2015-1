@@ -2,8 +2,8 @@
 /**
  * Enumeration class Status - write a description of the enum class here
  * 
- * @author (your name here)
- * @version (version number or date here)
+ * @author Rodrigo Molina
+ * @version 06/04/2015
  */
 public enum Status
 {

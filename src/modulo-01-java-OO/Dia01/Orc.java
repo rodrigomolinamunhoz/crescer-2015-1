@@ -6,21 +6,29 @@
  */
 public class Orc
 {
-    private int vida = 110;
+    private int vida,experiencia;
     private Status status;
+    private String nome;
+    
 
     {
-        //vida = 110;
+        vida = 110;
         status = Status.VIVO;
     }
     
     /**
      * Construtor para objetos da classe Orc
+     * 
+     */
     public Orc()
     {
-        //vida = 110;
+        
     }
-    **/
+    public Orc(String nome, int experiencia)
+    {
+        this.nome = nome;
+        this.experiencia = experiencia;
+    } 
     
     /**
      * Faz o Orc sofrer um ataque.
@@ -54,5 +62,9 @@ public class Orc
         status = this.status;
         return status;
     }
-
+    
+    public String getNome()
+    {
+        return this.nome;
+    }
 }
