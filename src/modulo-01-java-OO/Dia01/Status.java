@@ -6,5 +6,5 @@
  */
 public enum Status
 {
-    VIVO, MORTO, ATACANDO, FERIDO;
+    VIVO, MORTO, ATACANDO, FERIDO, FUGINDO, CAÇANDO, DORMINDO;
 }
