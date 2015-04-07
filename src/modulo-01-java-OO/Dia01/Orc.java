@@ -5,7 +5,8 @@
  */
 public class Orc
 {
-    private int vida = 110;
+    private int experiencia, vida = 110;
+    private String nome;
 
     {
         //vida = 110;
@@ -13,11 +14,15 @@ public class Orc
     
     /**
      * Construtor para objetos da classe Orc
-    public Orc()
+     */ 
+    public Orc(String nome)
     {
         //vida = 110;
+        this.nome = nome;
     }
-    **/
+    
+    public Orc() {
+    }
     
     /**
      * Faz o Orc sofrer um ataque.
@@ -26,6 +31,14 @@ public class Orc
     public void recebeAtaque() {
         this.vida -= 10;
         // this.vida = this.vida - 10;
+    }
+    
+    public String getNome() {
+        return this.nome;
+    }
+    
+    public int getExperiencia() {
+        return this.experiencia;
     }
     
     public int getVida() {

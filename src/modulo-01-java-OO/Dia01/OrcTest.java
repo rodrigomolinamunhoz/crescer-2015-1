@@ -140,17 +140,44 @@ public class OrcTest
         assertEquals(esperado, resultadoObtido);
     }
     
+    @Test
+    public void orcNasceComNomeInformado() {
+        // Arrange - Montagem dos dados de teste
+        Orc umOrc;
+        String esperado = "Urukhai";	
+        // Act - Execução da ação de testes
+        umOrc = new Orc(esperado);
+        // Assert - Verificação
+        String resultadoObtido = umOrc.getNome();
+        
+        assertEquals(esperado, resultadoObtido);
+    }
     
+    @Test
+    public void orcNasceComNomeVazioInformado() {
+        // Arrange - Montagem dos dados de teste
+        Orc umOrc;
+        String esperado = "";	
+        // Act - Execução da ação de testes
+        umOrc = new Orc(esperado);
+        // Assert - Verificação
+        String resultadoObtido = umOrc.getNome();
+        
+        assertEquals(esperado, resultadoObtido);
+    }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    @Test
+    public void orcNasceComNomeNuloInformado() {
+        // Arrange - Montagem dos dados de teste
+        Orc umOrc;
+        String esperado = null;	
+        // Act - Execução da ação de testes
+        umOrc = new Orc(esperado);
+        // Assert - Verificação
+        String resultadoObtido = umOrc.getNome();
+        
+        assertEquals(esperado, resultadoObtido);
+    }
 }
 
 
