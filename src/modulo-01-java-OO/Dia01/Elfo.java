@@ -13,15 +13,10 @@ public class Elfo
     
     private String nome;
     private int flechas, experiencia;
-    private Status status;
 
     // type initializer
     {
         flechas = 42;
-    }
-     public Elfo()
-    {
-       
     }
     
     /**
@@ -54,7 +49,6 @@ public class Elfo
         //flechas = flechas - 1;
         flechas--;
         experiencia++;
-        status = Status.ATACANDO;
         umOrc.recebeAtaque();
     }
     
@@ -66,18 +60,16 @@ public class Elfo
         return this.nome;
     }
     
-
-    /*
-    public void setNome(String novoNome) {
-        nome = novoNome;
-    }
-    */
-   
-
     public int getExperiencia() {
         return this.experiencia;
     }
-   
+    
+    /*public void setFlechas(int novaQtdFlechas) {
+        if (novaQtdFlechas > flechas) {
+            flechas = novaQtdFlechas;
+        }
+    }*/
+
     /**
      * Retorna o nome do elfo, sua quantidade de flechas e seus níveis de experiência.
      * 
@@ -133,18 +125,8 @@ public class Elfo
         builder.append(" ");
         builder.append(textoNiveis);
         builder.append(" de experiência.");*/
+        
+        // camelCase: public void atirarFlechaDourada
+        // PascalCase: public void AtirarFlechaDourada
     }
-    
-    
-
-    
-    
-    /*public void setFlechas(int novaQtdFlechas) {
-        if (novaQtdFlechas > flechas) {
-            flechas = novaQtdFlechas;
-        }
-    }*/
-    
-    // camelCase: public void atirarFlechaDourada
-    
 }

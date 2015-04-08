@@ -8,24 +8,10 @@ import org.junit.Test;
  * A classe de teste ElfoTest.
  *
  * @author  Rodrigo Molina
- * @version 02/04/2015
+ * @version 07/04/2015
  */
 public class ElfoTest
 {
-    
-    
-      /**
-     * @param método que testa o número padrão de flechas que seria 42.
-     * 
-     */
-    @Test
-    public void numFlechasPadrao(){
-        Elfo numFlechasPadrao;
-        numFlechasPadrao = new Elfo();
-        int esperado = 42;
-        int resultadoObtido = numFlechasPadrao.getFlechas();
-        assertEquals(resultadoObtido, esperado);
-    }
       /**
      * @param método que testa se o Elfo recebe nome de acordo com o que foi escrito.
      * 
@@ -74,8 +60,6 @@ public class ElfoTest
         assertEquals(esperado, elfo.getFlechas());
     }
     
-    
-    
     @Test
     public void elfoNasceComNomeEMuitasFlechasInformados() {
         // Arrange
@@ -118,7 +102,7 @@ public class ElfoTest
      */
     @Test
     public void recebeExperiencia(){
-        Elfo testaMetodo = new Elfo();
+        Elfo testaMetodo = new Elfo("Rodrigo");
         Orc umOrc = new Orc();
         int experiencia = testaMetodo.getExperiencia();
         testaMetodo.atirarFlecha(umOrc);
