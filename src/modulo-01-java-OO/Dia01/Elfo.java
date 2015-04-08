@@ -18,7 +18,7 @@ public class Elfo
     {
         flechas = 42;
     }
-    
+
     /**
      * Cria objetos Elfo
      * 
@@ -31,7 +31,8 @@ public class Elfo
         // this.nome = nome;
         this.flechas = flechas;
 
-    }     
+    } 
+    
     /**
      * Cria um elfo informando nome.
      * 
@@ -41,7 +42,8 @@ public class Elfo
     public Elfo(String nome) {
         this.nome = nome;
     }
-     /* Atira uma flecha e perde uma unidade.
+    
+     /** Atira uma flecha e perde uma unidade.
      * 
      * @param umOrc Orc que receberá uma flechada.
      */

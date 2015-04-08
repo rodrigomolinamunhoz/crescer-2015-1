@@ -1,3 +1,4 @@
+import java.util.*;
 /**
  * Define objetos do tipo Orc
  * 
@@ -8,26 +9,24 @@ public class Orc
 {
     private int experiencia, vida = 110;
     private String nome;
-    private Status status = Status.VIVO;    
+    private Status status = Status.VIVO;  
+    
+    {
+        //vida = 110;
+    }
+    
     /**
      * Construtor para objetos da classe Orc
      * 
-     */
-    public Orc()
-    {
-        
-    }
-    
-    public Orc(String nome, int experiencia)
-    {
-        this.nome = nome;
-        gerarNumero();
-        this.experiencia = experiencia;
-    } 
+     */    
     public Orc(String nome)
     {
         //vida = 110;
         this.nome = nome;
+    }
+    
+    public Orc()
+    {
     }
     
     /**
@@ -73,7 +72,7 @@ public class Orc
     
     public Status getStatus() {
         return this.status;
-    }
+    } 
     
     public void setStatus(Status novoStatus) {
         this.status = novoStatus;
@@ -94,6 +93,11 @@ public class Orc
         return "Vida atual: " + this.vida;
     }
     
+    /** 
+    * Método geraNumero() desenvolvido por mim.
+    * 
+    * */
+    /**  
     private double gerarNumero()
     { 
        double numero = 0.0;
@@ -119,10 +123,11 @@ public class Orc
        }
        return numero;
    }
-
+   **/
    /** 
     * Método geraNumero() desenvolvido pelo professor Bernardo
     * 
+    * */
    private double gerarNumero() {
         
         double numeroGerado = 0.0;
@@ -163,6 +168,32 @@ public class Orc
         }
                 
         return numeroGerado;
-    }
-    **/
+   }
+   
+    public void adicionarItem(){ 
+        ItemDoInventario item1,
+           item2 = new ItemDoInventario(2,"Garfo"),
+           item3 = new ItemDoInventario(); 
+           
+           item1 = new ItemDoInventario(1,"Colher");
+           
+           item3.setQuantidade(4);
+           item3.setDescricao("Toalha");
+           
+        ArrayList<ItemDoInventario> list = new ArrayList<ItemDoInventario>();
+        list.add(new ItemDoInventario(5,"Mesa"));
+        list.add(item1);
+        list.add(new ItemDoInventario());
+        list.add(new ItemDoInventario(6,"Caixa"));
+        list.add(item2);
+      
+        for (ItemDoInventario e: list) {  
+            e.arrayAdicionaItem();  
+        } 
+        // i.arrayAdicionaItem();
+   }
+   
+  // public void perderItem(ItemDoInventario i){
+  //     i.arrayPerdeItem();
+ //  }
 }
