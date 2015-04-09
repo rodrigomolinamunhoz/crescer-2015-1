@@ -406,19 +406,36 @@ public class OrcTest
     }
     
     @Test
-    public void getItemComMaiorQuantidadeDoisItensEmOrdemCrescente() {
+    public void getItemComMaiorQuantidadeComItemNulo() {
         // Arrange
         Orc urukhai = new Orc();
-        ItemDoInventario escudo = new ItemDoInventario(12, "Escudo de carvalho");
-        ItemDoInventario adaga = new ItemDoInventario(34, "Adaga");
-        urukhai.adicionarItem(escudo);
-        urukhai.adicionarItem(adaga);
-        urukhai.getItemComMaiorQuantidade();
-        String descricoesEsperada = "Adaga";
         // Act
-        String resultadoDescricoes = urukhai.getItemComMaiorQuantidade();
         // Assert
-        assertEquals(descricoesEsperada, resultadoDescricoes);
+        assertEquals(null, urukhai.getItemComMaiorQuantidade());
+    }
+    
+    @Test
+    public void getItemComMaiorQuantidadeUmItem() {
+        // Arrange
+        Orc urukhai = new Orc();
+        ItemDoInventario escudo = new ItemDoInventario(12, "Escudo de carvalho");       
+        // Act
+        urukhai.adicionarItem(escudo);
+        // Assert
+        assertEquals(escudo, urukhai.getItemComMaiorQuantidade());
+    }
+    
+    @Test
+    public void getItemComMaiorQuantidadeDoisItensComMesmaQuantidade() {
+        // Arrange
+        Orc urukhai = new Orc();
+        ItemDoInventario escudo = new ItemDoInventario(0, "Escudo de carvalho");
+        ItemDoInventario duplicado = new ItemDoInventario(0, "Escudo de carvalho");       
+        // Act
+        urukhai.adicionarItem(escudo);
+        urukhai.adicionarItem(duplicado);
+        // Assert
+        assertEquals(duplicado, urukhai.getItemComMaiorQuantidade());
     }
 }
 

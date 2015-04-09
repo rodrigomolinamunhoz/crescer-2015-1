@@ -293,22 +293,20 @@ public class Orc
        }
    }  
 
-   public String getItemComMaiorQuantidade(){       
-       StringBuilder builder = new StringBuilder();                 
-      int numeroItens = this.list.size();       
-      int maior = 0;        
-            for (int i = 0; i < numeroItens; i++){      
-                ItemDoInventario itemAtual = this.list.get(i);      
-               if (i == 0){        
-                    maior = itemAtual.getQuantidade();      
-               } else if(itemAtual.getQuantidade() > maior){        
-                   maior = itemAtual.getQuantidade();       
-                    builder.append(itemAtual.getDescricao());       
-               }        
-                        
-            }       
-            return builder.toString();      
-        
+   public ItemDoInventario getItemComMaiorQuantidade(){       
+       ItemDoInventario retorno = null;
+       int numeroItens = this.list.size();
+                for (int i = 0; i < numeroItens; i++){      
+                    ItemDoInventario itemAtual = this.list.get(i);      
+                    if(itemAtual.getQuantidade() > retorno.getQuantidade()){        
+                        retorno = itemAtual;              
+                    }                   
+                
+                } 
+                if(numeroItens == 0){
+                    return null;
+                } 
+            return retorno;
    }           
 }
    
