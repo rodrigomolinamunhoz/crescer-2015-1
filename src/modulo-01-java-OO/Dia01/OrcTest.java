@@ -404,6 +404,22 @@ public class OrcTest
         assertEquals(3, pocao.getQuantidade());
         assertEquals(1, lanca.getQuantidade());
     }
+    
+    @Test
+    public void getItemComMaiorQuantidadeDoisItensEmOrdemCrescente() {
+        // Arrange
+        Orc urukhai = new Orc();
+        ItemDoInventario escudo = new ItemDoInventario(12, "Escudo de carvalho");
+        ItemDoInventario adaga = new ItemDoInventario(34, "Adaga");
+        urukhai.adicionarItem(escudo);
+        urukhai.adicionarItem(adaga);
+        urukhai.getItemComMaiorQuantidade();
+        String descricoesEsperada = "Adaga";
+        // Act
+        String resultadoDescricoes = urukhai.getItemComMaiorQuantidade();
+        // Assert
+        assertEquals(descricoesEsperada, resultadoDescricoes);
+    }
 }
 
 
