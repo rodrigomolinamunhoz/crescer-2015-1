@@ -10,12 +10,7 @@ public class ItemDoInventario
     private String descricao;
     private int quantidade;
     
-    public ItemDoInventario()
-    {
-        this.quantidade = 12;
-        this.descricao = "Faca";
-    }
-    
+       
     /**
     * Cria um item de inventário com a quantidade e descrição informadas
     * 
@@ -32,8 +27,8 @@ public class ItemDoInventario
         return this.quantidade;
     }
        
-    public int setQuantidade(int quantidade){
-        return this.quantidade = quantidade;
+    public void setQuantidade(int novaQuantidade){
+        this.quantidade = novaQuantidade;
     }
     
     public String getDescricao(){
@@ -43,16 +38,6 @@ public class ItemDoInventario
     public String setDescricao(String descricao){
         return this.descricao = descricao;
     }
-        
-    public void arrayAdicionaItem(){
-        System.out.println("As informações inseridas foram:");  
-        System.out.println("Quantidade:      " + getQuantidade());  
-        System.out.println("Descricao: " + getDescricao());  
-       
-    }
-//}
     
-//     public void arrayPerdeItem(){
-//     
 }
 

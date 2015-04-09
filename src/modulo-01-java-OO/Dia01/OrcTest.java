@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import java.util.*;
 
 /**
  * A classe de teste OrcTest.
@@ -175,7 +176,7 @@ public class OrcTest
     public void orcNasceComNomeInformado() {
         // Arrange - Montagem dos dados de teste
         Orc umOrc;
-        String esperado = "Urukhai";	
+        String esperado = "Urukhai";    
         // Act - Execução da ação de testes
         umOrc = new Orc(esperado);
         // Assert - Verificação
@@ -188,7 +189,7 @@ public class OrcTest
     public void orcNasceComNomeVazioInformado() {
         // Arrange - Montagem dos dados de teste
         Orc umOrc;
-        String esperado = "";	
+        String esperado = "";   
         // Act - Execução da ação de testes
         umOrc = new Orc(esperado);
         // Assert - Verificação
@@ -201,7 +202,7 @@ public class OrcTest
     public void orcNasceComNomeNuloInformado() {
         // Arrange - Montagem dos dados de teste
         Orc umOrc;
-        String esperado = null;	
+        String esperado = null; 
         // Act - Execução da ação de testes
         umOrc = new Orc(esperado);
         // Assert - Verificação
@@ -268,6 +269,140 @@ public class OrcTest
         
         assertEquals(vidaEsperada, orc.getVida());
         assertEquals(statusEsperado, orc.getStatus());
+    }
+    
+    @Test
+    public void quandoAdicionoAdagaAoInventario(){
+        //Arrange
+        Orc orc = new Orc();
+        ItemDoInventario adaga = new ItemDoInventario(1,"Adaga");
+        ArrayList<ItemDoInventario> inventarioEsperado = new ArrayList<ItemDoInventario>(); 
+        inventarioEsperado.add(adaga);
+        //Act
+        orc.adicionarItem(adaga);
+        ArrayList<ItemDoInventario> inventarioObtido = orc.getItens(); 
+        //Assert 
+        assertEquals(inventarioEsperado, inventarioObtido);
+        assertEquals(inventarioEsperado.get(0), inventarioObtido.get(0));
+    }
+    
+     @Test
+    public void quandoAdicionoAdagaEEscudoAoInventario() {
+        // Arrange
+        Orc urukhai = new Orc();
+        ItemDoInventario adaga = new ItemDoInventario(34, "Adaga");
+        ItemDoInventario escudo = new ItemDoInventario(12, "Escudo");
+        ArrayList<ItemDoInventario> inventarioEsperado = new ArrayList<>();
+        inventarioEsperado.add(adaga);
+        inventarioEsperado.add(escudo);
+        // Act
+        urukhai.adicionarItem(adaga);
+        urukhai.adicionarItem(escudo);
+        ArrayList<ItemDoInventario> inventarioObtido = urukhai.getItens();
+        // Assert
+        assertEquals(inventarioEsperado, inventarioObtido);
+    }
+
+    @Test
+    public void quandoAdicionoAdagaAoInventarioEPercoAdaga() {
+        // Arrange
+        Orc urukhai = new Orc();
+        ItemDoInventario adaga = new ItemDoInventario(34, "Adaga");
+        ArrayList<ItemDoInventario> inventarioEsperado = new ArrayList<>();
+        urukhai.adicionarItem(adaga);
+        // Act
+        urukhai.perderItem(adaga);
+        ArrayList<ItemDoInventario> inventarioObtido = urukhai.getItens();
+        // Assert
+        assertEquals(inventarioEsperado, inventarioObtido);
+    }
+
+    @Test
+    public void quandoAdicionoAdagaEEscudoAoInventarioEPercoEscudo() {
+        // Arrange
+        Orc urukhai = new Orc();
+        ItemDoInventario adaga = new ItemDoInventario(34, "Adaga");
+        ItemDoInventario escudo = new ItemDoInventario(12, "Escudo");
+        ArrayList<ItemDoInventario> inventarioEsperado = new ArrayList<>();
+        inventarioEsperado.add(adaga);
+        urukhai.adicionarItem(adaga);
+        urukhai.adicionarItem(escudo);
+        // Act
+        urukhai.perderItem(escudo);
+        ArrayList<ItemDoInventario> inventarioObtido = urukhai.getItens();
+        // Assert
+        assertEquals(inventarioEsperado, inventarioObtido);
+    }
+    
+    @Test
+    public void getDescricoesComNenhumItem() {
+        // Arrange
+        Orc urukhai = new Orc();
+        String descricoesEsperada = "";
+        // Act
+        String resultadoDescricoes = urukhai.getDescricaoItens();
+        // Assert
+        assertEquals(descricoesEsperada, resultadoDescricoes);
+    }
+    
+    @Test
+    public void getDescricoesComUmItem() {
+        // Arrange
+        Orc urukhai = new Orc();
+        ItemDoInventario adaga = new ItemDoInventario(34, "Adaga");
+        urukhai.adicionarItem(adaga);
+        String descricoesEsperada = "Adaga";
+        // Act
+        String resultadoDescricoes = urukhai.getDescricaoItens();
+        // Assert
+        assertEquals(descricoesEsperada, resultadoDescricoes);
+    }
+    
+    @Test
+    public void getDescricoesComDoisItens() {
+        // Arrange
+        Orc urukhai = new Orc();
+        ItemDoInventario adaga = new ItemDoInventario(34, "Adaga");
+        ItemDoInventario escudo = new ItemDoInventario(12, "Escudo de carvalho");
+        urukhai.adicionarItem(adaga);
+        urukhai.adicionarItem(escudo);
+        String descricoesEsperada = "Adaga,Escudo de carvalho";
+        // Act
+        String resultadoDescricoes = urukhai.getDescricaoItens();
+        // Assert
+        assertEquals(descricoesEsperada, resultadoDescricoes);
+    }
+    
+    @Test
+    public void orcTentarSorteAumenta1000UnidadesDosItens() {
+        // Arrange
+        Orc urukhai = new Orc();
+        urukhai.setStatus(Status.DORMINDO);
+        urukhai.setExperiencia(3);
+        urukhai.adicionarItem(new ItemDoInventario(3, "Poção de mana"));
+        urukhai.adicionarItem(new ItemDoInventario(1, "Poção Lança"));
+        // Act
+        urukhai.tentarSorte();
+        // Assert
+        ItemDoInventario pocao = urukhai.getItens().get(0);
+        ItemDoInventario lanca = urukhai.getItens().get(1);
+        assertEquals(1003, pocao.getQuantidade());
+        assertEquals(1001, lanca.getQuantidade());
+    }
+    
+    @Test
+    public void orcTentarSorteNaoFazNada() {
+        // Arrange
+        Orc urukhai = new Orc();
+        urukhai.adicionarItem(new ItemDoInventario(3, "Poção de mana"));
+        urukhai.adicionarItem(new ItemDoInventario(1, "Poção Lança"));
+        // Act
+        urukhai.tentarSorte();
+        // Assert
+        ItemDoInventario pocao = urukhai.getItens().get(0);
+        ItemDoInventario lanca = urukhai.getItens().get(1);
+        assertEquals(3, pocao.getQuantidade());
+        assertEquals(1, lanca.getQuantidade());
     }
 }
 
