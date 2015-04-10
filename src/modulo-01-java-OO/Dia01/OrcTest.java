@@ -428,14 +428,84 @@ public class OrcTest
     @Test
     public void getItemComMaiorQuantidadeDoisItensComMesmaQuantidade() {
         // Arrange
-        Orc urukhai = new Orc();
-        ItemDoInventario escudo = new ItemDoInventario(0, "Escudo de carvalho");
-        ItemDoInventario duplicado = new ItemDoInventario(0, "Escudo de carvalho");       
+        Orc orc = new Orc();
+        ItemDoInventario esperado = new ItemDoInventario(0, "Gatorade da Vovó");
+        ItemDoInventario duplicado = new ItemDoInventario(0, "Gatorade da Vovó");
+        orc.adicionarItem(esperado);
+        orc.adicionarItem(duplicado);
         // Act
-        urukhai.adicionarItem(escudo);
-        urukhai.adicionarItem(duplicado);
+        ItemDoInventario resultado = orc.getItemComMaiorQuantidade();
         // Assert
-        assertEquals(duplicado, urukhai.getItemComMaiorQuantidade());
+        assertEquals(esperado, resultado);
+    }
+
+    
+    @Test
+    public void ordenarItensComInventarioVazio() {
+        // Arrange
+        Orc orc = new Orc();
+        ArrayList<ItemDoInventario> inventarioVazio = new ArrayList<>();
+        // Act
+        orc.ordenarItens();
+        // Assert
+        assertEquals(inventarioVazio, orc.getItens());
+    }
+    
+    @Test
+    public void ordenarItensComUmItem() {
+        // Arrange
+        Orc orc = new Orc();
+        ArrayList<ItemDoInventario> inventarioEsperado = new ArrayList<>();
+        ItemDoInventario adaga = new ItemDoInventario(12, "Adaga");
+        inventarioEsperado.add(adaga);
+        orc.adicionarItem(adaga);
+        // Act
+        orc.ordenarItens();
+        // Assert
+        assertEquals(inventarioEsperado, orc.getItens());
+    }
+    
+    @Test
+    public void ordenarItensComDoisItens() {
+        // Arrange
+        Orc orc = new Orc();
+        ArrayList<ItemDoInventario> inventarioEsperado = new ArrayList<>();
+        ItemDoInventario adaga = new ItemDoInventario(12, "Adaga");
+        ItemDoInventario escudo = new ItemDoInventario(1, "Escudo de carvalho");
+        inventarioEsperado.add(escudo);
+        inventarioEsperado.add(adaga);
+        orc.adicionarItem(adaga);
+        orc.adicionarItem(escudo);
+        // Act
+        orc.ordenarItens();
+        // Assert
+        assertEquals(inventarioEsperado, orc.getItens());
+    }
+    
+    @Test
+    public void ordenarItensComNegativoEIguais() {
+        // Arrange
+        Orc orc = new Orc();
+        ArrayList<ItemDoInventario> inventarioEsperado = new ArrayList<>();
+        ItemDoInventario adaga = new ItemDoInventario(15, "Adaga");
+        ItemDoInventario escudo = new ItemDoInventario(15, "Escudo de carvalho");
+        ItemDoInventario pikachu = new ItemDoInventario(-2, "Pikachu");
+        ItemDoInventario foneTrakinas = new ItemDoInventario(-5, "Fone trakinas");
+        ItemDoInventario patinete = new ItemDoInventario(3, "Patinete da Sandy");
+        inventarioEsperado.add(foneTrakinas);
+        inventarioEsperado.add(pikachu);
+        inventarioEsperado.add(patinete);
+        inventarioEsperado.add(adaga);
+        inventarioEsperado.add(escudo);        
+        orc.adicionarItem(adaga);
+        orc.adicionarItem(escudo);
+        orc.adicionarItem(pikachu);
+        orc.adicionarItem(foneTrakinas);        
+        orc.adicionarItem(patinete);        
+        // Act
+        orc.ordenarItens();
+        // Assert
+        assertEquals(inventarioEsperado, orc.getItens());
     }
 }
 

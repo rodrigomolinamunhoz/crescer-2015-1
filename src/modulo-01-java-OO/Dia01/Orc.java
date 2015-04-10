@@ -292,10 +292,11 @@ public class Orc
            }
        }
    }  
-
-   public ItemDoInventario getItemComMaiorQuantidade(){       
+   
+   /**public ItemDoInventario getItemComMaiorQuantidade(){       
        ItemDoInventario retorno = null;
-       int numeroItens = this.list.size();
+       boolean numeroItens = !this.list == null;
+       if(numeroItens){
                 for (int i = 0; i < numeroItens; i++){      
                     ItemDoInventario itemAtual = this.list.get(i);      
                     if(itemAtual.getQuantidade() > retorno.getQuantidade()){        
@@ -303,14 +304,52 @@ public class Orc
                     }                   
                 
                 } 
-                if(numeroItens == 0){
-                    return null;
-                } 
+       }         
             return retorno;
-   }           
+   }
+   **/
+  
+   
+   
+       
+   public ItemDoInventario getItemComMaiorQuantidade() {
+        
+        ItemDoInventario itemMaiorQuantidade = null;
+        
+        boolean temItens = !this.list.isEmpty();       
+        if (temItens) {
+            itemMaiorQuantidade = this.list.get(0);
+            
+            for (int i = 1; i < this.list.size(); i++) {
+                ItemDoInventario itemAtual = this.list.get(i);
+                boolean encontreiAMaiorQuantidade =
+                    itemAtual.getQuantidade() > itemMaiorQuantidade.getQuantidade();
+                
+                if (encontreiAMaiorQuantidade) {
+                    // atualizar a minha referência para o maior parcial
+                    itemMaiorQuantidade = itemAtual;
+                }
+            }
+        }
+        
+        return itemMaiorQuantidade;
+   }
+   
+   public void ordenarItens(){
+        for (int i = 0; i < this.list.size(); i++){
+            for (int j = 0; j < this.list.size()-1; j++){
+                ItemDoInventario itemJ = this.list.get(j); 
+                ItemDoInventario itemJDois = this.list.get(j+1);
+               
+                boolean precisaTrocar =
+                    itemJ.getQuantidade() > itemJDois.getQuantidade();
+                
+               if (precisaTrocar){
+                        this.list.set(j, itemJDois); 
+                        this.list.set(j + 1, itemJ); 
+               }
+            } 
+        }
+   }
+
 }
-   
-   
-
-
-
