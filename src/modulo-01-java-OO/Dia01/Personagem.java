@@ -56,8 +56,6 @@ public class Personagem
         this.list.remove(i);
    } 
    
-   
-    
      protected ItemDoInventario getItemComMaiorQuantidade() {
         
         ItemDoInventario itemMaiorQuantidade = null;

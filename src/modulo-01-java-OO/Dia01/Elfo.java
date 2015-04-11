@@ -10,7 +10,7 @@
 public class Elfo extends Personagem
 {
     // Versão correção do tema!!
-    private int flechas;
+    protected int flechas;
     
     // type initializer
     {
@@ -55,10 +55,6 @@ public class Elfo extends Personagem
     
      public int getFlechas(){
         return this.flechas;
-    }
-    
-    public String getNome(){
-        return this.nome;
     }
     
     /*public void setFlechas(int novaQtdFlechas) {
