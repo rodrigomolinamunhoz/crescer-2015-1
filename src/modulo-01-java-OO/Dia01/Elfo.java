@@ -7,13 +7,11 @@
  * 
  * somente esta linha
  */
-public class Elfo
+public class Elfo extends Personagem
 {
     // Versão correção do tema!!
+    private int flechas;
     
-    private String nome;
-    private int flechas, experiencia;
-
     // type initializer
     {
         flechas = 42;
@@ -25,6 +23,7 @@ public class Elfo
      * @param umNome Nome que o elfo receberá
      * @param flechas Quantidade inicial de flechas
      */
+    
     public Elfo(String umNome, int flechas)
     {
         this(umNome);
@@ -40,7 +39,7 @@ public class Elfo
      */
 
     public Elfo(String nome) {
-        this.nome = nome;
+        super(nome, 0);  
     }
     
      /** Atira uma flecha e perde uma unidade.
@@ -60,10 +59,6 @@ public class Elfo
     
     public String getNome(){
         return this.nome;
-    }
-    
-    public int getExperiencia() {
-        return this.experiencia;
     }
     
     /*public void setFlechas(int novaQtdFlechas) {

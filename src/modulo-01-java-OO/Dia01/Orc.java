@@ -5,16 +5,12 @@ import java.util.*;
  * @author CWI Software
  * @author Rodrigo Molina
  */
-public class Orc
+public class Orc extends Personagem
 {
-    private int experiencia, vida = 110;
-    private String nome;
-    private Status status = Status.VIVO;  
-    private  ArrayList<ItemDoInventario> list = new ArrayList<ItemDoInventario>();
     private final int NUMERO_SORTE = 3481;
     
     {
-        //vida = 110;
+        vida = 110;
     }
     
     /**
@@ -23,12 +19,12 @@ public class Orc
      */    
     public Orc(String nome)
     {
-        //vida = 110;
-        this.nome = nome;
+        super(nome, 110);
     }
     
     public Orc()
     {
+        this("");
     }
     
     /**
@@ -60,25 +56,9 @@ public class Orc
 
     }
     
-    public String getNome() {
-        return this.nome;
-    }
-    
-    public int getExperiencia() {
-        return this.experiencia;
-    }
-    
-    public int getVida() {
-        return this.vida;
-    }
-    
-    public Status getStatus() {
-        return this.status;
-    } 
-    
     public void setStatus(Status novoStatus) {
         this.status = novoStatus;
-    }
+    } 
     
     public void setExperiencia(int experiencia) {
         this.experiencia = experiencia;
@@ -95,42 +75,29 @@ public class Orc
         return "Vida atual: " + this.vida;
     }
     
+        
+    /**
+    * Caso o Orc tenha sorte, adiciona 1000 quantidades para cada item do inventário.
+    * PARA ISSO É PRECISO QUE O ORC TENHA UM NOME COM 5 LETRAS, ESTEJA NO STATUS DORMINDO OU CAÇANDO,
+    * QUE SUA EXPERIENCIA SEJA IMPAR E MAIOR QUE 2.
+    */ 
+    public void tentarSorte(){
+       
+       double numeroGerado = gerarNumero();
+       
+       if(numeroGerado == NUMERO_SORTE){
+           for (ItemDoInventario item : this.list){
+               int novaQuantidadeItem = item.getQuantidade() + 1000;
+               item.setQuantidade(novaQuantidadeItem);
+           }
+       }
+    }
+    
     /** 
-    * Método geraNumero() desenvolvido por mim.
-    * 
-    * */
-    /**  
-    private double gerarNumero()
-    { 
-       double numero = 0.0;
-       if (this.nome != null && this.nome.length() > 5){ 
-          numero = this.nome.length() + 65;
-       } else {
-          numero = this.nome.length() - 60;  
-       }
-        if(this.vida >= 30 && this.vida <= 60){
-            numero = this.vida * 2;  
-       } else if (this.vida < 20){
-            numero = this.vida * 3;
-       }
-       if(this.status == (Status.FUGINDO)){
-           numero = numero / 2;
-       } else if (this.status == Status.CAÇANDO || this.status == Status.DORMINDO) {
-           numero = numero + 1;
-       }
-       if(this.experiencia % 2 == 0){
-           numero = numero * numero * numero; 
-       } else if (this.experiencia > 2) {
-           numero = numero * numero;
-       }
-       return numero;
-   }
-   **/
-   /** 
     * Método geraNumero() desenvolvido pelo professor Bernardo
     * 
     * */
-   private double gerarNumero() {
+    private double gerarNumero() {
         
         double numeroGerado = 0.0;
         
@@ -170,186 +137,37 @@ public class Orc
         }
                 
         return numeroGerado;
-   }
-   
-   public ArrayList<ItemDoInventario> getItens() {
-        return this.list;
-    }
-   
-   /**
-   * Adiciona um item ao inventário.
-   * 
-   * @param item Item a ser adicionado.
-   */
-   public void adicionarItem(ItemDoInventario i){ 
-        this.list.add(i);
-   }
-   
-   /**
-   * Remove o item do inventário do orc.
-   * 
-   * @param item Item a ser perdido do inventário.
-   */
-   public void perderItem(ItemDoInventario i){ 
-        this.list.remove(i);
-   }  
-   
-   /**
-   * Concatena as descrições dos itens, separados por vírgula.
-   * 
-   * SEM ESPAÇO ENTRE AS VÍRGULAS E SEM PONTO FINAL
-   * 
-   * @return Descrições. Ex:
-   * 
-   * "Adaga,Escudo,Bracelete”
-   */
-   public String getDescricaoItens(){
-      StringBuilder builder = new StringBuilder();
-      
-      int numeroItens = this.list.size();
         
-       for (int i = 0; i < numeroItens; i++){
-           ItemDoInventario itemAtual = this.list.get(i);     
-           boolean éUltimoIncice = i == numeroItens - 1;  
-           builder.append(éUltimoIncice ? itemAtual.getDescricao() : itemAtual.getDescricao() + ",");
-      }
-      // C#
-       //foreach (ItemDoInventario item in this.itens) { }
-       
-       /*
-        * Utilizando FOREACH!!
-       for (ItemDoInventario itemAtual : this.itens) {
-           int i = this.itens.indexOf(itemAtual);
-           int numeroDeItens = this.itens.size();
-           boolean éÚltimoÍndice = i == numeroDeItens - 1;
-           
-           builder.append(
-                éÚltimoÍndice ?
-                itemAtual.getDescricao() :
-                itemAtual.getDescricao() + ","
-            );
-       }
-       */
-      
-      /*
-       * JavaScript
-      for (var i = 0, numeroDeItens = this.itens.size(); i < numeroDeItens; i++) {
-      }
-      */
-      
-     /*
-      * WHILE (ENQUANTO)
-      int i = 0;
-      int numeroDeItens = this.itens.size();    
-      while (i < numeroDeItens) {
-          ItemDoInventario itemAtual = this.itens.get(i);
-          boolean éÚltimoÍndice = i == numeroDeItens - 1;
-           
-          builder.append(
-                éÚltimoÍndice ?
-                itemAtual.getDescricao() :
-                itemAtual.getDescricao() + ","
-          );
-          //
-          i++;
-      }
-      
-     
-     int i = 0;
-     int numeroDeItens = this.itens.size();
-     do {
-         if (numeroDeItens > 0) {
-             ItemDoInventario itemAtual = this.itens.get(i);
-              boolean éÚltimoÍndice = i == numeroDeItens - 1;
-               
-              builder.append(
-                    éÚltimoÍndice ?
-                    itemAtual.getDescricao() :
-                    itemAtual.getDescricao() + ","
-              );
-         }
-         i++;
-     } while(i < numeroDeItens);
-     
-     */
-      return builder.toString();
-      
-    }
-    
-   /**
-   * Caso o Orc tenha sorte, adiciona 1000 quantidades para cada item do inventário.
-   * PARA ISSO É PRECISO QUE O ORC TENHA UM NOME COM 5 LETRAS, ESTEJA NO STATUS DORMINDO OU CAÇANDO,
-   * QUE SUA EXPERIENCIA SEJA IMPAR E MAIOR QUE 2.
-    */ 
-   public void tentarSorte(){
-       
-       double numeroGerado = gerarNumero();
-       
-       if(numeroGerado == NUMERO_SORTE){
-           for (ItemDoInventario item : this.list){
-               int novaQuantidadeItem = item.getQuantidade() + 1000;
-               item.setQuantidade(novaQuantidadeItem);
-           }
-       }
-   }  
-   
-   /**public ItemDoInventario getItemComMaiorQuantidade(){       
-       ItemDoInventario retorno = null;
-       boolean numeroItens = !this.list == null;
-       if(numeroItens){
-                for (int i = 0; i < numeroItens; i++){      
-                    ItemDoInventario itemAtual = this.list.get(i);      
-                    if(itemAtual.getQuantidade() > retorno.getQuantidade()){        
-                        retorno = itemAtual;              
-                    }                   
-                
-                } 
-       }         
-            return retorno;
-   }
-   **/
-  
-   
-   
-       
-   public ItemDoInventario getItemComMaiorQuantidade() {
-        
-        ItemDoInventario itemMaiorQuantidade = null;
-        
-        boolean temItens = !this.list.isEmpty();       
-        if (temItens) {
-            itemMaiorQuantidade = this.list.get(0);
-            
-            for (int i = 1; i < this.list.size(); i++) {
-                ItemDoInventario itemAtual = this.list.get(i);
-                boolean encontreiAMaiorQuantidade =
-                    itemAtual.getQuantidade() > itemMaiorQuantidade.getQuantidade();
-                
-                if (encontreiAMaiorQuantidade) {
-                    // atualizar a minha referência para o maior parcial
-                    itemMaiorQuantidade = itemAtual;
-                }
-            }
-        }
-        
-        return itemMaiorQuantidade;
-   }
-   
-   public void ordenarItens(){
-        for (int i = 0; i < this.list.size(); i++){
-            for (int j = 0; j < this.list.size()-1; j++){
-                ItemDoInventario itemJ = this.list.get(j); 
-                ItemDoInventario itemJDois = this.list.get(j+1);
-               
-                boolean precisaTrocar =
-                    itemJ.getQuantidade() > itemJDois.getQuantidade();
-                
-               if (precisaTrocar){
-                        this.list.set(j, itemJDois); 
-                        this.list.set(j + 1, itemJ); 
-               }
-            } 
-        }
-   }
-
+                /* 
+                   * Método geraNumero() desenvolvido por mim.
+                   * 
+                   *
+               /*  
+               * * private double gerarNumero()
+               * * { 
+               * *     double numero = 0.0;
+               * *     if (this.nome != null && this.nome.length() > 5){ 
+               * *         numero = this.nome.length() + 65;
+               * *      } else {
+               * *          numero = this.nome.length() - 60;  
+               * *      }
+               * *      if(this.vida >= 30 && this.vida <= 60){
+               * *          numero = this.vida * 2;  
+               * *      } else if (this.vida < 20){
+               * *          numero = this.vida * 3;
+               * *      }
+               * *      if(this.status == (Status.FUGINDO)){
+               * *          numero = numero / 2;
+               * *      } else if (this.status == Status.CAÇANDO || this.status == Status.DORMINDO) {
+               * *          numero = numero + 1;
+               * *      }
+               * *      if(this.experiencia % 2 == 0){
+               * *          numero = numero * numero * numero; 
+               * *      } else if (this.experiencia > 2) {
+               * *          numero = numero * numero;
+               * *      }
+               * *      return numero;
+               * *  }
+               */
+    }    
 }
