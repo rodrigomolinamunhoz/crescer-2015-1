@@ -33,13 +33,18 @@ public class ElfosVerdes extends Elfo
     }
     
       /**
-   * Adiciona um item ao inventário.
-   * 
-   * @param item Item a ser adicionado com descrição.
-   */
-   protected void adicionarItem(ItemDoInventario i){ 
-        this.list.add(i);
-   } 
+    * Adiciona um item ao inventário.
+    * 
+    * @param item Item a ser adicionado com descrição.
+    */
+    @Override
+    protected void adicionarItem(ItemDoInventario i){  
+        boolean igual = i.getDescricao().equals("Espada de aço valiriano");
+        boolean igual2 = i.getDescricao().equals("Arco e Flecha de vidro");
+        if (igual || igual2){
+            this.list.add(i);
+        }          
+    } 
 
     
 }
