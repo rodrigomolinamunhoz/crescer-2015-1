@@ -15,6 +15,7 @@ public class Elfo extends Personagem
     // type initializer
     {
         flechas = 42;
+        this.vida = 100;
     }
 
     /**
@@ -56,7 +57,7 @@ public class Elfo extends Personagem
      public int getFlechas(){
         return this.flechas;
     }
-    
+
     /*public void setFlechas(int novaQtdFlechas) {
         if (novaQtdFlechas > flechas) {
             flechas = novaQtdFlechas;

@@ -1,4 +1,4 @@
-
+import java.util.*;
 /**
  * Escreva a descrição da classe ElfosVerdes aqui.
  * 
@@ -14,7 +14,7 @@ public class ElfosVerdes extends Elfo
      */
     public ElfosVerdes(String nome)
     {
-       super(nome, 42);
+       super(nome);
     }
     
     public ElfosVerdes(String umNome, int flechas)
@@ -24,26 +24,41 @@ public class ElfosVerdes extends Elfo
 
     } 
     
-    @Override
     public void atirarFlecha(Orc umOrc) {
-        //flechas = flechas - 1;
-        flechas--;
-        experiencia += 2;
+        this.flechas--;
+        this.experiencia += 2;
         umOrc.recebeAtaque();
     }
     
-      /**
+    /*
+    public void atirarFlecha(Orc umOrc) {
+        super.atirarFlecha(umOrc);
+        experiencia ++;
+        super.toString();      
+    }
+    */
+    
+    /**
     * Adiciona um item ao inventário.
     * 
     * @param item Item a ser adicionado com descrição.
     */
-    @Override
     protected void adicionarItem(ItemDoInventario i){  
         boolean igual = i.getDescricao().equals("Espada de aço valiriano");
         boolean igual2 = i.getDescricao().equals("Arco e Flecha de vidro");
         if (igual || igual2){
             this.list.add(i);
-        }          
+        }       
+        /*
+        ArrayList<String> itensPermitidos = new ArrayList();
+        itensPermitidos.add("Espada de aço valiriano");
+        itensPermitidos.add("Arco e Flecha de vidro");
+        
+        boolean itemPermitido = itensPermitidos.contains("Espada de aço valiriano");
+        if (itemPermitido){
+            super.adicionarItem(i);
+        }  
+        */   
     } 
 
     

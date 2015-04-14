@@ -10,7 +10,7 @@ public class Orc extends Personagem
     private final int NUMERO_SORTE = 3481;
     
     {
-        vida = 110;
+       // vida = 110;
     }
     
     /**
@@ -24,7 +24,7 @@ public class Orc extends Personagem
     
     public Orc()
     {
-        this("");
+       this(""); 
     }
     
     /**
