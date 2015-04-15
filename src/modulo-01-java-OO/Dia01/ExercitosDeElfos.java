@@ -9,8 +9,24 @@ public class ExercitosDeElfos
 {
     private HashMap<String, Elfo> exercito = new HashMap<>();
     
+    private HashMap<String, Elfo> exercitoStatusVivo = new HashMap<>();
+    private HashMap<String, Elfo> exercitoStatusFerido = new HashMap<>();
+    private HashMap<String, Elfo> exercitoStatusMorto = new HashMap<>();
+    
     public HashMap<String, Elfo> getExercito(){
         return this.exercito;
+    }
+    
+    public HashMap<String, Elfo> getExercitoVivo(){
+        return this.exercitoStatusVivo;
+    }
+    
+    public HashMap<String, Elfo> getExercitoFerido(){
+        return this.exercitoStatusFerido;
+    }
+    
+    public HashMap<String, Elfo> getExercitoMorto(){
+        return this.exercitoStatusMorto;
     }
     
     /**
@@ -19,7 +35,7 @@ public class ExercitosDeElfos
     * @param elfo Elfo a ser alistado no exército. Deve ser apenas do tipo ElfoVerde ou ElfoNoturno
     */
     public void alistarElfo(Elfo elfo){
-      boolean podeAlistar = elfo instanceof ElfosVerdes || elfo instanceof ElfoNoturno;
+      boolean podeAlistar = elfo instanceof ElfosVerdes || elfo instanceof ElfoNoturno; //|| elfo instanceof Elfo
       if (podeAlistar){
         exercito.put(elfo.getNome(), elfo);
       } 
@@ -33,5 +49,20 @@ public class ExercitosDeElfos
     */
     public Elfo buscarElfo(String nome){
         return exercito.get(nome);
+    }
+    
+    public void agruparElfosPorStatus(Elfo elfo){        
+        boolean vivo = elfo.getStatus().equals(Status.VIVO);
+        boolean ferido = elfo.getStatus().equals(Status.FERIDO);
+        boolean morto = elfo.getStatus().equals(Status.MORTO);
+        
+        if(vivo){
+            exercitoStatusVivo.put(elfo.getNome(), elfo);
+        } else if (ferido){
+            exercitoStatusFerido.put(elfo.getNome(), elfo);
+        } else if (morto){
+            exercitoStatusMorto.put(elfo.getNome(), elfo);
+        }
+        
     }
 }

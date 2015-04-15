@@ -69,6 +69,10 @@ public class Elfo extends Personagem
     public static int getContadorNasceElfo(){
         return contadorElfo;
     }
+    
+    public void setStatus(Status novoStatus) {
+        this.status = novoStatus;
+    } 
 
     /**
      * Retorna o nome do elfo, sua quantidade de flechas e seus níveis de experiência.
