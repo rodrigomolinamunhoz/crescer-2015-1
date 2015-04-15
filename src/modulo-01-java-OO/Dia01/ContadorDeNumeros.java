@@ -7,7 +7,20 @@
  */
 public class ContadorDeNumeros
 {
+    private static int x;
+    private int y;
+    
+    public static void contarAte5(){
+      x = 10;
+      for (int i = 0; i < 5; i++){
+          System.out.println(i + 1);
+      }
+    }
+    
     public void contarAte3(){
+      
+      x = 11;
+        
       for (int i = 0; i < 3; i++){
           System.out.println(i + 1);
       }

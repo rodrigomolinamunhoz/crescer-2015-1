@@ -49,6 +49,19 @@ public class ElfoNoturnoTest
     }
     
     @Test
+    public void quandoatirarFlechaStatusVivo() {
+        ElfoNoturno elfoNoturno = new ElfoNoturno("Night Legolas");
+        Status statusEsperado = Status.VIVO;
+        elfoNoturno.atirarFlecha(new Orc());
+        Status obtido = elfoNoturno.getStatus();
+
+        assertEquals(statusEsperado, obtido); 
+    }
+    
+    /*
+     * Meu método
+    */
+    @Test
     public void elfoNoturnoAtiraFlechasNoOrcAteOElfoNoturnoMorrer() {
         // Arrange
         ElfoNoturno elfo = new ElfoNoturno("Legolas");
@@ -66,4 +79,20 @@ public class ElfoNoturnoTest
         assertEquals(flechasEsperadas, elfo.getFlechas());
         assertEquals(vidaEsperada, elfo.getVida());
     }
+    
+    /*
+     * Método professor Bernardo
+    */
+    @Test
+    public void quandoAtirarMuitasFlechasStatusMorto() {
+        ElfoNoturno elfoSuiçida = new ElfoNoturno("Night Legolas");
+        Status statusEsperado = Status.MORTO;
+
+        for (int i = 0; i < 90; i++)
+            elfoSuiçida.atirarFlecha(new Orc());
+
+        Status obtido = elfoSuiçida.getStatus();
+
+        assertEquals(statusEsperado, obtido); 
+    }  
 }

@@ -57,42 +57,6 @@ public class ElfosVerdesTest
         // Assert
         assertEquals(esperado, elfo.getFlechas());
     }
-    
-    @Test
-    public void elfoVerdeNasceComNomeEMuitasFlechasInformados() {
-        // Arrange
-        String nomeEsperado = "Robin";
-        int flechasEsperadas = 567853;
-        // Act
-        ElfosVerdes elfo = new ElfosVerdes(nomeEsperado, flechasEsperadas);
-        // Assert
-        assertEquals(nomeEsperado, elfo.getNome());
-        assertEquals(flechasEsperadas, elfo.getFlechas());
-    }
-    
-    @Test
-    public void elfoVerdeNasceComNomeEPoucasFlechasInformados() {
-        // Arrange
-        String nomeEsperado = "Robin";
-        int flechasEsperadas = 12;
-        // Act
-        ElfosVerdes elfo = new ElfosVerdes(nomeEsperado, flechasEsperadas);
-        // Assert
-        assertEquals(nomeEsperado, elfo.getNome());
-        assertEquals(flechasEsperadas, elfo.getFlechas());
-    }
-    
-    @Test
-    public void elfoVerdeNasceComNomeEFlechasNegativasInformados() {
-        // Arrange
-        String nomeEsperado = "Robin";
-        int flechasEsperadas = -567853;
-        // Act
-        ElfosVerdes elfo = new ElfosVerdes(nomeEsperado, flechasEsperadas);
-        // Assert
-        assertEquals(nomeEsperado, elfo.getNome());
-        assertEquals(flechasEsperadas, elfo.getFlechas());
-    }
 
       /**
      * @param método que testa o método de atirar flechas o numero de experiencia aumenta.
@@ -143,7 +107,7 @@ public class ElfosVerdesTest
     @Test
     public void elfoVerdeAtiraFlechasCincoVezesNoMesmoOrc() {
         // Arrange
-        ElfosVerdes elfo = new ElfosVerdes("Legolas", 4);
+        ElfosVerdes elfo = new ElfosVerdes("Legolas");
         Orc orc = new Orc();
         // Act
         elfo.atirarFlecha(orc);
@@ -153,7 +117,7 @@ public class ElfosVerdesTest
         elfo.atirarFlecha(orc);
         // Assert
         int experienciaEsperada = 10;
-        int flechasEsperadas = -1;
+        int flechasEsperadas = 37;
         
         assertEquals(experienciaEsperada, elfo.getExperiencia());
         assertEquals(flechasEsperadas, elfo.getFlechas());

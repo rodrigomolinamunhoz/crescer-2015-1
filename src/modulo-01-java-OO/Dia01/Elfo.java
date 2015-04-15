@@ -11,11 +11,13 @@ public class Elfo extends Personagem
 {
     // Versão correção do tema!!
     protected int flechas;
+    private static int contadorElfo = 0;
     
     // type initializer
     {
         flechas = 42;
-        this.vida = 100;
+        vida = 100;
+        Elfo.contadorElfo += 1;
     }
 
     /**
@@ -24,13 +26,11 @@ public class Elfo extends Personagem
      * @param umNome Nome que o elfo receberá
      * @param flechas Quantidade inicial de flechas
      */
-    
     public Elfo(String umNome, int flechas)
     {
         this(umNome);
         // this.nome = nome;
         this.flechas = flechas;
-
     } 
     
     /**
@@ -54,15 +54,21 @@ public class Elfo extends Personagem
         umOrc.recebeAtaque();
     }
     
-     public int getFlechas(){
+    public String getNome() {
+        return this.nome;
+    }
+    
+    public int getFlechas(){
         return this.flechas;
     }
-
-    /*public void setFlechas(int novaQtdFlechas) {
-        if (novaQtdFlechas > flechas) {
-            flechas = novaQtdFlechas;
-        }
-    }*/
+    
+    public static void resetContadorNasceElfo(){
+        contadorElfo = 0;
+    }
+    
+    public static int getContadorNasceElfo(){
+        return contadorElfo;
+    }
 
     /**
      * Retorna o nome do elfo, sua quantidade de flechas e seus níveis de experiência.
@@ -123,4 +129,22 @@ public class Elfo extends Personagem
         // camelCase: public void atirarFlechaDourada
         // PascalCase: public void AtirarFlechaDourada
     }
+   
+    /**
+    * Verifica se dois elfos são iguais.
+    * Critério atual: ter o mesmo nome.
+    * 
+    * @param outro Outro objeto elfo a ser comparado.
+    * @return boolean Verdadeiro caso sejam iguais. Falso caso contrário.
+    */
+    @Override
+    public boolean equals(Object outro) {
+        return ((Elfo)outro).getNome().equals(this.nome);
+    }
+    
+    /*public void setFlechas(int novaQtdFlechas) {
+        if (novaQtdFlechas > flechas) {
+            flechas = novaQtdFlechas;
+        }
+    }*/
 }

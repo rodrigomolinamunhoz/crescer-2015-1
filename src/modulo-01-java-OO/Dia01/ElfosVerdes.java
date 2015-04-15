@@ -15,14 +15,12 @@ public class ElfosVerdes extends Elfo
     public ElfosVerdes(String nome)
     {
        super(nome);
-    }
-    
-    public ElfosVerdes(String umNome, int flechas)
-    {
-        this(umNome);
-        this.flechas = flechas;
-
     } 
+    
+    @Override
+     public String toString(){
+        return "Elfo Verde: " + super.toString();
+    }
     
     public void atirarFlecha(Orc umOrc) {
         this.flechas--;

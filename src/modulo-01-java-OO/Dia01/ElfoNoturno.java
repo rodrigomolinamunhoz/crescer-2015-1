@@ -15,13 +15,6 @@ public class ElfoNoturno extends Elfo
        super(nome);
     }
     
-    public ElfoNoturno(String umNome, int flechas)
-    {
-        this(umNome);
-        this.flechas = flechas;
-
-    } 
-    
     public void atirarFlecha(Orc umOrc) {
         this.flechas--;
         this.experiencia += 3;
@@ -31,4 +24,9 @@ public class ElfoNoturno extends Elfo
             this.status = status.MORTO;
         }
     }
+    
+    @Override
+    public String toString(){
+        return "Elfo Noturno: " + super.toString();
+    }      
 }
