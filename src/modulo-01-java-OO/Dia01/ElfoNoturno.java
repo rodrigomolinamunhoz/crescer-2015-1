@@ -19,6 +19,7 @@ public class ElfoNoturno extends Elfo
         this.flechas--;
         this.experiencia += 3;
         umOrc.recebeAtaque();
+        status = Status.ATACANDO;
         vida = (int)(vida - this.vida * 0.05);
         if (vida <= 0){
             this.status = status.MORTO;

@@ -5,7 +5,7 @@ import java.util.*;
  * @author Rodrigo Molina
  * @version 10/04/2015
  */
-public class Personagem
+public abstract class Personagem
 {
     protected Status status = Status.VIVO;
     protected int vida;
@@ -176,4 +176,6 @@ public class Personagem
             } 
         }
    }
+   
+   abstract void imprimeNome();
 }

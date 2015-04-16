@@ -52,6 +52,7 @@ public class Elfo extends Personagem
         flechas--;
         experiencia++;
         umOrc.recebeAtaque();
+        status = Status.ATACANDO;
     }
     
     public String getNome() {
@@ -67,11 +68,7 @@ public class Elfo extends Personagem
     }
     
     public static int getContadorNasceElfo(){
-        return contadorElfo;
-    }
-    
-    public void setStatus(Status novoStatus) {
-        this.status = novoStatus;
+        return Elfo.contadorElfo;
     } 
 
     /**
@@ -146,6 +143,10 @@ public class Elfo extends Personagem
         return ((Elfo)outro).getNome().equals(this.nome);
     }
     
+   public void imprimeNome() {
+       // TODO: System.out.println...
+   }
+   
     /*public void setFlechas(int novaQtdFlechas) {
         if (novaQtdFlechas > flechas) {
             flechas = novaQtdFlechas;

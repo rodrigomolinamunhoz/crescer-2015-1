@@ -1,4 +1,4 @@
-import java.util.HashMap;
+import java.util.*;
 /**
  * Escreva a descrição da classe ExercitosDeElfos aqui.
  * 
@@ -8,25 +8,16 @@ import java.util.HashMap;
 public class ExercitosDeElfos
 {
     private HashMap<String, Elfo> exercito = new HashMap<>();
+    private HashMap<Status, ArrayList<Elfo>> porStatus = new HashMap<>();
+    private EstrategiaDeAtaque estrategia = new EstrategiaNormal();
     
-    private HashMap<String, Elfo> exercitoStatusVivo = new HashMap<>();
-    private HashMap<String, Elfo> exercitoStatusFerido = new HashMap<>();
-    private HashMap<String, Elfo> exercitoStatusMorto = new HashMap<>();
     
     public HashMap<String, Elfo> getExercito(){
         return this.exercito;
     }
-    
-    public HashMap<String, Elfo> getExercitoVivo(){
-        return this.exercitoStatusVivo;
-    }
-    
-    public HashMap<String, Elfo> getExercitoFerido(){
-        return this.exercitoStatusFerido;
-    }
-    
-    public HashMap<String, Elfo> getExercitoMorto(){
-        return this.exercitoStatusMorto;
+   
+    public HashMap<Status, ArrayList<Elfo>> getExercitoPorStatus(){
+        return this.porStatus;
     }
     
     /**
@@ -47,22 +38,50 @@ public class ExercitosDeElfos
     * @param nome Nome do elfo para utilizar na busca.
     * @return Elfo Resultado da busca pelo nome. Caso não encontre nada retorna null.
     */
-    public Elfo buscarElfo(String nome){
+    public Elfo buscar(String nome){
         return exercito.get(nome);
     }
     
-    public void agruparElfosPorStatus(Elfo elfo){        
-        boolean vivo = elfo.getStatus().equals(Status.VIVO);
-        boolean ferido = elfo.getStatus().equals(Status.FERIDO);
-        boolean morto = elfo.getStatus().equals(Status.MORTO);
-        
-        if(vivo){
-            exercitoStatusVivo.put(elfo.getNome(), elfo);
-        } else if (ferido){
-            exercitoStatusFerido.put(elfo.getNome(), elfo);
-        } else if (morto){
-            exercitoStatusMorto.put(elfo.getNome(), elfo);
-        }
-        
+    /*
+     * Exercício 9.4
+     */
+    public ArrayList<Elfo> buscar(Status status) {
+        agruparPorStatus();
+        return porStatus.get(status);
     }
+    
+      /**
+     * Agrupa os elfos do exército utilizando o campo status dos objetos.
+     * Exercicio 9.3
+     */
+    public void agruparPorStatus() {
+        
+        porStatus.clear();
+        
+        for (Map.Entry<String, Elfo> parChaveValor : exercito.entrySet()) {
+            Elfo elfo = parChaveValor.getValue();
+            Status status = elfo.getStatus();
+            
+            if (porStatus.containsKey(status)) {
+                porStatus.get(status).add(elfo);
+            } else {
+                porStatus.put(status, new ArrayList<>(
+                    Arrays.asList(elfo)
+                ));
+                // C#
+                // var arr = new [] { elfo, elfo1, elfo2, elfo3 };
+            }
+        }
+    }
+    
+    public void mudaDeEstrategia(EstrategiaDeAtaque novaEstrategia) {
+        estrategia = novaEstrategia;
+    }  
+    
+    public void atacarHorda(ArrayList<Orc> orcs) { 
+       ArrayList<Elfo> elfosQueVãoPraPeleia = buscar(Status.VIVO);
+        
+       estrategia.atacarOrcs(elfosQueVãoPraPeleia, orcs);
+    }
+    
 }

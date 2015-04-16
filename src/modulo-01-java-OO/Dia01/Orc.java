@@ -169,5 +169,9 @@ public class Orc extends Personagem
                * *      return numero;
                * *  }
                */
-    }    
+    } 
+    
+    public void imprimeNome() {
+        // TODO: System.out.println...
+    }
 }
