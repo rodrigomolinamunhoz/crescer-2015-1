@@ -231,8 +231,32 @@ Select top 1 Nome, LEN (Nome) as Tamanho
 from Associado
 order by Tamanho DESC;
 
+/* Exercício 6
+Faça uma consulta que retorne o nome do associado e a data de quando cada completará (ou completou) 50 anos,
+liste também o dia da semana. */
+SET LANGUAGE 'Brazilian'
+SELECT Nome, DATENAME(DW,DATEADD(YEAR,50, DataNascimento)),DATEADD(YEAR,50, DataNascimento) AS DiaDaSemana FROM Associado;
 
-/* Exercício 6 */
+/* Exercício 7 - Liste a quantidade de cidades agrupando por UF. */
+Select UF, COUNT(1) as QuantidadeCidades
+From Cidade
+Group By UF;
+
+/* Exercício 8 - Liste as cidades que possuem o mesmo nome e UF. */
+Select Nome, UF, COUNT(1) as QuantidadeCidades
+From Cidade
+Group By Nome, UF;
+
+/* Exercício 9 - Identifique qual deve ser o próximo ID para a criação de um novo 
+registro na tabela Associado (maior + 1). */
+SELECT MAX (IDAssociado + 1) FROM Associado;
+
+/* Exercício 10 - Limpe a tabela CidadeAux, e insira somente as cidades com nomes e
+UF’s distintos, considere somente o menor código ID das cidades duplicadas. */
+Truncate Table CidadeAux;
+insert into CidadeAux (IDCidade, Nome, UF) select MIN(IDCidade), Nome, UF from Cidade group by Nome,UF;
+
+
 
 
 
