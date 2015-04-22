@@ -256,6 +256,32 @@ UF’s distintos, considere somente o menor código ID das cidades duplicadas. */
 Truncate Table CidadeAux;
 insert into CidadeAux (IDCidade, Nome, UF) select MIN(IDCidade), Nome, UF from Cidade group by Nome,UF;
 
+/* Exercício 11 - Altere todas cidades duplicadas (nome e uf iguais),
+acrescente no ínicio do nome um asterisco (*).*/
+Select Nome, UF, COUNT(1) as QuantidadeCidades
+From Cidade
+Group By Nome, UF
+HAVING Count(1) > 1;
+
+
+BEGIN TRANSACTION
+
+ UPDATE Cidade SET Nome = Nome +' *'(SELECT Nome, COUNT(1)
+ FROM Cidade
+ Group By Nome
+ HAVING Count(1) > 1);
+
+rollback
+Select * from Cidade;
+
+/*Exercício - 12 Faça uma consulta que liste o nome do Associado
+e a descrição da coluna Sexo, informando: Masculino ou Feminino. */
+select IDAssociado, Nome,
+Case when sexo = 'F' then 'Feminino'
+     when sexo = 'M' then 'Masculino'
+End Sexo
+from associado;
+
 
 
 
