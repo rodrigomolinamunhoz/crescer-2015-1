@@ -1,0 +1,57 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B8E0308B-8DEE-1EFA-FADD-FC87790407CA" name="Cidade">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>3DAFEAF1-5CFE-19CB-EAB4-7BEEBECCD085</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDCidade" id="4F56D0E3-6CDC-A100-7D1B-6C282EE908E2">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>F2DD15DB-C000-FDA5-5306-510AAE11DBD6</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NomeCidade" id="38143979-44BA-D664-38B5-105E4E3C23C3">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>0114021A-67C3-76E8-5B99-D755EA1ED7AD</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="UF" id="A56C03F7-9B86-1057-EFDF-0F652A1BD4E5">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>A8CF4D1B-AA53-FCB3-F06A-2714EF22B80B</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6A905A56-4731-824D-B60A-6578112ADBAE" name="Cidade_PK">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>A35877CE-C7BF-39E5-F51C-AE2D126CA440</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4F56D0E3-6CDC-A100-7D1B-6C282EE908E2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

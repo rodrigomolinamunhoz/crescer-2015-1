@@ -1,0 +1,154 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B77AF377-9F54-80A4-64C3-A39AEA85382C" name="Endereco">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>326D8C9D-FD99-BD88-428C-D499A77097BA</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDEndereco" id="EDD5D66B-E364-BA77-B5C7-9469921D7E42">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>FFA6B0DA-9A22-8BB4-C18F-7D732FF4AF88</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Endereco" id="AC02462B-5F7C-6914-A87A-0F841E99248A">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>EE11F21E-A76D-A461-AB74-658B20A3E6EC</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Numero" id="19620047-802E-7517-EBC2-CDF8F1BD2D19">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>D3695F98-6A31-513E-9131-8C5C039EA0DF</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Complemento" id="7F6B660B-0D6D-BBD5-E78A-E71A2F406DBA">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>C0A132AC-E827-589E-4ABB-AEBADD29F33A</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Bairro" id="DFEDD01E-CD36-EC62-1A71-5910D6CE4DE8">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>3F9DD18C-2FE3-E9F0-FA90-BBB90D7FC6D1</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CEP" id="27F46FA8-05DE-FD19-2791-8A09255D3BFF">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>DE64C497-4326-61DD-501A-68E4E02A445C</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Funcionario_IDFuncionario" id="0A00C64D-C8A9-399F-094F-DF0A8F50496E">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>43512FE3-8534-578E-5D3E-92A16A784500</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<delegate>07553D30-CA67-0520-4661-C9D7ABF7F47C</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C1ED2C9A-D450-BCB0-273D-564909F89BBF" referredColumn="07553D30-CA67-0520-4661-C9D7ABF7F47C"/>
+</associations>
+</Column>
+<Column name="Cidade_IDCidade" id="8289BFA8-5C7E-928A-1041-02AFA390E1EC">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>5F4186C6-BD2D-77E4-AA4F-3A20DC3EFE3F</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<delegate>4F56D0E3-6CDC-A100-7D1B-6C282EE908E2</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2A7AE5F1-8066-865C-FD7E-2FAFCAC0B945" referredColumn="4F56D0E3-6CDC-A100-7D1B-6C282EE908E2"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="ACDAF04B-7515-5752-4AF9-FA111E6E9101" name="Endereco_PK">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>47C011F0-385F-198C-64B9-467704A708B2</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EDD5D66B-E364-BA77-B5C7-9469921D7E42"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="104241FD-2B58-4C42-24C8-2DFE0894ABC1" name="Endereco__IDX">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>0EF66AD4-91DE-85D0-0307-FDFFAF7BB285</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="0A00C64D-C8A9-399F-094F-DF0A8F50496E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DEA66EF2-1DFE-EAF6-6A9F-FFBDC6FE9896" name="Endereco_Cidade_FK">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>E9E2490D-6AE4-ABD5-734A-526E6693C066</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8289BFA8-5C7E-928A-1041-02AFA390E1EC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A6434E33-1DDD-2094-FE97-863C7AD6262E" name="Endereco_Funcionario_FK">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>0EF66AD4-91DE-85D0-0307-FDFFAF7BB285</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0A00C64D-C8A9-399F-094F-DF0A8F50496E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

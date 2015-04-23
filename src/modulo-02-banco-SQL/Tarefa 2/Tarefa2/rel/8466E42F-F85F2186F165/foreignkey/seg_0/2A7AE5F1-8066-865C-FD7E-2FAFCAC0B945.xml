@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="2A7AE5F1-8066-865C-FD7E-2FAFCAC0B945" name="Endereco_Cidade_FK">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>E9E2490D-6AE4-ABD5-734A-526E6693C066</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<containerWithKeyObject>B77AF377-9F54-80A4-64C3-A39AEA85382C</containerWithKeyObject>
+<deleteRule>NO ACTION</deleteRule>
+<localFKIndex>DEA66EF2-1DFE-EAF6-6A9F-FFBDC6FE9896</localFKIndex>
+<keyObject>6A905A56-4731-824D-B60A-6578112ADBAE</keyObject>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

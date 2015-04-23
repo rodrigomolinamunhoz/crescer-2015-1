@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="FK_ClasseSalarial_Funcionario" directorySegmentName="seg_0" id="E8CB5108-F331-46B0-1531-80B3C956ABBF">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:39:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<engineerTo>
+<item key="8466E42F-F650-A18D-6EE5-F85F2186F165" value="true"/>
+</engineerTo>
+<sourcePk>DF6BFDDD-D14B-825B-03E5-902A7D15D3F1</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>DC990EBD-461C-A7AE-40CF-606230BC6FE4</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>129C6C16-7D0F-E08D-54D5-1DAF32C4063C</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

@@ -1,0 +1,78 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E676CF04-8110-0001-5EE0-5C45EF2335AC" name="FK_Cargo_NivelCargo">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Cargo_IDCargo" id="A388B09F-4A15-A6E8-573F-C96B6D98DE41">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<delegate>CA789CC5-75A2-0471-3DC4-74ABF0804C6F</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1137953C-C204-A906-1958-2966E3E499FD" referredColumn="CA789CC5-75A2-0471-3DC4-74ABF0804C6F"/>
+</associations>
+</Column>
+<Column name="NivelCargo_IDNivelCargo" id="D0859BB8-27C4-CB70-DEDD-2B5143A1660D">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<delegate>A7A527AF-341C-5FC3-B696-791B99C04F59</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D926E9ED-F8CE-F250-A0A3-171337DE3A5C" referredColumn="A7A527AF-341C-5FC3-B696-791B99C04F59"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="86FD6A08-3337-97B6-F798-5AE92C684E70" name="FK_Cargo_NivelCargo_PK">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A388B09F-4A15-A6E8-573F-C96B6D98DE41"/>
+<colUsage columnID="D0859BB8-27C4-CB70-DEDD-2B5143A1660D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="AECEF5CF-D57D-5004-1E8F-2AF685E682FD" name="FK_ASS_2">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>8FF36DC5-1C33-D2A2-2A95-C145E97D9163</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A388B09F-4A15-A6E8-573F-C96B6D98DE41"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FC82074F-069B-36BC-76BC-F4E1FA11B920" name="FK_ASS_3">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>8FF36DC5-1C33-D2A2-2A95-C145E97D9163</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D0859BB8-27C4-CB70-DEDD-2B5143A1660D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

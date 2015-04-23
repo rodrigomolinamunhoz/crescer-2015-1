@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="FK_Funcionario_LogHistorico" directorySegmentName="seg_0" id="DD842F34-65D4-5D79-B454-932B1CCF16A2">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:37:31 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<engineerTo>
+<item key="8466E42F-F650-A18D-6EE5-F85F2186F165" value="true"/>
+</engineerTo>
+<sourcePk>A2A9CDAB-B3CC-76BA-9702-B68CAC468D66</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>129C6C16-7D0F-E08D-54D5-1DAF32C4063C</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>31478F12-1FBB-034E-DC8B-234A14BBDD08</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

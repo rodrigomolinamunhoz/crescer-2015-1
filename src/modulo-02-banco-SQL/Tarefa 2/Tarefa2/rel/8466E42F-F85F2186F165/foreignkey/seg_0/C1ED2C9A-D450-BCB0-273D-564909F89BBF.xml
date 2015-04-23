@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="C1ED2C9A-D450-BCB0-273D-564909F89BBF" name="Endereco_Funcionario_FK">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>0EF66AD4-91DE-85D0-0307-FDFFAF7BB285</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<containerWithKeyObject>B77AF377-9F54-80A4-64C3-A39AEA85382C</containerWithKeyObject>
+<deleteRule>NO ACTION</deleteRule>
+<localFKIndex>A6434E33-1DDD-2094-FE97-863C7AD6262E</localFKIndex>
+<keyObject>4997D12E-A94B-9287-3A82-095AFA3C8C24</keyObject>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

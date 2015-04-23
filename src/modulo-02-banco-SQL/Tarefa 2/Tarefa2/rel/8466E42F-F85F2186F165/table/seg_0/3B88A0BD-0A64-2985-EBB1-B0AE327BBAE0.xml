@@ -1,0 +1,84 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3B88A0BD-0A64-2985-EBB1-B0AE327BBAE0" name="Cargo">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>6C655F2D-6BAB-C8B3-FA8C-CAB010906600</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDCargo" id="CA789CC5-75A2-0471-3DC4-74ABF0804C6F">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>DFE0E053-DAE6-A361-3B97-1FDEAB0E2199</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DescricaoCargo" id="D66AC72B-197C-3DC4-A7F0-2AFEC4691D1D">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>A7884380-AA14-289B-FAEF-D9A5D58C3146</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ClasseSalarial_IDClasseSalarial" id="5C7C8EB6-1F28-E0CA-5D17-893F8CB4330A">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>899A39F8-5511-1655-B1C6-AB8B616C2967</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<delegate>E28F28CB-3983-8848-5BB6-613F839E15B9</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4DF92EE8-754B-A6F7-7F92-8BC625275CD3" referredColumn="E28F28CB-3983-8848-5BB6-613F839E15B9"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D7DF1A65-7259-DB08-3543-9AD55B52D3CF" name="Cargo_PK">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>DE0A7B11-185C-E28A-A274-EB85624CC3A3</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CA789CC5-75A2-0471-3DC4-74ABF0804C6F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BA04C81C-7AAD-B8EE-7C91-CC26B153A120" name="Cargo__IDX">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>3E615730-603D-BFA1-CDF7-2B747F9934E6</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="5C7C8EB6-1F28-E0CA-5D17-893F8CB4330A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B6F8962A-AD9F-381A-9251-9C05DE29E88A" name="Cargo_ClasseSalarial_FK">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>3E615730-603D-BFA1-CDF7-2B747F9934E6</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5C7C8EB6-1F28-E0CA-5D17-893F8CB4330A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

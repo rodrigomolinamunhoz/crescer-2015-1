@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="C598B8D3-20DC-AA10-0D26-505DD47A9BF8" mainViewID="EC5BAB0A-793C-F699-F94B-3A6BE6FDD7A8">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:14:26 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

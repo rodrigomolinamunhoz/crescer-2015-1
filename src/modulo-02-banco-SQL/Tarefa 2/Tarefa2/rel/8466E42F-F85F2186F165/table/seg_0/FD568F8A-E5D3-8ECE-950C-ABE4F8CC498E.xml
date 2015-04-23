@@ -1,0 +1,46 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="FD568F8A-E5D3-8ECE-950C-ABE4F8CC498E" name="NivelCargo">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>877B484B-973C-23E1-21A7-0989C5A16611</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDNivelCargo" id="A7A527AF-341C-5FC3-B696-791B99C04F59">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>5A41767D-C588-8435-4FB1-1934CACA84E6</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DescricaoNivelCargo" id="21AC75E8-E81E-D694-C6D8-0429858B59B8">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>3823CA15-F8BA-E678-5298-F71D4AD4DC9F</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="34D499E3-2C66-3B35-F818-E0F1ADA60CA1" name="NivelCargo_PK">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>9CB1B2CE-DCF7-C334-79A2-6A6212FE0878</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A7A527AF-341C-5FC3-B696-791B99C04F59"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

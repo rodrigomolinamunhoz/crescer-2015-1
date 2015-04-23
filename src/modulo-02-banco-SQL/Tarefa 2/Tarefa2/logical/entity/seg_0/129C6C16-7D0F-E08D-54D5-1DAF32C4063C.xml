@@ -1,0 +1,137 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="129C6C16-7D0F-E08D-54D5-1DAF32C4063C" name="Funcionario">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:15:46 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<engineerTo>
+<item key="8466E42F-F650-A18D-6EE5-F85F2186F165" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="IDFuncionario" id="E7B02A14-31F2-AEC4-BDD2-DCF2611D66EE">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:16:00 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<engineerTo>
+<item key="8466E42F-F650-A18D-6EE5-F85F2186F165" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+</Attribute>
+<Attribute name="NomeFuncionario" id="CA32F314-55CE-7140-81CE-21961CBD6A95">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:16:26 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<engineerTo>
+<item key="8466E42F-F650-A18D-6EE5-F85F2186F165" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+</Attribute>
+<Attribute name="DataAdmissao" id="429DE1FE-23B7-B8FC-D4FB-B1D8C2C1D8D4">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:17:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<engineerTo>
+<item key="8466E42F-F650-A18D-6EE5-F85F2186F165" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+</Attribute>
+<Attribute name="DataDemissao" id="D3D10BAB-4F71-0AFE-E1FE-B607522685D1">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:17:47 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<engineerTo>
+<item key="8466E42F-F650-A18D-6EE5-F85F2186F165" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+</Attribute>
+<Attribute name="Telefone" id="EFFB5B12-3200-4235-376B-2694750427D7">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:18:07 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<engineerTo>
+<item key="8466E42F-F650-A18D-6EE5-F85F2186F165" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+</Attribute>
+<Attribute name="Email" id="0740D33B-E57D-4E45-8DF3-999A077F09A1">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:18:56 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<engineerTo>
+<item key="8466E42F-F650-A18D-6EE5-F85F2186F165" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+</Attribute>
+<Attribute name="IDClasseSalarial" id="F237DDF9-C919-30AC-E886-01F8AC882697">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:39:20 UTC</createdTime>
+<generatorID>E8CB5108-F331-46B0-1531-80B3C956ABBF</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<engineerTo>
+<item key="8466E42F-F650-A18D-6EE5-F85F2186F165" value="true"/>
+</engineerTo>
+<referedAttribute>1BA7A2AA-CCC6-6D55-78B9-C201CF9EFFB7</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+</Attribute>
+<Attribute name="IDCargo" id="3CEDF013-899C-9346-EA20-03B2B97FDC06">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:40:41 UTC</createdTime>
+<generatorID>5840DE9B-E5A3-3793-A42B-9967A2096484</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<engineerTo>
+<item key="8466E42F-F650-A18D-6EE5-F85F2186F165" value="true"/>
+</engineerTo>
+<referedAttribute>DFE0E053-DAE6-A361-3B97-1FDEAB0E2199</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="A2A9CDAB-B3CC-76BA-9702-B68CAC468D66" name="{entity} PK">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:16:19 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<engineerTo>
+<item key="8466E42F-F650-A18D-6EE5-F85F2186F165" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>E7B02A14-31F2-AEC4-BDD2-DCF2611D66EE</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

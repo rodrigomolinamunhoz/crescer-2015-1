@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="0B244AFC-1ED7-7F7C-8FDA-4FBA3A38983C" name="Funcionario_ClasseSalarial_FK">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>E8CB5108-F331-46B0-1531-80B3C956ABBF</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<containerWithKeyObject>5E10AB39-F6E2-A3DD-ECB2-10CFA1F187F5</containerWithKeyObject>
+<deleteRule>NO ACTION</deleteRule>
+<localFKIndex>DA6FF3D1-7E12-8BBB-114C-A1D90273D726</localFKIndex>
+<keyObject>8598BC0D-0F63-FE89-E334-867AFB500715</keyObject>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

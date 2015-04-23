@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="FK_Cidade_Endereco" directorySegmentName="seg_0" id="E9E2490D-6AE4-ABD5-734A-526E6693C066">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:38:54 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<engineerTo>
+<item key="8466E42F-F650-A18D-6EE5-F85F2186F165" value="true"/>
+</engineerTo>
+<sourcePk>A35877CE-C7BF-39E5-F51C-AE2D126CA440</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>3DAFEAF1-5CFE-19CB-EAB4-7BEEBECCD085</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>326D8C9D-FD99-BD88-428C-D499A77097BA</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

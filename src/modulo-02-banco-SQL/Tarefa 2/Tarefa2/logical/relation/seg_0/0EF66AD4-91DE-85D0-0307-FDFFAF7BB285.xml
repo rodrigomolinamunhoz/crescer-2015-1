@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="FK_Funcionario_Endereco" directorySegmentName="seg_0" id="0EF66AD4-91DE-85D0-0307-FDFFAF7BB285">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:38:35 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<engineerTo>
+<item key="8466E42F-F650-A18D-6EE5-F85F2186F165" value="true"/>
+</engineerTo>
+<sourcePk>A2A9CDAB-B3CC-76BA-9702-B68CAC468D66</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>129C6C16-7D0F-E08D-54D5-1DAF32C4063C</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>326D8C9D-FD99-BD88-428C-D499A77097BA</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

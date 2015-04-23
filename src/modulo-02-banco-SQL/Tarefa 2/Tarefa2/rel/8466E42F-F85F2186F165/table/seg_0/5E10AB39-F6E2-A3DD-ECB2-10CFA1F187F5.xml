@@ -1,0 +1,141 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5E10AB39-F6E2-A3DD-ECB2-10CFA1F187F5" name="Funcionario">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>129C6C16-7D0F-E08D-54D5-1DAF32C4063C</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDFuncionario" id="07553D30-CA67-0520-4661-C9D7ABF7F47C">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>E7B02A14-31F2-AEC4-BDD2-DCF2611D66EE</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NomeFuncionario" id="5F618C1E-AE21-D013-754B-0FDE56AE2AF7">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>CA32F314-55CE-7140-81CE-21961CBD6A95</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DataAdmissao" id="035BA259-C242-FC25-245D-A9E376700912">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>429DE1FE-23B7-B8FC-D4FB-B1D8C2C1D8D4</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DataDemissao" id="94536B6A-5ADC-3FE6-68A8-B213EAF08A25">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>D3D10BAB-4F71-0AFE-E1FE-B607522685D1</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Telefone" id="105F8FD8-51AF-ABB8-2532-67F130AFC33B">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>EFFB5B12-3200-4235-376B-2694750427D7</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Email" id="AD9D9A24-E374-3FFB-B245-5C9D6090E666">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>0740D33B-E57D-4E45-8DF3-999A077F09A1</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ClasseSalarial_IDClasseSalarial" id="BE91D38C-F384-05AE-69A7-1296131ACB28">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>F237DDF9-C919-30AC-E886-01F8AC882697</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<delegate>E28F28CB-3983-8848-5BB6-613F839E15B9</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0B244AFC-1ED7-7F7C-8FDA-4FBA3A38983C" referredColumn="E28F28CB-3983-8848-5BB6-613F839E15B9"/>
+</associations>
+</Column>
+<Column name="Cargo_IDCargo" id="4A361A81-5DE6-E152-01A3-E1F9FED66BFC">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>3CEDF013-899C-9346-EA20-03B2B97FDC06</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<delegate>CA789CC5-75A2-0471-3DC4-74ABF0804C6F</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="65502710-E8DF-FC29-449C-28B56E78A5B4" referredColumn="CA789CC5-75A2-0471-3DC4-74ABF0804C6F"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4997D12E-A94B-9287-3A82-095AFA3C8C24" name="Funcionario_PK">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>A2A9CDAB-B3CC-76BA-9702-B68CAC468D66</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="07553D30-CA67-0520-4661-C9D7ABF7F47C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D4FF0AA8-E3E1-63A5-8F26-44A398AAD652" name="Funcionario_Cargo_FK">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>5840DE9B-E5A3-3793-A42B-9967A2096484</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4A361A81-5DE6-E152-01A3-E1F9FED66BFC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DA6FF3D1-7E12-8BBB-114C-A1D90273D726" name="Funcionario_ClasseSalarial_FK">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>E8CB5108-F331-46B0-1531-80B3C956ABBF</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BE91D38C-F384-05AE-69A7-1296131ACB28"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

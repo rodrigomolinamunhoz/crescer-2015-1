@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<ProcessModel class="oracle.dbtools.crest.model.design.process.ProcessModel" name="Process Model" id="9E5474D7-8A6A-F946-A1F0-2460A99F2B6F">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:14:26 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</ProcessModel>

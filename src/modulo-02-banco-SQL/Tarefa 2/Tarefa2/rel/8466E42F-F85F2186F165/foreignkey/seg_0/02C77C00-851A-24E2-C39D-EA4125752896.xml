@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="02C77C00-851A-24E2-C39D-EA4125752896" name="LogHistorico_Funcionario_FK">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>DD842F34-65D4-5D79-B454-932B1CCF16A2</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<containerWithKeyObject>BB3B7EDE-4866-EFE3-D781-5C84B94E0BE1</containerWithKeyObject>
+<deleteRule>NO ACTION</deleteRule>
+<localFKIndex>BEF92DB4-0439-E8BF-AD7C-DE0E52D66615</localFKIndex>
+<keyObject>4997D12E-A94B-9287-3A82-095AFA3C8C24</keyObject>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

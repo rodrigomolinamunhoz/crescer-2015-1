@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="FK_Cargo_Funcionario" directorySegmentName="seg_0" id="5840DE9B-E5A3-3793-A42B-9967A2096484">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:40:41 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<engineerTo>
+<item key="8466E42F-F650-A18D-6EE5-F85F2186F165" value="true"/>
+</engineerTo>
+<sourcePk>DE0A7B11-185C-E28A-A274-EB85624CC3A3</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>6C655F2D-6BAB-C8B3-FA8C-CAB010906600</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>129C6C16-7D0F-E08D-54D5-1DAF32C4063C</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

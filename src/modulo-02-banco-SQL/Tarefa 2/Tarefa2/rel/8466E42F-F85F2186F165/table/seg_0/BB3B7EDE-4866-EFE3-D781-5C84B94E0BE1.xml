@@ -1,0 +1,93 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BB3B7EDE-4866-EFE3-D781-5C84B94E0BE1" name="LogHistorico">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>31478F12-1FBB-034E-DC8B-234A14BBDD08</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDHistorico" id="DEE95EEA-0741-6D10-731A-CC0EBAFA0610">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>ABBB4594-EC4A-2D07-F373-7E69D8A23F76</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DataCriacao" id="51F3470F-6E1D-7B3F-66B2-F0E6380078DA">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>14A8A207-EEB9-B949-09B3-378C052F33AA</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DataAlteracao" id="67C2F13B-FC3F-CBBD-58DF-65A35C3CBC5D">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>E687FE01-2D4E-615C-42EA-D7B14EA2E2CF</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Funcionario_IDFuncionario" id="A0158541-BC60-D7EC-AE86-814491110349">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>8871C1F5-747F-73FF-D462-8690B2118A58</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<delegate>07553D30-CA67-0520-4661-C9D7ABF7F47C</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="02C77C00-851A-24E2-C39D-EA4125752896" referredColumn="07553D30-CA67-0520-4661-C9D7ABF7F47C"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E024F7F7-DFA3-A658-C180-D82260A9C880" name="LogHistorico_PK">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>4C34F740-AC88-D9CE-2A78-5F48BAADF614</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DEE95EEA-0741-6D10-731A-CC0EBAFA0610"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="271FED5D-525F-B831-B45E-E390955B1245" name="LogHistorico__IDX">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>DD842F34-65D4-5D79-B454-932B1CCF16A2</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="A0158541-BC60-D7EC-AE86-814491110349"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BEF92DB4-0439-E8BF-AD7C-DE0E52D66615" name="LogHistorico_Funcionario_FK">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 19:47:54 UTC</createdTime>
+<generatorID>DD842F34-65D4-5D79-B454-932B1CCF16A2</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A0158541-BC60-D7EC-AE86-814491110349"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
