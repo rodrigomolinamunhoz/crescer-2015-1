@@ -219,11 +219,24 @@ Select IDEmpregado, NomeEmpregado, DATEDIFF(MONTH, DataAdmissao, '31/12/2000') a
 From Empregado
 Where DataAdmissao >= '01/05/1980' and DataAdmissao <= '20/01/1982';
 
+/* Exercício 3 - Professor */
+Select IDEmpregado, NomeEmpregado, DataAdmissao, DATEDIFF(MONTH, DataAdmissao, '31/12/2000') as MesesTrabalhados
+From Empregado
+Where DataAdmissao between Convert(datetime, '01/05/1980', 103) and Convert(datetime, '20/01/1982', 103);
+
+
 /* Exercício 4 */
 Select top 1 Cargo, count(1) as Total
       from Empregado
 	  group by Cargo
       order by Total DESC;
+
+/* Exercício 4 - Professor */
+Select top 1 with ties
+    Cargo, count(1) as Total
+    from Empregado
+    group by Cargo
+    order by Total DESC;
 
 
 /* Exercício 5 */
@@ -245,11 +258,15 @@ Group By UF;
 /* Exercício 8 - Liste as cidades que possuem o mesmo nome e UF. */
 Select Nome, UF, COUNT(1) as QuantidadeCidades
 From Cidade
-Group By Nome, UF;
+Group By Nome, UF
+HAVING Count(1) > 1;
 
 /* Exercício 9 - Identifique qual deve ser o próximo ID para a criação de um novo 
 registro na tabela Associado (maior + 1). */
 SELECT MAX (IDAssociado + 1) FROM Associado;
+
+/* Exercício 9 - Professor */
+SELECT ISNULL (MAX(IDAssociado),0) + 1 FROM Associado;
 
 /* Exercício 10 - Limpe a tabela CidadeAux, e insira somente as cidades com nomes e
 UF’s distintos, considere somente o menor código ID das cidades duplicadas. */
@@ -266,7 +283,7 @@ HAVING Count(1) > 1;
 
 BEGIN TRANSACTION
 
- UPDATE Cidade SET Nome = Nome +' *'(SELECT Nome, COUNT(1)
+ UPDATE Cidade SET Nome = Nome +' *' WHERE Nome in (SELECT Nome
  FROM Cidade
  Group By Nome
  HAVING Count(1) > 1);
@@ -282,6 +299,34 @@ Case when sexo = 'F' then 'Feminino'
 End Sexo
 from associado;
 
+/*Exercício - 13 Faça uma consulta que mostre o nome do empregado, o Salario e percentual a ser descontado do Imposto de Renda,
+considerando a tabela abaixo:
+Até R$ 1.164,00 = 0%De R$ 1.164,00 a R$ 2.326,00 = 15%
+Acima de R$ 2.326,00 = 27,5%. */
+
+select NomeEmpregado, Salario,
+Case
+	 when Salario between 0 and 1600.00 then '0%' 
+	 when Salario between 1164.00 and 2326.00 then '15%'
+	 when Salario > 2326.00 then '27,5%'
+End Porcentagem
+from Empregado;
+
+/* Exercício - 14 Elimine as cidades duplicadas (mantendo 1 registro para cada).*/
+BEGIN TRANSACTION
+
+DELETE FROM Cidade WHERE IDCidade in (Select MAX(IDCidade)
+				From Cidade
+				Group By Nome
+				HAVING Count(1) > 1);
+
+rollback
+
+/*Exercício - 15 Adicione uma regra que impeça exista mais de uma cidade com o mesmo nome em um estado.*/
+ALTER TABLE Cidade ADD CONSTRAINT UQNomeCidade UNIQUE (Nome);
+/* Teste */
+Insert into Cidade (IDCidade, Nome, UF)
+   values (343, 'Belo Horizonte', 'MG');  
 
 
 
