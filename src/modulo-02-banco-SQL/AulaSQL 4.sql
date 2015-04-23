@@ -62,11 +62,13 @@ Left Join Cidade c on a.IDCidade = c.IDCidade;
 
 /* Exercício 3 - Lista os estados (UF) e total de cidades que não possuem associados relacionados
 (dica: pode ser utilizado count + group by + exists).*/
-Select IDCidade, Nome 
+Select Count(e.IDCidade), e.UF
 From Cidade e
-Where NOT EXISTS(Select IDCidade, Nome
+Where NOT EXISTS(Select e.IDCidade
 From Associado a
-Where a.IDCidade = e.IDCidade);
+Where a.IDCidade = e.IDCidade)
+Group by UF;
+
 
 /* Exercício 4 - Faça uma consulta que liste o nome do associado, o nome da cidade,
  e uma coluna que indique se a cidade é da região SUL (RS, SC, PR),
