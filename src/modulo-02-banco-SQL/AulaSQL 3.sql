@@ -1,3 +1,4 @@
+Use CursoSQL
 Select Nome as Nome_Cidade,
 UF as Estado
 From Cidade;
@@ -283,7 +284,7 @@ HAVING Count(1) > 1;
 
 BEGIN TRANSACTION
 
- UPDATE Cidade SET Nome = Nome +' *' WHERE Nome in (SELECT Nome
+ UPDATE Cidade SET Nome ='* ' + Nome WHERE Nome in (SELECT Nome
  FROM Cidade
  Group By Nome
  HAVING Count(1) > 1);
@@ -296,6 +297,7 @@ e a descrição da coluna Sexo, informando: Masculino ou Feminino. */
 select IDAssociado, Nome,
 Case when sexo = 'F' then 'Feminino'
      when sexo = 'M' then 'Masculino'
+	 else 'Outro'
 End Sexo
 from associado;
 
@@ -312,6 +314,18 @@ Case
 End Porcentagem
 from Empregado;
 
+
+/* Exercício - 13 Professor*/
+
+Select NomeEmpregado, Salario,
+Case
+	 when Salario > 1164 and Salario >=2326.00 then (Salario*0.15)
+	 when Salario > 2326.00 then (Salario*0.275)
+	 else 0
+End Descontro_IR 
+from Empregado;
+
+
 /* Exercício - 14 Elimine as cidades duplicadas (mantendo 1 registro para cada).*/
 BEGIN TRANSACTION
 
@@ -323,7 +337,7 @@ DELETE FROM Cidade WHERE IDCidade in (Select MAX(IDCidade)
 rollback
 
 /*Exercício - 15 Adicione uma regra que impeça exista mais de uma cidade com o mesmo nome em um estado.*/
-ALTER TABLE Cidade ADD CONSTRAINT UQNomeCidade UNIQUE (Nome);
+ALTER TABLE Cidade ADD CONSTRAINT UQ_NomeCidadeUF UNIQUE (Nome, UF);
 /* Teste */
 Insert into Cidade (IDCidade, Nome, UF)
    values (343, 'Belo Horizonte', 'MG');  
