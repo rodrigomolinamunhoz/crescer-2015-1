@@ -101,6 +101,27 @@
 <colAssociation fkAssociation="65502710-E8DF-FC29-449C-28B56E78A5B4" referredColumn="CA789CC5-75A2-0471-3DC4-74ABF0804C6F"/>
 </associations>
 </Column>
+<Column name="Sexo" id="F870ECF6-F9F9-71C9-4F6F-3682F5CA21E9">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 20:11:22 UTC</createdTime>
+<generatorID>47C2028E-AC5C-7CB7-FF22-DC42588067FC</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DataNacimento" id="66659BA9-33E6-CC57-8590-48B88EF0D106">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-23 20:11:22 UTC</createdTime>
+<generatorID>50A5917F-C6B1-185B-61A5-42139F90DA13</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="4997D12E-A94B-9287-3A82-095AFA3C8C24" name="Funcionario_PK">

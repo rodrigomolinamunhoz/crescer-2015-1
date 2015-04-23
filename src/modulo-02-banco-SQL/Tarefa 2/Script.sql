@@ -1,5 +1,5 @@
 -- Gerado por Oracle SQL Developer Data Modeler 4.0.3.853
---   em:        2015-04-23 16:59:24 BRT
+--   em:        2015-04-23 17:13:47 BRT
 --   site:      SQL Server 2008
 --   tipo:      SQL Server 2008
 
@@ -121,6 +121,8 @@ CREATE
     Email                           VARCHAR (100) NOT NULL ,
     ClasseSalarial_IDClasseSalarial INTEGER NOT NULL ,
     Cargo_IDCargo                   INTEGER NOT NULL ,
+    Sexo                            CHAR (1) NOT NULL ,
+    DataNacimento                   DATE NOT NULL ,
     CONSTRAINT Funcionario_PK PRIMARY KEY CLUSTERED (IDFuncionario)
 WITH
   (
