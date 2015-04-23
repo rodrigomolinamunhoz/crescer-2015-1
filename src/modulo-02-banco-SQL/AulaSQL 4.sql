@@ -107,3 +107,35 @@ INNER JOIN Departamento de ON e.IDDepartamento = de.IDDepartamento
 INNER JOIN Departamento dg ON g.IDDepartamento = dg.IDDepartamento;
 -- Teste para verificar departamento dos empregados
 Select e.NomeEmpregado, d.NomeDepartamento from Empregado e, Departamento d where e.IDDepartamento = d.IDDepartamento; 
+
+/* Exercício - 6 Faça uma cópia da tabela Empregado e altere o salário de todos os empregados que o departamento
+fique na localidade de SAO PAULO, faça um reajuste de 14,5% */
+Select * into EmpregadoAux From Empregado;
+
+BEGIN TRANSACTION
+
+ UPDATE Empregado SET Salario = Salario + (Salario*0.145)  WHERE IDEmpregado in (SELECT e.IDEmpregado
+													FROM Empregado e 
+													INNER JOIN Departamento d on e.IDDepartamento = d.IDDepartamento
+													WHERE d.Localizacao = 'SAO PAULO');
+rollback
+--teste
+Select NomeEmpregado,Localizacao, Salario from Empregado, Departamento where Departamento.Localizacao = 'SAO PAULO';
+
+/* Exercício- 7 Liste a diferença que representará o reajuste aplicado
+no item anterior no somatório dos salários de todos os empregados.*/
+SELECT ISNULL(SUM(e.Salario),0) as SalarioNormal, ISNULL(SUM(ea.Salario),0) as SalarioAlterado
+FROM Empregado e, EmpregadoAux ea;
+
+/* Exercício 8 - Liste o departamento que possui o empregado de maior salário.*/
+SELECT MAX(e.Salario), d.NomeDepartamento
+FROM Empregado e 
+INNER JOIN Departamento d on e.IDDepartamento = d.IDDepartamento
+GROUP BY d.NomeDepartamento;
+--Teste
+SELECT e.Salario, d.NomeDepartamento
+FROM Empregado e 
+INNER JOIN Departamento d on e.IDDepartamento = d.IDDepartamento;
+
+/*Exercício - 9 Faça uma consulta para exibir o nome de cada associado e sua cidade e juntamente com os
+empregados (nome) e a cidade (localidade) de seu departamento, isto deve ser exibido em uma consulta. 
