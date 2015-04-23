@@ -1,17 +1,17 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <oracle.dbtools.crest.model.design.logical.LogicalDesign>
-   <object objectType="Entity" objectID="6C655F2D-6BAB-C8B3-FA8C-CAB010906600" name="Cargo" seqName="seg_0"/>
-   <object objectType="Entity" objectID="3DAFEAF1-5CFE-19CB-EAB4-7BEEBECCD085" name="Cidade" seqName="seg_0"/>
-   <object objectType="Entity" objectID="DC990EBD-461C-A7AE-40CF-606230BC6FE4" name="ClasseSalarial" seqName="seg_0"/>
-   <object objectType="Entity" objectID="326D8C9D-FD99-BD88-428C-D499A77097BA" name="Endereco" seqName="seg_0"/>
    <object objectType="Entity" objectID="129C6C16-7D0F-E08D-54D5-1DAF32C4063C" name="Funcionario" seqName="seg_0"/>
    <object objectType="Entity" objectID="31478F12-1FBB-034E-DC8B-234A14BBDD08" name="LogHistorico" seqName="seg_0"/>
+   <object objectType="Entity" objectID="326D8C9D-FD99-BD88-428C-D499A77097BA" name="Endereco" seqName="seg_0"/>
+   <object objectType="Entity" objectID="3DAFEAF1-5CFE-19CB-EAB4-7BEEBECCD085" name="Cidade" seqName="seg_0"/>
+   <object objectType="Entity" objectID="6C655F2D-6BAB-C8B3-FA8C-CAB010906600" name="Cargo" seqName="seg_0"/>
    <object objectType="Entity" objectID="877B484B-973C-23E1-21A7-0989C5A16611" name="NivelCargo" seqName="seg_0"/>
+   <object objectType="Entity" objectID="DC990EBD-461C-A7AE-40CF-606230BC6FE4" name="ClasseSalarial" seqName="seg_0"/>
+   <object objectType="Relation" objectID="0EF66AD4-91DE-85D0-0307-FDFFAF7BB285" name="FK_Funcionario_Endereco" seqName="seg_0"/>
+   <object objectType="Relation" objectID="3E615730-603D-BFA1-CDF7-2B747F9934E6" name="FK_ClasseSalarial_Cargo" seqName="seg_0"/>
    <object objectType="Relation" objectID="5840DE9B-E5A3-3793-A42B-9967A2096484" name="FK_Cargo_Funcionario" seqName="seg_0"/>
    <object objectType="Relation" objectID="8FF36DC5-1C33-D2A2-2A95-C145E97D9163" name="FK_Cargo_NivelCargo" seqName="seg_0"/>
-   <object objectType="Relation" objectID="E9E2490D-6AE4-ABD5-734A-526E6693C066" name="FK_Cidade_Endereco" seqName="seg_0"/>
-   <object objectType="Relation" objectID="3E615730-603D-BFA1-CDF7-2B747F9934E6" name="FK_ClasseSalarial_Cargo" seqName="seg_0"/>
-   <object objectType="Relation" objectID="E8CB5108-F331-46B0-1531-80B3C956ABBF" name="FK_ClasseSalarial_Funcionario" seqName="seg_0"/>
-   <object objectType="Relation" objectID="0EF66AD4-91DE-85D0-0307-FDFFAF7BB285" name="FK_Funcionario_Endereco" seqName="seg_0"/>
    <object objectType="Relation" objectID="DD842F34-65D4-5D79-B454-932B1CCF16A2" name="FK_Funcionario_LogHistorico" seqName="seg_0"/>
+   <object objectType="Relation" objectID="E8CB5108-F331-46B0-1531-80B3C956ABBF" name="FK_ClasseSalarial_Funcionario" seqName="seg_0"/>
+   <object objectType="Relation" objectID="E9E2490D-6AE4-ABD5-734A-526E6693C066" name="FK_Cidade_Endereco" seqName="seg_0"/>
 </oracle.dbtools.crest.model.design.logical.LogicalDesign>

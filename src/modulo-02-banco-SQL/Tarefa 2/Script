@@ -1,0 +1,321 @@
+-- Gerado por Oracle SQL Developer Data Modeler 4.0.3.853
+--   em:        2015-04-23 16:59:24 BRT
+--   site:      SQL Server 2008
+--   tipo:      SQL Server 2008
+
+
+
+
+CREATE
+  TABLE Cargo
+  (
+    IDCargo                         INTEGER NOT NULL ,
+    DescricaoCargo                  VARCHAR (100) NOT NULL ,
+    ClasseSalarial_IDClasseSalarial INTEGER NOT NULL ,
+    CONSTRAINT Cargo_PK PRIMARY KEY CLUSTERED (IDCargo)
+WITH
+  (
+    ALLOW_PAGE_LOCKS = ON ,
+    ALLOW_ROW_LOCKS  = ON
+  )
+  ON "default"
+  )
+  ON "default"
+GO
+CREATE UNIQUE NONCLUSTERED INDEX
+Cargo__IDX ON Cargo
+(
+  ClasseSalarial_IDClasseSalarial
+)
+ON "default"
+GO
+
+CREATE
+  TABLE Cidade
+  (
+    IDCidade   INTEGER NOT NULL ,
+    NomeCidade VARCHAR (100) NOT NULL ,
+    UF         VARCHAR (2) NOT NULL ,
+    CONSTRAINT Cidade_PK PRIMARY KEY CLUSTERED (IDCidade)
+WITH
+  (
+    ALLOW_PAGE_LOCKS = ON ,
+    ALLOW_ROW_LOCKS  = ON
+  )
+  ON "default"
+  )
+  ON "default"
+GO
+
+CREATE
+  TABLE ClasseSalarial
+  (
+    IDClasseSalarial        INTEGER NOT NULL ,
+    DescricaoClasseSalarial VARCHAR (100) NOT NULL ,
+    Salario                 DECIMAL (7,2) NOT NULL ,
+    CONSTRAINT ClasseSalarial_PK PRIMARY KEY CLUSTERED (IDClasseSalarial)
+WITH
+  (
+    ALLOW_PAGE_LOCKS = ON ,
+    ALLOW_ROW_LOCKS  = ON
+  )
+  ON "default"
+  )
+  ON "default"
+GO
+
+CREATE
+  TABLE Endereco
+  (
+    IDEndereco                INTEGER NOT NULL ,
+    Endereco                  VARCHAR (100) NOT NULL ,
+    Numero                    INTEGER NOT NULL ,
+    Complemento               VARCHAR (100) ,
+    Bairro                    VARCHAR (100) NOT NULL ,
+    CEP                       VARCHAR (20) NOT NULL ,
+    Funcionario_IDFuncionario INTEGER NOT NULL ,
+    Cidade_IDCidade           INTEGER NOT NULL ,
+    CONSTRAINT Endereco_PK PRIMARY KEY CLUSTERED (IDEndereco)
+WITH
+  (
+    ALLOW_PAGE_LOCKS = ON ,
+    ALLOW_ROW_LOCKS  = ON
+  )
+  ON "default"
+  )
+  ON "default"
+GO
+CREATE UNIQUE NONCLUSTERED INDEX
+Endereco__IDX ON Endereco
+(
+  Funcionario_IDFuncionario
+)
+ON "default"
+GO
+
+CREATE
+  TABLE FK_Cargo_NivelCargo
+  (
+    Cargo_IDCargo           INTEGER NOT NULL ,
+    NivelCargo_IDNivelCargo INTEGER NOT NULL ,
+    CONSTRAINT FK_Cargo_NivelCargo_PK PRIMARY KEY CLUSTERED (Cargo_IDCargo,
+    NivelCargo_IDNivelCargo)
+WITH
+  (
+    ALLOW_PAGE_LOCKS = ON ,
+    ALLOW_ROW_LOCKS  = ON
+  )
+  ON "default"
+  )
+  ON "default"
+GO
+
+CREATE
+  TABLE Funcionario
+  (
+    IDFuncionario                   INTEGER NOT NULL ,
+    NomeFuncionario                 VARCHAR (100) NOT NULL ,
+    DataAdmissao                    DATE NOT NULL ,
+    DataDemissao                    DATE ,
+    Telefone                        VARCHAR (30) NOT NULL ,
+    Email                           VARCHAR (100) NOT NULL ,
+    ClasseSalarial_IDClasseSalarial INTEGER NOT NULL ,
+    Cargo_IDCargo                   INTEGER NOT NULL ,
+    CONSTRAINT Funcionario_PK PRIMARY KEY CLUSTERED (IDFuncionario)
+WITH
+  (
+    ALLOW_PAGE_LOCKS = ON ,
+    ALLOW_ROW_LOCKS  = ON
+  )
+  ON "default"
+  )
+  ON "default"
+GO
+
+CREATE
+  TABLE LogHistorico
+  (
+    IDHistorico               INTEGER NOT NULL ,
+    DataCriacao               DATE NOT NULL ,
+    DataAlteracao             DATE NOT NULL ,
+    Funcionario_IDFuncionario INTEGER NOT NULL ,
+    CONSTRAINT LogHistorico_PK PRIMARY KEY CLUSTERED (IDHistorico)
+WITH
+  (
+    ALLOW_PAGE_LOCKS = ON ,
+    ALLOW_ROW_LOCKS  = ON
+  )
+  ON "default"
+  )
+  ON "default"
+GO
+CREATE UNIQUE NONCLUSTERED INDEX
+LogHistorico__IDX ON LogHistorico
+(
+  Funcionario_IDFuncionario
+)
+ON "default"
+GO
+
+CREATE
+  TABLE NivelCargo
+  (
+    IDNivelCargo        INTEGER NOT NULL ,
+    DescricaoNivelCargo VARCHAR (100) NOT NULL ,
+    CONSTRAINT NivelCargo_PK PRIMARY KEY CLUSTERED (IDNivelCargo)
+WITH
+  (
+    ALLOW_PAGE_LOCKS = ON ,
+    ALLOW_ROW_LOCKS  = ON
+  )
+  ON "default"
+  )
+  ON "default"
+GO
+
+ALTER TABLE Cargo
+ADD CONSTRAINT Cargo_ClasseSalarial_FK FOREIGN KEY
+(
+ClasseSalarial_IDClasseSalarial
+)
+REFERENCES ClasseSalarial
+(
+IDClasseSalarial
+)
+ON
+DELETE
+  NO ACTION ON
+UPDATE NO ACTION
+GO
+
+ALTER TABLE Endereco
+ADD CONSTRAINT Endereco_Cidade_FK FOREIGN KEY
+(
+Cidade_IDCidade
+)
+REFERENCES Cidade
+(
+IDCidade
+)
+ON
+DELETE
+  NO ACTION ON
+UPDATE NO ACTION
+GO
+
+ALTER TABLE Endereco
+ADD CONSTRAINT Endereco_Funcionario_FK FOREIGN KEY
+(
+Funcionario_IDFuncionario
+)
+REFERENCES Funcionario
+(
+IDFuncionario
+)
+ON
+DELETE
+  NO ACTION ON
+UPDATE NO ACTION
+GO
+
+ALTER TABLE FK_Cargo_NivelCargo
+ADD CONSTRAINT FK_ASS_2 FOREIGN KEY
+(
+Cargo_IDCargo
+)
+REFERENCES Cargo
+(
+IDCargo
+)
+ON
+DELETE
+  NO ACTION ON
+UPDATE NO ACTION
+GO
+
+ALTER TABLE FK_Cargo_NivelCargo
+ADD CONSTRAINT FK_ASS_3 FOREIGN KEY
+(
+NivelCargo_IDNivelCargo
+)
+REFERENCES NivelCargo
+(
+IDNivelCargo
+)
+ON
+DELETE
+  NO ACTION ON
+UPDATE NO ACTION
+GO
+
+ALTER TABLE Funcionario
+ADD CONSTRAINT Funcionario_Cargo_FK FOREIGN KEY
+(
+Cargo_IDCargo
+)
+REFERENCES Cargo
+(
+IDCargo
+)
+ON
+DELETE
+  NO ACTION ON
+UPDATE NO ACTION
+GO
+
+ALTER TABLE Funcionario
+ADD CONSTRAINT Funcionario_ClasseSalarial_FK FOREIGN KEY
+(
+ClasseSalarial_IDClasseSalarial
+)
+REFERENCES ClasseSalarial
+(
+IDClasseSalarial
+)
+ON
+DELETE
+  NO ACTION ON
+UPDATE NO ACTION
+GO
+
+ALTER TABLE LogHistorico
+ADD CONSTRAINT LogHistorico_Funcionario_FK FOREIGN KEY
+(
+Funcionario_IDFuncionario
+)
+REFERENCES Funcionario
+(
+IDFuncionario
+)
+ON
+DELETE
+  NO ACTION ON
+UPDATE NO ACTION
+GO
+
+
+-- Relatório do Resumo do Oracle SQL Developer Data Modeler: 
+-- 
+-- CREATE TABLE                             8
+-- CREATE INDEX                             3
+-- ALTER TABLE                              8
+-- CREATE VIEW                              0
+-- CREATE PACKAGE                           0
+-- CREATE PACKAGE BODY                      0
+-- CREATE PROCEDURE                         0
+-- CREATE FUNCTION                          0
+-- CREATE TRIGGER                           0
+-- ALTER TRIGGER                            0
+-- CREATE DATABASE                          0
+-- CREATE DEFAULT                           0
+-- CREATE INDEX ON VIEW                     0
+-- CREATE ROLLBACK SEGMENT                  0
+-- CREATE ROLE                              0
+-- CREATE RULE                              0
+-- CREATE PARTITION FUNCTION                0
+-- CREATE PARTITION SCHEME                  0
+-- 
+-- DROP DATABASE                            0
+-- 
+-- ERRORS                                   0
+-- WARNINGS                                 0
