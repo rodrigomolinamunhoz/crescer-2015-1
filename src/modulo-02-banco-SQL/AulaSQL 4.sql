@@ -128,7 +128,7 @@ SELECT ISNULL(SUM(e.Salario),0) as SalarioNormal, ISNULL(SUM(ea.Salario),0) as S
 FROM Empregado e, EmpregadoAux ea;
 
 /* Exercício 8 - Liste o departamento que possui o empregado de maior salário.*/
-SELECT MAX(e.Salario), d.NomeDepartamento
+SELECT MAX(e.Salario) as MaiorSalario, d.NomeDepartamento
 FROM Empregado e 
 INNER JOIN Departamento d on e.IDDepartamento = d.IDDepartamento
 GROUP BY d.NomeDepartamento;
@@ -138,4 +138,16 @@ FROM Empregado e
 INNER JOIN Departamento d on e.IDDepartamento = d.IDDepartamento;
 
 /*Exercício - 9 Faça uma consulta para exibir o nome de cada associado e sua cidade e juntamente com os
-empregados (nome) e a cidade (localidade) de seu departamento, isto deve ser exibido em uma consulta. 
+empregados (nome) e a cidade (localidade) de seu departamento, isto deve ser exibido em uma consulta. */
+Select a.Nome, c.Nome 
+From Associado a
+INNER JOIN Cidade c on a.IDCidade = c.IDCidade
+UNION ALL
+Select e.NomeEmpregado, d.Localizacao 
+From Empregado e
+INNER JOIN Departamento d on e.IDDepartamento = d.IDDepartamento;
+
+/* Exercício - 10 Lista as cidades que tenham associado relacionado.*/
+Select c.Nome
+From Associado a
+INNER JOIN Cidade c on a.IDCidade = c.IDCidade;
