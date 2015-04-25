@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="E399770E-3C5E-EE40-5EED-03FFBB7BA33F" name="Cargo_NivelCargo_NivelCargo_FK">
+<createdBy>Rodrigo Molina</createdBy>
+<createdTime>2015-04-25 00:41:20 UTC</createdTime>
+<generatorID>E212F050-966B-01DE-52DF-BA89F826C45B</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<containerWithKeyObject>B0BB05EC-E288-E989-F224-D19937F71D6E</containerWithKeyObject>
+<deleteRule>NO ACTION</deleteRule>
+<localFKIndex>2103CAEB-FC05-1447-3892-AC166254F245</localFKIndex>
+<keyObject>34D499E3-2C66-3B35-F818-E0F1ADA60CA1</keyObject>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

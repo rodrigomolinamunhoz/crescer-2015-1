@@ -1,19 +1,18 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <oracle.dbtools.crest.model.design.relational.RelationalDesign>
    <object objectType="Table" objectID="3B88A0BD-0A64-2985-EBB1-B0AE327BBAE0" name="Cargo" seqName="seg_0"/>
+   <object objectType="Table" objectID="B0BB05EC-E288-E989-F224-D19937F71D6E" name="Cargo_NivelCargo" seqName="seg_0"/>
    <object objectType="Table" objectID="B8E0308B-8DEE-1EFA-FADD-FC87790407CA" name="Cidade" seqName="seg_0"/>
    <object objectType="Table" objectID="03D5E045-4051-51D6-FD52-8D176D7C4187" name="ClasseSalarial" seqName="seg_0"/>
    <object objectType="Table" objectID="B77AF377-9F54-80A4-64C3-A39AEA85382C" name="Endereco" seqName="seg_0"/>
-   <object objectType="Table" objectID="E676CF04-8110-0001-5EE0-5C45EF2335AC" name="FK_Cargo_NivelCargo" seqName="seg_0"/>
    <object objectType="Table" objectID="5E10AB39-F6E2-A3DD-ECB2-10CFA1F187F5" name="Funcionario" seqName="seg_0"/>
    <object objectType="Table" objectID="BB3B7EDE-4866-EFE3-D781-5C84B94E0BE1" name="LogHistorico" seqName="seg_0"/>
    <object objectType="Table" objectID="FD568F8A-E5D3-8ECE-950C-ABE4F8CC498E" name="NivelCargo" seqName="seg_0"/>
-   <object objectType="FKIndexAssociation" objectID="4DF92EE8-754B-A6F7-7F92-8BC625275CD3" name="Cargo_ClasseSalarial_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="59B75C16-3E0D-A0AD-0981-6A7B01ED98D0" name="Cargo_NivelCargo_Cargo_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="7CC2F10D-125E-ECA5-D2E2-B47A2A3E101E" name="Cargo_NivelCargo_ClasseSalarial_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="9B679F8F-21F7-50BA-1FCE-BC2A337A2B0F" name="Cargo_NivelCargo_Funcionario_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="E399770E-3C5E-EE40-5EED-03FFBB7BA33F" name="Cargo_NivelCargo_NivelCargo_FK" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="2A7AE5F1-8066-865C-FD7E-2FAFCAC0B945" name="Endereco_Cidade_FK" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="C1ED2C9A-D450-BCB0-273D-564909F89BBF" name="Endereco_Funcionario_FK" seqName="seg_0"/>
-   <object objectType="FKIndexAssociation" objectID="1137953C-C204-A906-1958-2966E3E499FD" name="FK_ASS_2" seqName="seg_0"/>
-   <object objectType="FKIndexAssociation" objectID="D926E9ED-F8CE-F250-A0A3-171337DE3A5C" name="FK_ASS_3" seqName="seg_0"/>
-   <object objectType="FKIndexAssociation" objectID="65502710-E8DF-FC29-449C-28B56E78A5B4" name="Funcionario_Cargo_FK" seqName="seg_0"/>
-   <object objectType="FKIndexAssociation" objectID="0B244AFC-1ED7-7F7C-8FDA-4FBA3A38983C" name="Funcionario_ClasseSalarial_FK" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="02C77C00-851A-24E2-C39D-EA4125752896" name="LogHistorico_Funcionario_FK" seqName="seg_0"/>
 </oracle.dbtools.crest.model.design.relational.RelationalDesign>

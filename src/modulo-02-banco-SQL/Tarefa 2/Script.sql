@@ -1,5 +1,5 @@
 -- Gerado por Oracle SQL Developer Data Modeler 4.0.3.853
---   em:        2015-04-23 17:13:47 BRT
+--   em:        2015-04-24 22:47:04 BRT
 --   site:      SQL Server 2008
 --   tipo:      SQL Server 2008
 
@@ -9,9 +9,8 @@
 CREATE
   TABLE Cargo
   (
-    IDCargo                         INTEGER NOT NULL ,
-    DescricaoCargo                  VARCHAR (100) NOT NULL ,
-    ClasseSalarial_IDClasseSalarial INTEGER NOT NULL ,
+    IDCargo        INTEGER NOT NULL ,
+    DescricaoCargo VARCHAR (100) NOT NULL ,
     CONSTRAINT Cargo_PK PRIMARY KEY CLUSTERED (IDCargo)
 WITH
   (
@@ -25,9 +24,28 @@ GO
 CREATE UNIQUE NONCLUSTERED INDEX
 Cargo__IDX ON Cargo
 (
-  ClasseSalarial_IDClasseSalarial
+  IDCargo
 )
 ON "default"
+GO
+
+CREATE
+  TABLE Cargo_NivelCargo
+  (
+    IDCargoNivelCargo INTEGER NOT NULL ,
+    IDCargo           INTEGER NOT NULL ,
+    IDNivelCargo      INTEGER NOT NULL ,
+    IDClasseSalarial  INTEGER NOT NULL ,
+    IDFuncionario     INTEGER NOT NULL ,
+    CONSTRAINT Cargo_NivelCargo_PK PRIMARY KEY CLUSTERED (IDCargoNivelCargo)
+WITH
+  (
+    ALLOW_PAGE_LOCKS = ON ,
+    ALLOW_ROW_LOCKS  = ON
+  )
+  ON "default"
+  )
+  ON "default"
 GO
 
 CREATE
@@ -67,14 +85,14 @@ GO
 CREATE
   TABLE Endereco
   (
-    IDEndereco                INTEGER NOT NULL ,
-    Endereco                  VARCHAR (100) NOT NULL ,
-    Numero                    INTEGER NOT NULL ,
-    Complemento               VARCHAR (100) ,
-    Bairro                    VARCHAR (100) NOT NULL ,
-    CEP                       VARCHAR (20) NOT NULL ,
-    Funcionario_IDFuncionario INTEGER NOT NULL ,
-    Cidade_IDCidade           INTEGER NOT NULL ,
+    IDEndereco    INTEGER NOT NULL ,
+    Endereco      VARCHAR (100) NOT NULL ,
+    Numero        INTEGER NOT NULL ,
+    Complemento   VARCHAR (100) ,
+    Bairro        VARCHAR (100) NOT NULL ,
+    CEP           VARCHAR (20) NOT NULL ,
+    IDFuncionario INTEGER NOT NULL ,
+    IDCidade      INTEGER NOT NULL ,
     CONSTRAINT Endereco_PK PRIMARY KEY CLUSTERED (IDEndereco)
 WITH
   (
@@ -88,41 +106,22 @@ GO
 CREATE UNIQUE NONCLUSTERED INDEX
 Endereco__IDX ON Endereco
 (
-  Funcionario_IDFuncionario
+  IDFuncionario
 )
 ON "default"
 GO
 
 CREATE
-  TABLE FK_Cargo_NivelCargo
-  (
-    Cargo_IDCargo           INTEGER NOT NULL ,
-    NivelCargo_IDNivelCargo INTEGER NOT NULL ,
-    CONSTRAINT FK_Cargo_NivelCargo_PK PRIMARY KEY CLUSTERED (Cargo_IDCargo,
-    NivelCargo_IDNivelCargo)
-WITH
-  (
-    ALLOW_PAGE_LOCKS = ON ,
-    ALLOW_ROW_LOCKS  = ON
-  )
-  ON "default"
-  )
-  ON "default"
-GO
-
-CREATE
   TABLE Funcionario
   (
-    IDFuncionario                   INTEGER NOT NULL ,
-    NomeFuncionario                 VARCHAR (100) NOT NULL ,
-    DataAdmissao                    DATE NOT NULL ,
-    DataDemissao                    DATE ,
-    Telefone                        VARCHAR (30) NOT NULL ,
-    Email                           VARCHAR (100) NOT NULL ,
-    ClasseSalarial_IDClasseSalarial INTEGER NOT NULL ,
-    Cargo_IDCargo                   INTEGER NOT NULL ,
-    Sexo                            CHAR (1) NOT NULL ,
-    DataNacimento                   DATE NOT NULL ,
+    IDFuncionario   INTEGER NOT NULL ,
+    NomeFuncionario VARCHAR (100) NOT NULL ,
+    DataAdmissao    DATE NOT NULL ,
+    DataDemissao    DATE ,
+    Telefone        VARCHAR (30) NOT NULL ,
+    Email           VARCHAR (100) NOT NULL ,
+    Sexo            CHAR (1) NOT NULL ,
+    DataNacimento   DATE NOT NULL ,
     CONSTRAINT Funcionario_PK PRIMARY KEY CLUSTERED (IDFuncionario)
 WITH
   (
@@ -137,10 +136,10 @@ GO
 CREATE
   TABLE LogHistorico
   (
-    IDHistorico               INTEGER NOT NULL ,
-    DataCriacao               DATE NOT NULL ,
-    DataAlteracao             DATE NOT NULL ,
-    Funcionario_IDFuncionario INTEGER NOT NULL ,
+    IDHistorico   INTEGER NOT NULL ,
+    DataCriacao   DATE NOT NULL ,
+    DataAlteracao DATE NOT NULL ,
+    IDFuncionario INTEGER NOT NULL ,
     CONSTRAINT LogHistorico_PK PRIMARY KEY CLUSTERED (IDHistorico)
 WITH
   (
@@ -154,7 +153,7 @@ GO
 CREATE UNIQUE NONCLUSTERED INDEX
 LogHistorico__IDX ON LogHistorico
 (
-  Funcionario_IDFuncionario
+  IDFuncionario
 )
 ON "default"
 GO
@@ -175,10 +174,25 @@ WITH
   ON "default"
 GO
 
-ALTER TABLE Cargo
-ADD CONSTRAINT Cargo_ClasseSalarial_FK FOREIGN KEY
+ALTER TABLE Cargo_NivelCargo
+ADD CONSTRAINT Cargo_NivelCargo_Cargo_FK FOREIGN KEY
 (
-ClasseSalarial_IDClasseSalarial
+IDCargo
+)
+REFERENCES Cargo
+(
+IDCargo
+)
+ON
+DELETE
+  NO ACTION ON
+UPDATE NO ACTION
+GO
+
+ALTER TABLE Cargo_NivelCargo
+ADD CONSTRAINT Cargo_NivelCargo_ClasseSalarial_FK FOREIGN KEY
+(
+IDClasseSalarial
 )
 REFERENCES ClasseSalarial
 (
@@ -190,10 +204,40 @@ DELETE
 UPDATE NO ACTION
 GO
 
+ALTER TABLE Cargo_NivelCargo
+ADD CONSTRAINT Cargo_NivelCargo_Funcionario_FK FOREIGN KEY
+(
+IDFuncionario
+)
+REFERENCES Funcionario
+(
+IDFuncionario
+)
+ON
+DELETE
+  NO ACTION ON
+UPDATE NO ACTION
+GO
+
+ALTER TABLE Cargo_NivelCargo
+ADD CONSTRAINT Cargo_NivelCargo_NivelCargo_FK FOREIGN KEY
+(
+IDNivelCargo
+)
+REFERENCES NivelCargo
+(
+IDNivelCargo
+)
+ON
+DELETE
+  NO ACTION ON
+UPDATE NO ACTION
+GO
+
 ALTER TABLE Endereco
 ADD CONSTRAINT Endereco_Cidade_FK FOREIGN KEY
 (
-Cidade_IDCidade
+IDCidade
 )
 REFERENCES Cidade
 (
@@ -208,7 +252,7 @@ GO
 ALTER TABLE Endereco
 ADD CONSTRAINT Endereco_Funcionario_FK FOREIGN KEY
 (
-Funcionario_IDFuncionario
+IDFuncionario
 )
 REFERENCES Funcionario
 (
@@ -220,70 +264,10 @@ DELETE
 UPDATE NO ACTION
 GO
 
-ALTER TABLE FK_Cargo_NivelCargo
-ADD CONSTRAINT FK_ASS_2 FOREIGN KEY
-(
-Cargo_IDCargo
-)
-REFERENCES Cargo
-(
-IDCargo
-)
-ON
-DELETE
-  NO ACTION ON
-UPDATE NO ACTION
-GO
-
-ALTER TABLE FK_Cargo_NivelCargo
-ADD CONSTRAINT FK_ASS_3 FOREIGN KEY
-(
-NivelCargo_IDNivelCargo
-)
-REFERENCES NivelCargo
-(
-IDNivelCargo
-)
-ON
-DELETE
-  NO ACTION ON
-UPDATE NO ACTION
-GO
-
-ALTER TABLE Funcionario
-ADD CONSTRAINT Funcionario_Cargo_FK FOREIGN KEY
-(
-Cargo_IDCargo
-)
-REFERENCES Cargo
-(
-IDCargo
-)
-ON
-DELETE
-  NO ACTION ON
-UPDATE NO ACTION
-GO
-
-ALTER TABLE Funcionario
-ADD CONSTRAINT Funcionario_ClasseSalarial_FK FOREIGN KEY
-(
-ClasseSalarial_IDClasseSalarial
-)
-REFERENCES ClasseSalarial
-(
-IDClasseSalarial
-)
-ON
-DELETE
-  NO ACTION ON
-UPDATE NO ACTION
-GO
-
 ALTER TABLE LogHistorico
 ADD CONSTRAINT LogHistorico_Funcionario_FK FOREIGN KEY
 (
-Funcionario_IDFuncionario
+IDFuncionario
 )
 REFERENCES Funcionario
 (
@@ -300,7 +284,7 @@ GO
 -- 
 -- CREATE TABLE                             8
 -- CREATE INDEX                             3
--- ALTER TABLE                              8
+-- ALTER TABLE                              7
 -- CREATE VIEW                              0
 -- CREATE PACKAGE                           0
 -- CREATE PACKAGE BODY                      0

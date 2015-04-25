@@ -72,7 +72,7 @@
 <dataTypeSize>20</dataTypeSize>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Funcionario_IDFuncionario" id="0A00C64D-C8A9-399F-094F-DF0A8F50496E">
+<Column name="IDFuncionario" id="0A00C64D-C8A9-399F-094F-DF0A8F50496E">
 <createdBy>Rodrigo Molina</createdBy>
 <createdTime>2015-04-23 19:47:54 UTC</createdTime>
 <generatorID>43512FE3-8534-578E-5D3E-92A16A784500</generatorID>
@@ -87,7 +87,7 @@
 <colAssociation fkAssociation="C1ED2C9A-D450-BCB0-273D-564909F89BBF" referredColumn="07553D30-CA67-0520-4661-C9D7ABF7F47C"/>
 </associations>
 </Column>
-<Column name="Cidade_IDCidade" id="8289BFA8-5C7E-928A-1041-02AFA390E1EC">
+<Column name="IDCidade" id="8289BFA8-5C7E-928A-1041-02AFA390E1EC">
 <createdBy>Rodrigo Molina</createdBy>
 <createdTime>2015-04-23 19:47:54 UTC</createdTime>
 <generatorID>5F4186C6-BD2D-77E4-AA4F-3A20DC3EFE3F</generatorID>

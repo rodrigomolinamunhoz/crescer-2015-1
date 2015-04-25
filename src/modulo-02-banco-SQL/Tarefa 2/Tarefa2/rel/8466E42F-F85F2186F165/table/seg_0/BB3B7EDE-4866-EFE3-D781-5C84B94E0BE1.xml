@@ -37,7 +37,7 @@
 <logicalDatatype>LOGDT007</logicalDatatype>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Funcionario_IDFuncionario" id="A0158541-BC60-D7EC-AE86-814491110349">
+<Column name="IDFuncionario" id="A0158541-BC60-D7EC-AE86-814491110349">
 <createdBy>Rodrigo Molina</createdBy>
 <createdTime>2015-04-23 19:47:54 UTC</createdTime>
 <generatorID>8871C1F5-747F-73FF-D462-8690B2118A58</generatorID>

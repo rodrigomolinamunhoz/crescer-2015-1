@@ -41,19 +41,6 @@
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>100</dataTypeSize>
 </Attribute>
-<Attribute name="IDClasseSalarial" id="899A39F8-5511-1655-B1C6-AB8B616C2967">
-<createdBy>Rodrigo Molina</createdBy>
-<createdTime>2015-04-23 19:39:46 UTC</createdTime>
-<generatorID>3E615730-603D-BFA1-CDF7-2B747F9934E6</generatorID>
-<ownerDesignName>Tarefa2</ownerDesignName>
-<engineerTo>
-<item key="8466E42F-F650-A18D-6EE5-F85F2186F165" value="true"/>
-</engineerTo>
-<referedAttribute>1BA7A2AA-CCC6-6D55-78B9-C201CF9EFFB7</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="DE0A7B11-185C-E28A-A274-EB85624CC3A3" name="{entity} PK">

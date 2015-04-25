@@ -1,19 +1,20 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="FK_Cargo_NivelCargo" directorySegmentName="seg_0" id="8FF36DC5-1C33-D2A2-2A95-C145E97D9163">
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="FK_CargoNivelCargo_ClasseSalarial" directorySegmentName="seg_0" id="DAFA220A-7F6E-939D-94D9-FCD642941DB1">
 <createdBy>Rodrigo Molina</createdBy>
-<createdTime>2015-04-23 19:40:17 UTC</createdTime>
+<createdTime>2015-04-25 00:39:54 UTC</createdTime>
 <generatorID>Gerado pelo usuário</generatorID>
 <ownerDesignName>Tarefa2</ownerDesignName>
 <engineerTo>
 <item key="8466E42F-F650-A18D-6EE5-F85F2186F165" value="true"/>
 </engineerTo>
+<sourcePk>DF6BFDDD-D14B-825B-03E5-902A7D15D3F1</sourcePk>
 <identifying>false</identifying>
 <optionalSource>true</optionalSource>
 <optionalTarget>false</optionalTarget>
-<sourceCardinality>*</sourceCardinality>
-<sourceEntity>6C655F2D-6BAB-C8B3-FA8C-CAB010906600</sourceEntity>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>DC990EBD-461C-A7AE-40CF-606230BC6FE4</sourceEntity>
 <targetCardinalityString>*</targetCardinalityString>
-<targetEntity>877B484B-973C-23E1-21A7-0989C5A16611</targetEntity>
+<targetEntity>D8836205-B311-93A9-1EEB-15593672B8C5</targetEntity>
 <transferable>true</transferable>
 <deleteRule>NO ACTION</deleteRule>
 </Relation>

@@ -117,32 +117,6 @@
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>100</dataTypeSize>
 </Attribute>
-<Attribute name="IDClasseSalarial" id="F237DDF9-C919-30AC-E886-01F8AC882697">
-<createdBy>Rodrigo Molina</createdBy>
-<createdTime>2015-04-23 19:39:20 UTC</createdTime>
-<generatorID>E8CB5108-F331-46B0-1531-80B3C956ABBF</generatorID>
-<ownerDesignName>Tarefa2</ownerDesignName>
-<engineerTo>
-<item key="8466E42F-F650-A18D-6EE5-F85F2186F165" value="true"/>
-</engineerTo>
-<referedAttribute>1BA7A2AA-CCC6-6D55-78B9-C201CF9EFFB7</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-</Attribute>
-<Attribute name="IDCargo" id="3CEDF013-899C-9346-EA20-03B2B97FDC06">
-<createdBy>Rodrigo Molina</createdBy>
-<createdTime>2015-04-23 19:40:41 UTC</createdTime>
-<generatorID>5840DE9B-E5A3-3793-A42B-9967A2096484</generatorID>
-<ownerDesignName>Tarefa2</ownerDesignName>
-<engineerTo>
-<item key="8466E42F-F650-A18D-6EE5-F85F2186F165" value="true"/>
-</engineerTo>
-<referedAttribute>DFE0E053-DAE6-A361-3B97-1FDEAB0E2199</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="A2A9CDAB-B3CC-76BA-9702-B68CAC468D66" name="{entity} PK">
