@@ -62,9 +62,17 @@ Left Join Cidade c on a.IDCidade = c.IDCidade;
 
 /* Exercício 3 - Lista os estados (UF) e total de cidades que não possuem associados relacionados
 (dica: pode ser utilizado count + group by + exists).*/
-Select Count(e.IDCidade), e.UF
+Select Count(e.IDCidade) as TotalCidades, e.UF
 From Cidade e
 Where NOT EXISTS(Select e.IDCidade
+From Associado a
+Where a.IDCidade = e.IDCidade)
+Group by UF;
+
+/*Exercício 3 - Professor*/
+Select Count(1) as TotalCidades, e.UF
+From Cidade e
+Where NOT EXISTS(Select 1
 From Associado a
 Where a.IDCidade = e.IDCidade)
 Group by UF;
@@ -98,6 +106,15 @@ insert into Associado
 	    106);
  
 rollback 
+
+/* Exercício 4 - Professor */
+SELECT a.Nome, c.Nome,
+	Case
+	when c.UF in ('RS', 'SC','PR') then '***'
+	else null 	 
+End UF
+FROM Associado a 
+LEFT JOIN Cidade c on a.IDCidade = c.IDCidade;
 
 /* Exercício 5 - Liste o nome do empregado, o nome do gerente, e o departamento de cada um. */
 Select e.NomeEmpregado as NomeEmpregado, de.NomeDepartamento as DepEmpregado, g.NomeEmpregado as NomeGerente, dg.NomeDepartamento as DepGerente
@@ -151,3 +168,16 @@ INNER JOIN Departamento d on e.IDDepartamento = d.IDDepartamento;
 Select c.Nome
 From Associado a
 INNER JOIN Cidade c on a.IDCidade = c.IDCidade;
+
+-- Criando um view
+CREATE VIEW vw_cidade_regiao AS
+SELECT a.Nome as Nome_Associado, c.Nome as Nome_Cidade,
+	Case
+	when c.UF in ('RS', 'SC','PR') then '***'
+	else null 	 
+End UF
+FROM Associado a 
+LEFT JOIN Cidade c on a.IDCidade = c.IDCidade;
+
+--Exibir uma view
+Select * from vw_cidade_regiao;
