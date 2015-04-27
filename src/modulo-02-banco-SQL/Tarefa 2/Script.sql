@@ -1,5 +1,5 @@
 -- Gerado por Oracle SQL Developer Data Modeler 4.0.3.853
---   em:        2015-04-24 22:47:04 BRT
+--   em:        2015-04-27 13:56:24 BRT
 --   site:      SQL Server 2008
 --   tipo:      SQL Server 2008
 
@@ -136,10 +136,13 @@ GO
 CREATE
   TABLE LogHistorico
   (
-    IDHistorico   INTEGER NOT NULL ,
-    DataCriacao   DATE NOT NULL ,
-    DataAlteracao DATE NOT NULL ,
-    IDFuncionario INTEGER NOT NULL ,
+    IDHistorico      INTEGER NOT NULL ,
+    DataCriacao      DATE NOT NULL ,
+    DataAlteracao    DATE NOT NULL ,
+    DescricaoSalario VARCHAR (100) NOT NULL ,
+    SalarioAnterior  DECIMAL (7,2) NOT NULL ,
+    SalarioAtual     DECIMAL (7,2) NOT NULL ,
+    IDFuncionario    INTEGER NOT NULL ,
     CONSTRAINT LogHistorico_PK PRIMARY KEY CLUSTERED (IDHistorico)
 WITH
   (

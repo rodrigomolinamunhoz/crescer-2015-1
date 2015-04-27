@@ -37,6 +37,41 @@
 <logicalDatatype>LOGDT007</logicalDatatype>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="DescricaoSalario" id="E0B15CE3-3A1C-EBF7-0D59-9133819C3970">
+<createdBy>Rodrigo</createdBy>
+<createdTime>2015-04-27 16:41:08 UTC</createdTime>
+<generatorID>CD7D530F-4B5D-FB94-827C-8C4BA483AF2B</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SalarioAnterior" id="9996E130-A0D0-9E51-D9C1-6E7F8F1CA0E9">
+<createdBy>Rodrigo</createdBy>
+<createdTime>2015-04-27 16:41:08 UTC</createdTime>
+<generatorID>DD346E93-E9B5-B7B2-A71C-6E07F7E61AF0</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>7</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SalarioAtual" id="D07D4261-6BF8-4182-5190-22DCBA32B83B">
+<createdBy>Rodrigo</createdBy>
+<createdTime>2015-04-27 16:41:08 UTC</createdTime>
+<generatorID>3449F4FA-F9AE-BB75-6984-5DEB4F4D715C</generatorID>
+<ownerDesignName>Tarefa2</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>7</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 <Column name="IDFuncionario" id="A0158541-BC60-D7EC-AE86-814491110349">
 <createdBy>Rodrigo Molina</createdBy>
 <createdTime>2015-04-23 19:47:54 UTC</createdTime>
