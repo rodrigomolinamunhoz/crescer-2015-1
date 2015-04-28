@@ -8,6 +8,10 @@ SELECT COUNT(DISTINCT Situacao) AS NumeroDeSituacoes FROM Produto;
 select Nome, RazaoSocial from Cliente
 where RazaoSocial like '%Ltda%' or Nome like '%Ltda%';
 
+/*2  - Professor */
+select Nome, RazaoSocial from Cliente
+where upper(Nome) like '%LTDA%' or upper(RazaoSocial) like '%LTDA%';
+
 /* 3 Crie (insira) um novo registro na tabela de Produto, com as seguintes informações:
 Nome: Galocha Maragato
 Preço de custo: 35.67
@@ -20,11 +24,17 @@ VALUES
 ('Galocha Maragato',GETDATE(),35.67,77.95,'A');
 --teste
 select * from Produto where Nome = 'Galocha Maragato'; 
+commit
 roolback
 
 /*4) Identifique e liste os produtos que não tiveram nenhum pedido,
 considere os relacionamentos no modelo de dados, pois não há relacionamento direto entre Produto e 
 Pedido (será preciso relacionar PedidoItem). Obs.: o produto criado anteriormente deverá ser listado.*/
+
+-- criando índice
+CREATE INDEX IX_PEDIDOTEM_PRODUTO ON PedidoItem (IDProduto);
+-- apagando índice
+drop index PedidoItem.IX_PEDIDOTEM_PRODUTO;
 
 Select p.IDProduto, p.Nome
 from Produto p where not exists(select 1
@@ -47,6 +57,18 @@ select subMenor.numero_clientes as MenorNumeroClientes, subMenor.UF from
 INNER JOIN Cliente cl ON c.IDCidade = cl.IDCidade
 GROUP BY C.UF order by count(c.UF)) as subMenor
 
+/*5 - Professor */
+create view vwEstados as
+select c.UF, count(1) as TotalCidades
+From Cidade c
+INNER JOIN Cliente cli on cli.IDCidade = c.IDCidade
+Group by c.UF;
+
+select * from vwEstados
+where TotalCidades = (select MIN(TotalCidades) from vwEstados)
+or TotalCidades = (select MAX(TotalCidades) from vwEstados);
+
+
 /* 6) Liste o total de cidades (distintas) que possuem clientes que realizaram algum pedido.
 Dica: será preciso relacionar Cidade com Cliente, e Cliente com Pedido.*/
 
@@ -61,21 +83,29 @@ where c.IDCidade in (select ci.IDCidade
 Identifique se existe algum produto sem material relacionado.
 Obs.: o produto criado anteriormente deverá ser listado.*/
 
-select p.nome from ProdutoMaterial pm
+select p.nome
+from ProdutoMaterial pm
 right join Produto p on p.IDProduto = pm.IDProduto
 left join Material m on M.IDMaterial = pm.IDMaterial
 where m.Descricao is null
 order by m.Descricao;
 
+/* Exercício 7 - Professor*/
+
+
 
 /* 8) Liste os produtos, com seu preço de custo, e relacione com seus os materiais (ProdutoMaterial),
 e liste também o somatório do PrecoCusto de todos seus materiais.*/
 
-Select p.Nome, p.PrecoCusto as PrecoCusto,
-SUM(m.PrecoCusto) as CustoMaterias from ProdutoMaterial pm
-INNER JOIN Produto p on p.IDProduto = pm.IDProduto
+Select p.IDProduto, p.Nome, p.PrecoCusto as PrecoCusto,
+SUM(m.PrecoCusto * ISNULL(pm.Quantidade, 1)) as CustoMaterias
+from Produto p
+INNER JOIN ProdutoMaterial pm on p.IDProduto = pm.IDProduto
 INNER JOIN Material m on M.IDMaterial = pm.IDMaterial
-group by p.Nome, p.PrecoCusto 
+group by p.Nome, p.PrecoCusto, p.IDProduto;
+
+/*Exercício 8 - Professor*/
+
 
 /* 9) Após identificar o preço de custo dos produtos e seus materiais será preciso acertar os produtos que
 estão com o valor de custo inferior ao custo dos materiais. Pra isso faça uma alteração (update)
