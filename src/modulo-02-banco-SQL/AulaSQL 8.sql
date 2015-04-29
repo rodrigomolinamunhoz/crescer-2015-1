@@ -172,38 +172,125 @@ END
 /*Exercícios*/
 /* 1)Imprima qual produto é o mais vendido, considere a quantidade(PedidoItem).*/
 BEGIN
-DECLARE @vNomeUM VarChar(50),
+DECLARE @vIDProduto int,
+		@vNomeUM VarChar(50),
 		@vQuantidade int
 
-select top 1 @vNomeUM = P.Nome, 
-			 @vQuantidade = (COUNT(1))
-from PedidoItem pi
-	LEFT JOIN Produto p ON pi.IDProduto = p.IDProduto
-GROUP BY p.Nome, p.DataCadastro, p.PrecoVenda, p.PrecoCusto
-ORDER BY COUNT(1) DESC;
+			Select Top 1	    
+				   @vIDProduto = PedidoItem.IDProduto,
+				   @vNomeUM = Produto.Nome, 
+				   @vQuantidade = SUM(Quantidade)
+			From PedidoItem 
+			INNER JOIN Produto on Produto.IDProduto = PedidoItem.IDProduto
+			Group By PedidoItem.IDProduto,
+					 Produto.Nome
+			Order By SUM(Quantidade) desc;
 
-Print 'Nome ' + @vNomeUM +' Quantidade '+
-Cast(@vQuantidade AS VarChar(10))
+			Print 'Nome: ' + @vNomeUM +' Quantidade: '+
+			Cast(@vQuantidade AS VarChar(10))
 END
 
 /* 2)Liste as cidades com nome e UF duplicados que tenham clientes relacionados. */
 
 BEGIN
-	DECLARE ListaCidade CURSOR
-	Local
-	Fast_Forward
-	FOR Select Nome, Uf
+	DECLARE ListaCidade CURSOR Local Fast_Forward
+	FOR Select Nome,
+			   Uf,
+			   COUNT(1) as TotalCidade
 		From Cidade
 		Group by Nome, Uf
-		Having COUNT(1) > 1;
-	DECLARE @vNome varchar(50),
-			@vUF varchar(2)
+		Having COUNT(1) > 1
+
+	DECLARE @vNomeDOIS varchar(50),	@vUFUM varchar(2), @total integer;
+
 	OPEN ListaCidade;
-	FETCH NEXT FROM ListaCidade INTO @vNome, @vUF
+	FETCH NEXT FROM ListaCidade INTO @vNomeDOIS, @vUFUM
+
 	WHILE (@@FETCH_STATUS=0) BEGIN
-	Print @vNome + '/'+@vUF;
-	FETCH NEXT FROM ListaCidade INTO @vNome, @vUF
+
+	select @total = count(1)
+	from Cliente cli
+	where EXISTS (Select 1
+				  from Cidade
+				  Where Cidade.IDCidade = cli.IDCliente
+				  and   Cidade.Nome = @vNomeDOIS
+				  and   Cidade.UF = @vUFUM);  
+
+	if @total > 0
+		Print @vNomeDOIS + '/' + @vUFUM + ' Total Cidades: ' + cast(@total as varchar(10));
+
+	FETCH NEXT FROM ListaCidade INTO @vNomeDOIS, @vUFUM
+
 	END
-	CLOSE ListaCidade;
+	CLOSE ListaCidade
 	DEALLOCATE ListaCidade;
 END
+
+
+BEGIN
+	DECLARE ListaCidade CURSOR local Fast_Forward
+		FOR select	nome,
+					uf
+			from Cidade
+			group by nome, uf
+			having count(1) > 1
+	DECLARE @vNome varchar(50), @vUF varchar(2), @total integer;
+	OPEN ListaCidade;
+	FETCH NEXT FROM ListaCidade INTO @vNome, @vUF
+	
+	while(@@FETCH_STATUS = 0) BEGIN
+		
+		select @total = count(1)
+		from cliente cli
+		where EXISTS (select 1
+					  from Cidade
+					  where Cidade.IDCidade = cli.IDCidade
+					  and	Cidade.Nome = @vNome
+					  and	Cidade.UF = @vUF);		  
+		if @total > 0
+			print @vNome + '/' + @vUF
+
+		FETCH NEXT FROM ListaCidade INTO @vNome, @vUF
+	end
+	
+	close ListaCidade
+	deallocate ListaCidade
+END
+
+/*3)Identifique qual o material é utilizado por mais produtos e em seguida liste a quantidade de pedidos realizados,
+ com produtos compostos por este material, liste também o valor total de vendas dos últimos 60 dias.*/
+
+select count(distinct ped.IDPedido) total_pedidos
+	   count(1) total_itens
+from Pedido ped
+inner join PedidoItem item on item.IDPedido = ped.IDPedido
+where exists (select 1 
+			  from ProdutoMaterial pm
+			  where pm.IDProduto = item.IDProduto
+			  and pm.IDMaterial in (select IDMaterial from vwMateriais_Mais_Utilizados)
+			  );
+ 
+ select pro.IDProduto, pro.Nome
+ from Produto pro
+ where exists (select 1
+			   from ProdutoMaterial pm
+			   where pm.IDProduto = pro.IDProduto
+			   and pm.IDMaterial in (select IDMaterial from vwMateriais_Mais_Utilizados)
+			   );
+
+create view vwMateriais_Mais_Utilizados as
+ select top 1 with ties ma.IDMaterial, ma.Descricao, count(DISTINCT pm.IDProduto) total_produto_distinto
+ from Material ma
+ inner join ProdutoMaterial pm on pm.IDMaterial = ma.IDMaterial
+ inner join Produto pr on pr.IDProduto = pm.IDProduto
+ group by ma.IDMaterial, ma.Descricao
+ order by total_produto_distinto desc;
+
+
+ select ped.IDPedido, PedidoItem.IDPedidoItem, pro.Nome, PedidoItem.Quantidade
+ from Pedido ped
+ inner join PedidoItem  on PedidoItem.IDPedido = ped.IDPedido
+ inner join Produto pro on pro.IDProduto = PedidoItem.IDProduto
+ where ped.DataPedido between DATEADD(day, -60, getdate()) and getdate();
+
+ create index IX_Pedido_DataPedido on Pedido(DataPedido);
