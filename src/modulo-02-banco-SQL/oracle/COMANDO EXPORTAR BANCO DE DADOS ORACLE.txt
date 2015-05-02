@@ -1,0 +1,1 @@
+EXPDP system/system@xe directory=CURSOSQL DUMPFILE=Crescer15_2 LOGFILE=Crescer15_2
