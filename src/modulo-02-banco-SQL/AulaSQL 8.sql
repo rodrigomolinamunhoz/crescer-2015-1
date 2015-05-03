@@ -195,13 +195,12 @@ END
 BEGIN
 	DECLARE ListaCidade CURSOR Local Fast_Forward
 	FOR Select Nome,
-			   Uf,
-			   COUNT(1) as TotalCidade
+			   Uf
 		From Cidade
 		Group by Nome, Uf
 		Having COUNT(1) > 1
 
-	DECLARE @vNomeDOIS varchar(50),	@vUFUM varchar(2), @total integer;
+	DECLARE @vNomeDOIS varchar(50),	@vUFUM varchar(2), @total integer
 
 	OPEN ListaCidade;
 	FETCH NEXT FROM ListaCidade INTO @vNomeDOIS, @vUFUM
@@ -210,87 +209,102 @@ BEGIN
 
 	select @total = count(1)
 	from Cliente cli
-	where EXISTS (Select 1
+	where IDCidade in (Select 1
 				  from Cidade
-				  Where Cidade.IDCidade = cli.IDCliente
-				  and   Cidade.Nome = @vNomeDOIS
+				  where   Cidade.Nome = @vNomeDOIS
 				  and   Cidade.UF = @vUFUM);  
 
-	if @total > 0
-		Print @vNomeDOIS + '/' + @vUFUM + ' Total Cidades: ' + cast(@total as varchar(10));
+	if (@total > 0)
+		Print 'Cidade: '+ @vNomeDOIS + '/'+@vUFUM + ' possui '+ cast(@total as varchar) + ' cliente(s)';
 
 	FETCH NEXT FROM ListaCidade INTO @vNomeDOIS, @vUFUM
 
 	END
-	CLOSE ListaCidade
+	CLOSE ListaCidade;
 	DEALLOCATE ListaCidade;
-END
-
-
-BEGIN
-	DECLARE ListaCidade CURSOR local Fast_Forward
-		FOR select	nome,
-					uf
-			from Cidade
-			group by nome, uf
-			having count(1) > 1
-	DECLARE @vNome varchar(50), @vUF varchar(2), @total integer;
-	OPEN ListaCidade;
-	FETCH NEXT FROM ListaCidade INTO @vNome, @vUF
-	
-	while(@@FETCH_STATUS = 0) BEGIN
-		
-		select @total = count(1)
-		from cliente cli
-		where EXISTS (select 1
-					  from Cidade
-					  where Cidade.IDCidade = cli.IDCidade
-					  and	Cidade.Nome = @vNome
-					  and	Cidade.UF = @vUF);		  
-		if @total > 0
-			print @vNome + '/' + @vUF
-
-		FETCH NEXT FROM ListaCidade INTO @vNome, @vUF
-	end
-	
-	close ListaCidade
-	deallocate ListaCidade
 END
 
 /*3)Identifique qual o material é utilizado por mais produtos e em seguida liste a quantidade de pedidos realizados,
  com produtos compostos por este material, liste também o valor total de vendas dos últimos 60 dias.*/
 
-select count(distinct ped.IDPedido) total_pedidos
-	   count(1) total_itens
-from Pedido ped
-inner join PedidoItem item on item.IDPedido = ped.IDPedido
-where exists (select 1 
-			  from ProdutoMaterial pm
-			  where pm.IDProduto = item.IDProduto
-			  and pm.IDMaterial in (select IDMaterial from vwMateriais_Mais_Utilizados)
-			  );
+BEGIN
+         
+ DECLARE @vQtdeProd   int,
+         @vIDMaterial int,
+         @vDataPedido datetime,
+         @vDescricaoMaterial varchar(50),
+         @vTotalPedidos int,
+         @vTotalVendas  decimal(12,2)
  
- select pro.IDProduto, pro.Nome
- from Produto pro
- where exists (select 1
-			   from ProdutoMaterial pm
-			   where pm.IDProduto = pro.IDProduto
-			   and pm.IDMaterial in (select IDMaterial from vwMateriais_Mais_Utilizados)
-			   );
+ --	IDENTIFICA O MATERIAL MAIS UTILIZADO POR TODOS OS PRODUTOS
+ -- IMPORTANTE: não é a quantidade, e sim a frequência em Produtos distintos
+ -- BUSCA A DESCRICAO DO MATERIAL
+  Select TOP(1) 
+		@vDescricaoMaterial = Material.Descricao,
+        @vIDMaterial = ProdutoMaterial.IDMaterial, 
+        @vQtdeProd   = Count(distinct IDProduto)
+ From   ProdutoMaterial
+ INNER JOIN Material on Material.IDMaterial = ProdutoMaterial.IDMaterial
+ Group  by ProdutoMaterial.IDMaterial,Material.Descricao
+ Order  by Count(distinct IDProduto) Desc
 
-create view vwMateriais_Mais_Utilizados as
- select top 1 with ties ma.IDMaterial, ma.Descricao, count(DISTINCT pm.IDProduto) total_produto_distinto
- from Material ma
- inner join ProdutoMaterial pm on pm.IDMaterial = ma.IDMaterial
- inner join Produto pr on pr.IDProduto = pm.IDProduto
- group by ma.IDMaterial, ma.Descricao
- order by total_produto_distinto desc;
+ -- BUSCA O TOTAL DE PEDIDOS
+ Select @vTotalPedidos = COUNT(distinct IDPedido)
+ From   PedidoItem
+ Where  IDProduto in (Select IDProduto             -- todos produtos com material selecionado acima
+                      From   ProdutoMaterial pm
+                      Where  pm.IDMaterial = @vIDMaterial);
+ 
 
+ -- TOTAL DOS PEDIDOS DOS ÚLTIMOS 60 DIAS 
+ Set @vDataPedido = convert(datetime,  convert(varchar, DATEADD(DAY, -60, GETDATE()), 103)  , 103)
+ 
+ -- faz consulta para buscar informação
+ Select @vTotalVendas = SUM(ValorPedido) 
+ From   Pedido
+ Where  DataPedido >= @vDataPedido
+ 
 
- select ped.IDPedido, PedidoItem.IDPedidoItem, pro.Nome, PedidoItem.Quantidade
- from Pedido ped
- inner join PedidoItem  on PedidoItem.IDPedido = ped.IDPedido
- inner join Produto pro on pro.IDProduto = PedidoItem.IDProduto
- where ped.DataPedido between DATEADD(day, -60, getdate()) and getdate();
+ -- IMPRIME RESULTADOS
 
- create index IX_Pedido_DataPedido on Pedido(DataPedido);
+ Print 'Material mais utilizado: ' + cast(@vIDMaterial as varchar) + ' - '+ @vDescricaoMaterial
+ Print 'Total de pedidos com produtos que utilizam o material: ' + cast(@vTotalPedidos as varchar)
+ Print 'Total de vendas R$ ' + cast(@vTotalVendas as varchar(50)) + ' (últimos 60 dias)'
+END
+
+/* 4)Faça um bloco T-SQL que liste todos os Clientes que estão relacionados com as cidades duplicadas (Nome e UF).
+ Não considere as cidades duplicadas de menor IDCidade. */
+ BEGIN
+  SET NOCOUNT ON
+  -- LISTA PARA AUXILIAR NA CONSULTA
+  Declare @CidadeDuplicada table 
+    (
+     IDCidadeMenor  int,
+     Nome           varchar(50),
+     UF             varchar(2)
+     )
+
+  -- CARREGA LISTA DE CIDADES DUPLICADAS, E MENOR IDCIDADE
+  Insert @CidadeDuplicada 
+         (IDCidadeMenor, Nome, UF)
+     select MIN(IDCidade) MenorID, 
+            Nome, 
+            UF
+     from   Cidade dup
+     group  by Nome, UF
+     having COUNT(1) > 1
+
+  -- BUSCA TODOS OS CLIENTES RELACIONANDO COM CIDADE
+  -- E FILTRANDO PARA EXIBIR AS CIDADES DUPLICADAS (IGNORANDO IDCIDADE = MIN(IDCIDADE))
+  Select Cli.IDCliente, cli.Nome,  cid.IDCidade, cid.Nome as Nome_Cidade
+    From  Cliente cli
+   inner join Cidade cid on cid.IDCidade = cli.IDCidade
+   Where exists (Select 1
+                 From   @CidadeDuplicada dup
+                 Where  dup.Nome          = cid.Nome
+                 and    dup.UF            = cid.UF
+                 and    dup.IDCidadeMenor < cid.IDCidade)
+  order by Nome_Cidade
+  --
+  SET NOCOUNT OFF  
+END

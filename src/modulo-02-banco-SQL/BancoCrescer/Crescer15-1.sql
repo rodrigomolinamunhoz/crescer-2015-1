@@ -91,7 +91,11 @@ where m.Descricao is null
 order by m.Descricao;
 
 /* Exercício 7 - Professor*/
-
+Select pro.IDProduto, pro.Nome
+From   Produto pro
+Where  NOT EXISTS (Select 1
+                   From   ProdutoMaterial pm
+			       where  pm.IDProduto = pro.IDProduto );
 
 
 /* 8) Liste os produtos, com seu preço de custo, e relacione com seus os materiais (ProdutoMaterial),
@@ -105,7 +109,16 @@ INNER JOIN Material m on M.IDMaterial = pm.IDMaterial
 group by p.Nome, p.PrecoCusto, p.IDProduto;
 
 /*Exercício 8 - Professor*/
-
+select pro.IDProduto,
+       pro.Nome,
+	   pro.PrecoCusto,
+       SUM (ma.PrecoCusto * ISNULL(pm.Quantidade, 1) ) as Preco_Custo_Material
+from Produto pro
+	 inner join produtoMaterial pm  on pm.idproduto = pro.idproduto
+	 inner join Material ma         on ma.IDMaterial = pm.IDMaterial
+group by pro.IDProduto,
+         pro.Nome,
+	     pro.PrecoCusto;
 
 /* 9) Após identificar o preço de custo dos produtos e seus materiais será preciso acertar os produtos que
 estão com o valor de custo inferior ao custo dos materiais. Pra isso faça uma alteração (update)
@@ -128,6 +141,44 @@ GROUP BY p.Nome, p.PrecoCusto,p.IDProduto, p.PrecoCusto HAVING p.PrecoCusto < su
 
 rollback
 
+-- CRIANDO UMA VIEW COM TODOS OS PRODUTOS QUE TENHAM O CUSTO DO PRODUTO E O CUSTO DOS SEUS MATERIAIS
+-- E UTILIZANDO UMA FUNÇÃO "ROUND" SOBRE A COLUNA QUE EXIBE O TOTAL DE MATERIAIS, COM ISSO TORNAMOS 
+-- OS CAMPOS "TotalMateriais" e "PrecoCusto" DO MESMO FORMATO (2 CASAS DECIMAIS)
+
+/* Exercício 9 - Professor*/
+Create view vwCustoProduto as
+ Select pr.IDProduto, 
+        pr.Nome, 
+        pr.PrecoCusto, 
+        ROUND( SUM( ISNULL(pm.Quantidade,1) * ma.PrecoCusto ),2) as TotalMateriais
+ From   Produto pr
+   inner join ProdutoMaterial pm on pm.IDProduto  = pr.IDProduto
+   inner join Material        ma on ma.IDMaterial = pm.IDMaterial
+ Group by pr.IDProduto, 
+          pr.Nome, 
+          pr.PrecoCusto 
+go
+
+BEGIN TRANSACTION
+GO
+
+ Update Produto
+ Set    PrecoCusto = vw.TotalMateriais
+ From   vwCustoProduto vw
+ Where  vw.IDProduto = Produto.IDProduto
+ and    vw.PrecoCusto < vw.TotalMateriais
+go
+
+--ou
+Update Produto
+Set    PrecoCusto = (select TotalMAteriais
+                     From   vwCustoProduto vw
+                     Where  vw.IDProduto = Produto.IDProduto
+                     and    vw.PrecoCusto < vw.TotalMateriais)
+Where  IDProduto in (select IDProduto 
+                     from 	vwCustoProduto vw
+					 where  vw.PrecoCusto < vw.TotalMateriais)
+
 
 /*10) Liste os clientes que tenham o mesmo nome (Tabela Cliente, registros com o nome (apenas) duplicado). */
 
@@ -145,9 +196,22 @@ ORDER BY QuantidadeRepetida DESC;
 
 /* 12) Liste qual o produto é mais vendido (considere a informação da quantidade).*/
 
-select top 1 p.Nome, p.DataCadastro, p.PrecoVenda, p.PrecoCusto,
-			 COUNT(1) AS QuantidadeVendida
+select top 1 with ties
+			 pi.IDProduto,
+			 p.Nome,
+			 SUM(pi.Quantidade) AS QuantidadeVendida
 from PedidoItem pi
-	LEFT JOIN Produto p ON pi.IDProduto = p.IDProduto
-GROUP BY p.Nome, p.DataCadastro, p.PrecoVenda, p.PrecoCusto
-ORDER BY COUNT(1) DESC;
+	INNER JOIN Produto p ON pi.IDProduto = p.IDProduto
+GROUP BY p.Nome, pi.IDProduto
+ORDER BY QuantidadeVendida DESC;
+
+/*Exercício 12 - Professor*/
+Select top 1 with ties
+       item.IDProduto, 
+       pro.Nome,
+       sum(item.Quantidade) TotalItens
+From   PedidoItem item
+  inner join Produto pro on item.IDProduto = pro.IDProduto
+Group  by item.IDProduto,
+          pro.Nome
+Order  by TotalItens desc
