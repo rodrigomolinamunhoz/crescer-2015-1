@@ -25,11 +25,13 @@ public class ExercitosDeElfos
     * 
     * @param elfo Elfo a ser alistado no exército. Deve ser apenas do tipo ElfoVerde ou ElfoNoturno
     */
-    public void alistarElfo(Elfo elfo){
+    public void alistarElfo(Elfo elfo)throws NaoPodeAlistarException{
       boolean podeAlistar = elfo instanceof ElfosVerdes || elfo instanceof ElfoNoturno; //|| elfo instanceof Elfo
       if (podeAlistar){
         exercito.put(elfo.getNome(), elfo);
-      } 
+      } else {
+            ErrosDoJogo.naoPodeAlistar();
+      }
     }
     
     /**
@@ -84,4 +86,7 @@ public class ExercitosDeElfos
        estrategia.atacarOrcs(elfosQueVãoPraPeleia, orcs);
     }
     
+    public ArrayList<Elfo> getOrdemDoUltimoAtaque() {
+        return this.estrategia.getOrdemDoUltimoAtaque();
+    }
 }

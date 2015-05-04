@@ -1,6 +1,9 @@
 import java.util.*;
 
 public class EstrategiaNormal implements EstrategiaDeAtaque {
+    
+    private ArrayList<Elfo> ordemAtaque = new ArrayList<>();
+    
     public void atacarOrcs(ArrayList<Elfo> elfos, ArrayList<Orc> orcs) {
         System.out.println("Estratégia normalzinha...");
         
@@ -10,5 +13,9 @@ public class EstrategiaNormal implements EstrategiaDeAtaque {
             }
         }        
         
+    }
+    
+    public ArrayList<Elfo> getOrdemDoUltimoAtaque() {
+        return ordemAtaque;
     }
 }
