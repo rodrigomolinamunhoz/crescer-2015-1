@@ -1,0 +1,31 @@
+1 - Web, HTML                                                         |       Servidor(Apache)										
+2 - HTML, CSS							      |        c:/Temp/Crescer
+3 - CSS, JavaScript                                                   | 
+4 - JavaScript                                                        |
+5 - JQuery                                                            | 
+6 - JQuery                                                            |            
+7 - Desafio                                                           |
+                                                                      |
+Ao acessar um site                                                    |
+         							      |
+1 - www.cwi.com.br                                                    |
+ consulta o DNS local                                                 |
+ consulta o DNS de rede           ipv4                                |
+ consulta o DNS geral  -----> 189.200.0.1:80/443                      |   index.html
+				       HTTP/HTTPS(uso de certificado) | <------------------
+                                                                      |   2 - Gzip
+3 - Parse
+4 - Render
+
+----------------------------------------------------------------------------
+1 - Google Chrome
+2 - janela anônima
+3 - inspecionar elemento
+4 - http://en.wikipedia.org/wiki/List_of_HTTP_status_codes
+5 - https://developers.google.com/
+
+----------------------------------------------------------------------------
+
+HTML
+1 - http://brackets.io/
+2 - https://atom.io/
