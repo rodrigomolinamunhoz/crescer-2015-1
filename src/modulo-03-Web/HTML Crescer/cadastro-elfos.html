@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Cadastro Elfo</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<form action="POST">
+		<div style="height:50px;">
+				<label>Nome Elfo</label>
+				<input id="nome" name="nome" type="text" required>	
+			</div>
+			<div style="height:70px;">
+				<label>Sexo</label>
+				<br>
+				<input id="sexo" type="radio" name="sexo" value="male" required>Masculino
+				<br>
+				<input id="sexo" type="radio" name="sexo" value="female" required>Feminino	
+			</div>
+			<div style="height:50px;">
+				<label>Data de Nascimento</label>
+				<input id="datanasc" type="date" name="datanasc" required>
+			</div>
+			<div style="height:50px;">
+				<label>Status</label>
+				<br>
+				<select>
+				  	<option id="status" value="dormindo">Dormindo</option>
+				    <option id="status" value="cacando">Caçando</option>
+				    <option id="status" value="contandopiada">Contando piada</option>
+				</select>
+			</div>
+			<div style="height:120px;">
+				<label>Itens Iniciais do Elfo</label>
+				<br>
+				<input id="itens" type="checkbox" name="Arco e Flecha" value="42" checked>Arco e Flecha
+				<br>
+				<input id="itens" type="checkbox" name="Escudodeamburana" value="Escudodeamburana" checked>Escudo de amburana
+				<br>
+				<input id="itens" type="checkbox" name="EspadadeaçoPorto-alegrense" value="EspadadeaçoPorto-alegrense">Espada de aço Porto-alegrense
+				<br>
+				<input id="itens" type="checkbox" name="PoçãoHP" value="PoçãoHP">Poção HP	 
+			</div>
+			<div style="height:50px;">
+				<label>Escolha imagem</label>
+				<br>	
+				<input type="file" name="img" accept="">
+			</div>	
+			<div style="height:50px;">
+				<input type="submit" name="cadastrar" value="Cadastrar">
+		</div>
+	</form>		
+</body>
+</html>

@@ -1,0 +1,6 @@
+http://imasters.com.br/artigo/22016/javascript/o-que-exatamente-e-o-nodejs/
+http://www.oracle.com/br/products/middleware/soa/overview/index.html
+http://www.json.org/json-pt.html
+http://cloudinary.com/
+https://developers.facebook.com/
+http://www.w3schools.com/tags/tag_iframe.asp
