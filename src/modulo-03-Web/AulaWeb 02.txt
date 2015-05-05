@@ -4,3 +4,5 @@ http://www.json.org/json-pt.html
 http://cloudinary.com/
 https://developers.facebook.com/
 http://www.w3schools.com/tags/tag_iframe.asp
+--------Exercícios
+https://gist.github.com/bernardobrezende/2775413693676c33e832
