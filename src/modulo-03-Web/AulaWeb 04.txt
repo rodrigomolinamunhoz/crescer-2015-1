@@ -1,0 +1,25 @@
+http://csslint.net/
+https://validator.w3.org/
+https://trello.com/
+------------------------------------
+Análise
+Desenvolvimento
+Testes
+
+metodologia scrum
+metodologia agil
+
+Playning pré-game
+Daily - diária
+Groming - 1 hora
+ 
+                         ANÁLISE
+INÍCIO ---->     REVISÃO         DESENV   -----> FIM
+	
+
+
+NÍVEIS LOCAIS
+local
+teste	
+homologação - pré-produção ou staging
+produção 
