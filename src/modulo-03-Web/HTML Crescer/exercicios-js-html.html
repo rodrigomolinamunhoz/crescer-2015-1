@@ -1,0 +1,101 @@
+<html>
+<script>
+var chelsea = {
+  nome: 'Chelsea Football Club',
+  titulos: [
+    { desc: 'Nacionais', qtd: 5 },
+    { desc: 'Continentais', qtd: 1 },
+    { desc: 'Mundiais', qtd: 0 }
+  ]
+};
+
+var manutd = {
+  nome: 'Manchester United Football Club',
+  titulos: [
+    { desc: 'Nacionais', qtd: 57 },
+    { desc: 'Continentais', qtd: 5 },
+    { desc: 'Mundiais', qtd: 2 }
+  ]
+};
+
+var liverpool = {
+  nome: 'Liverpool Football Club',
+  titulos: [
+    { desc: 'Nacionais', qtd: 0 },
+    { desc: 'Continentais', qtd: 11 },
+    { desc: 'Mundiais', qtd: 48 }
+  ]
+};
+
+var arsenal = {
+  nome: 'Arsenal Football Club',
+  titulos: [
+    { desc: 'Nacionais', qtd: 39 },
+    { desc: 'Continentais', qtd: 2 },
+    { desc: 'Mundiais', qtd: 0 }
+  ]
+};
+
+// Exercicio 2A
+	var clubes = [chelsea, manutd, liverpool, arsenal];
+
+	function ordenaPorNacionais(Array){
+		var arrayOrdenado = Array.sort(function (a, b) {
+		  	if (a.titulos[0].qtd < b.titulos[0].qtd) {
+		    return 1;
+		  	}		
+		});
+		return arrayOrdenado;
+	}	
+// Exercicio 2B
+	function ordenaPorContinentais(Array){
+		var arrayOrdenado = Array.sort(function (a, b) {
+		  	if (a.titulos[1].qtd < b.titulos[1].qtd) {
+		    return 1;
+		  	}		
+		});
+		return arrayOrdenado;
+	}	
+// Exercicio 2C
+	function ordenaPorMundiais(Array){
+		var arrayOrdenado = Array.sort(function (a, b) {
+		  	if (a.titulos[2].qtd < b.titulos[2].qtd) {
+		    return 1;
+		  	}		
+		});
+		return arrayOrdenado;
+	}
+
+// Exercicio 3A
+	function somarPorNacionais(Array){
+		var arrayOrdenado = Array.reduce(function (a, b) {
+		    return a+b;	  			
+		});
+		return arrayOrdenado;
+	}
+</script>	
+</html>
+
+
+function elfo(nome, flecha){
+	this.nome = nome;
+	this.flecha = flecha || 42;
+}
+
+var legolas = new Elfo("elfooaaa", 66);
+var outroelfo = new Elfo("elf", 66);
+
+
+this.atirarflechas = function(){
+	this.flechas--;
+	this.experiencia++;
+}
+
+
+//sobrecarga de construtores
+
+function elfo(options){
+	options = options || {};
+	this.nome = nome;
+	this.flecha = flecha || 42;
+}

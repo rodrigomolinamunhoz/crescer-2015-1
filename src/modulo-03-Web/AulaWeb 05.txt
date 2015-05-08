@@ -1,0 +1,67 @@
+https://jsperf.com/
+-------------------------------------------------------
+pop()
+retira o ultimo elemento do array.
+
+reverse()
+inverse os elementos de um array
+
+shift()
+remove o primeiro elemento do array.
+
+unshift()
+coloca um elemento na primeira posição de um array.
+
+slice()
+mostra somente os elementos de um determinado espaço do array.
+
+splice()
+altera o conteúdo de uma lista, adicionando novos elementos enquanto remove elementos antigos.
+
+concat().join(junta).split(separa)
+retorna um novo array contendo todos os arrays ou valores passados como parâmetro
+
+indexOf()
+https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf
+
+
+map()
+passada por argumento para cada elemento do Array e devolve um novo Array como resultado.
+
+map()
+aplica uma função de contra um acumulador e cada valor da matriz ( a partir da esquerda para a direita ) tem a reduzi-lo a um único valor.
+
+
+map().reduce()
+
+-------------------------------------
+Exercício
+https://gist.github.com/bernardobrezende/1ba28480317e1528e2bb
+-------------------------------------------------------------
+CRIAÇÃO DE CLASSES EM JAVASCRIPT
+
+function elfo(nome, flecha){
+	this.nome = nome;
+	this.flecha = flecha || 42;
+}
+
+var legolas = new Elfo("elfooaaa", 66);
+var outroelfo = new Elfo("elf", 66);
+
+
+this.atirarflechas = function(){
+	this.flechas--;
+	this.experiencia++;
+}
+
+
+//sobrecarga de construtores
+
+function elfo(options){
+	options = options || {};
+	this.nome = nome;
+	this.flecha = flecha || 42;
+}
+
+---------------------------------
+tabela Price
