@@ -40,7 +40,7 @@ https://gist.github.com/bernardobrezende/1ba28480317e1528e2bb
 -------------------------------------------------------------
 CRIAÇÃO DE CLASSES EM JAVASCRIPT
 
-function elfo(nome, flecha){
+function Elfo(nome, flecha){
 	this.nome = nome;
 	this.flecha = flecha || 42;
 }
@@ -57,7 +57,7 @@ this.atirarflechas = function(){
 
 //sobrecarga de construtores
 
-function elfo(options){
+function Elfo(options){
 	options = options || {};
 	this.nome = nome;
 	this.flecha = flecha || 42;
@@ -65,3 +65,7 @@ function elfo(options){
 
 ---------------------------------
 tabela Price
+--------------------------------
+EXERCÍCIOS TEMA
+https://gist.github.com/bernardobrezende/0f3f5114878fe8ee1f32#super-css
+https://gist.github.com/bernardobrezende/43edab26a10154fe45c7
