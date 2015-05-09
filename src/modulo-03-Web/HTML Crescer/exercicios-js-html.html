@@ -68,34 +68,65 @@ var arsenal = {
 
 // Exercicio 3A
 	function somarPorNacionais(Array){
-		var arrayOrdenado = Array.reduce(function (a, b) {
-		    return a+b;	  			
-		});
-		return arrayOrdenado;
+		var arraySomado = Array.map(function (i) {
+			return i.titulos[0].qtd;			
+		}).reduce(function (a, b) {
+			return a + b;
+		  });
+		return arraySomado;
 	}
+
+
+/* Exercício 3.B */
+function somarPorContinentais(Array){
+		var arraySomado = Array.map(function (i) {
+			return i.titulos[1].qtd;			
+		}).reduce(function (a, b) {
+			return a + b;
+		  });
+		return arraySomado;
+}
+
+/* Exercício 3C */
+function somarPorTodosTitulos(Array){
+		var arraySomado = Array.map(function (i) {
+			return i.titulos[0].qtd + i.titulos[1].qtd + i.titulos[2].qtd;			
+		}).reduce(function (a, b) {
+			return a + b;
+		  });
+		return arraySomado;
+}
+
+/* Exercício 4 */
+function apenasOsMelhores(Array){
+		var arrayMelhores = Array.map(function (i) {
+			if (i.titulos[0].qtd > 18) {
+				return i.nome;	
+			} else {
+				return;
+			};		
+		})
+		return arrayMelhores;
+}
+
+/* Exercício 5A*/
+
+function apenasOsMelhoresParaJSON(Array){
+	return JSON.stringify(Array);
+}
+
+/* Exercício 5B*/
+function apenasOsMelhoresRecebendoJSON(String){
+	return JSON.parse(String); 
+}
+
+/* Teste 
+function apenasOsMelhoresRecebendoJSON(String){
+	var teste = apenasOsMelhoresParaJSON(clubes)
+	return JSON.parse(String); 
+} */
+
 </script>	
 </html>
 
 
-function elfo(nome, flecha){
-	this.nome = nome;
-	this.flecha = flecha || 42;
-}
-
-var legolas = new Elfo("elfooaaa", 66);
-var outroelfo = new Elfo("elf", 66);
-
-
-this.atirarflechas = function(){
-	this.flechas--;
-	this.experiencia++;
-}
-
-
-//sobrecarga de construtores
-
-function elfo(options){
-	options = options || {};
-	this.nome = nome;
-	this.flecha = flecha || 42;
-}
