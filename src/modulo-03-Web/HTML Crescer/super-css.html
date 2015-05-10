@@ -7,8 +7,7 @@
       .fundo-preto {
         background-color: black;
       }
-      .caixinha-preta {
-        background-color: black;
+      .caixinha {
         float: left;
         width: 400px;
         height: 50px;
@@ -16,35 +15,35 @@
       .caixinha-borda {
         border-radius: 15px;
       }
-      .fonte-vermelha-personalizada{
-        color: red;
-        text-align: center;
-        font-size: 2em;
+      .margin-esquerda{
         margin-left: 50px;
       }
       .fonte-comic{
-        text-align: center;
         font-family: 'Comic Sans MS';
       }
-      .fonte-azul {
-        color: blue;
+      .tamanho-fonte {
         font-size: 2em;
       }
-      .fonte-vermelha {
-        font-size: 2em;
+      .azul {
+        color: blue;
+      }
+      .vermelho {
         color: red;
+      }
+      .texto-centralizado{
+        text-align: center;
       }
     </style>
   </head>
   <body>
-    <div class="caixinha-preta caixinha-borda fonte-comic">
-      <span class="fonte-azul">CSS</span>
-      <span class="fonte-vermelha">é</span> 
+    <div class="fundo-preto caixinha caixinha-borda fonte-comic texto-centralizado">
+      <span class="tamanho-fonte azul">CSS</span>
+      <span class="tamanho-fonte vermelho">é</span> 
     </div>
-    <div class="caixinha-preta fonte-comic">
-      <span class="fonte-azul">super</span>
+    <div class="fundo-preto caixinha fonte-comic texto-centralizado">
+      <span class="tamanho-fonte azul">super</span>
     </div>
-      <span class="fundo-preto fonte-vermelha-personalizada">legal</span>
-      <span class="fonte-vermelha-personalizada">#sqn</span>
+      <span class="fundo-preto vermelho texto-centralizado margin-esquerda">legal</span>
+      <span class="tamanho-fonte vermelho margin-esquerda">#sqn</span>
   </body>
 </html>
