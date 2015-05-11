@@ -1,0 +1,68 @@
+https://jsperf.com/
+----------------------------------
+var dt = new Date(2015,01,01) //cuidar com mês em Java.
+
+Math.PI * 100
+
+314.1592653589793
+
+
+Math.round(Math.PI * 100) / 100
+
+3.14
+
+
+Math.round(Math.PI, 100)
+
+3
+-------------------------
+oi.toBacon()
+String.prototype.toBacon = function() { return this + " BACON!!";}
+function String.toBacon()
+oi.toBacon
+"oi BACON!!"
+-------------------------
+PROTOTYPE	
+function Elfo(options) {
+ 
+  // usamos este or lógico para atribuir valores default caso options esteja nulo
+  options = options || {};
+  this.nome = options.nome;
+  this.flechas = options.flechas || 42;
+  this.experiencia = 0;
+ 
+  this.atirarFlecha = function() {
+  	this.experiencia++;
+    	this.flechas--;
+  };
+
+  Elfo.prototype.atirarFlecha = function(){
+	this.experiencia++;
+	this.flechas--:
+  }
+}
+------------------------------
+'use strict'
+------------------------------
+jQuery
+
+document.getElementById('btn');
+
+<button id=?"btn" onclick=?"alertar()?">?Clique aqui.?</button>?
+
+
+btn.innerText = "click-me";
+
+"click-me"
+-----------------------------
+Navegador: DOM
+-------------------------------------
+https://jquery.com/download/
+
+jQuery 1.x suporta IE 8 <
+jQuery 2.x nao suporta IE 
+
+https://code.jquery.com/jquery-1.11.3.min.js
+-----------------------------------------------
+EXERCÍCIOS - JQUERY
+https://gist.github.com/bernardobrezende/652cc9d5cd65889b8f78

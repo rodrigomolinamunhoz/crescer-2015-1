@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<!--<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script> -->	 
+	<style>
+		button{ 
+			font-size: 2em;
+		}
+		img {
+			display: block;
+		}
+	</style>
+</head>
+<body onclick="alert('bode!!')" onload="carregou()">
+	<!--<button id="btn" onclick="alertar()">Clique aqui.</button> -->
+	<button id="btn">Clique-me</button>
+	<button id="btn2">Clique-me</button>
+		<h2></h2>
+		<h2></h2>
+		<h2></h2>
+	<img id="errou" onload="errou" src="http://geradormemes.com/media/created/k6rb68.jpg" alt="">
+	<img id="ahcara" src="http://humorfetico.com/wp-content/uploads/2014/11/unnamed.jpg" alt="">
+	<script src="C:\Users\Rodrigo\Documents\Projeto Crescer\Git\crescer-2015-1\src\modulo-03-Web\HTML Crescer\jquery-migrate-1.2.1.min.js"></script> 
+	<script>
+		function alertar(e) {
+			alert("AAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+			e.stopPropagation();
+			//e.preventDefault();
+		};
+        //var btn = document.getElementById('btn');
+		//btn.onclick = alertar;
+		//btn.innerText = 'Click-me';
+
+		var fazAMao = function() {
+			$this.text("Click-me");
+		};
+
+		$("#btn").click(fazAMao);
+			
+		$("#btn").on('click change focus mouseover', function() {
+			$(this).css({
+				'background': 'black',
+				'color': 'white'
+			});
+		});
+			
+		$("#btn2").on('click change focus mouseover', function() {
+			$(this).css({
+				'background': 'black',
+				'color': 'white'
+			});
+		});		
+
+		$('h2')[0].text(Date().toLocaleString('pt-BR'));
+
+		//document.getElementsByTagName('h2')[0].innerText = new Date().toLocaleString('pt-BR');
+
+		var errou = document.getElementById('errou');
+			//errou.onload = errou;
+			
+		function carregou(){
+			errou();
+			ahcara();
+		}
+
+		function errou(){
+			alert("altura errou: " + altura.height);
+			//console.log("Altura errou: %s !!!", altura);
+		}
+
+		function ahcara(){
+			alert("altura ahcara: " + altura.height);
+			//console.log("Altura ahcara: %s !!!", altura);
+		}
+
+		var executaQuandoCarregaDOM = function(){
+			alert('carregou muito antes');
+		}
+
+		//document.addEventListener('DOMContentLoaded', executaQuandoCarregaDOM);
+		$(document).ready(function(){
+			executaQuandoCarregaDOM();
+		})
+	//		$(function(){
+	//		executaQuandoCarregaDOM();
+	//	});
+	</script>
+</body>
+</html>
