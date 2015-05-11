@@ -1,0 +1,58 @@
+<html>
+<script>
+	/*Exercício 1*/
+	function brewdog(palavraUm, palavraDois){
+	var letrasIguais = 0;
+	if(palavraUm.length > palavraDois.length){
+		var maiorPalavra =  palavraUm; 	
+	} else {
+		var maiorPalavra = palavraDois;	
+	}
+	for (var i = 0; i < maiorPalavra.length; i++) {
+		if(palavraUm[i]!= palavraDois[i]){
+			letrasIguais ++;
+		}
+	};
+	return letrasIguais;	
+	};
+
+	/*Exercício 2A*/
+	function Emprestimo(valorTotal, juros, parcelas){
+	this.valorTotal = valorTotal;
+	this.juros  = juros;
+	this.parcelas = parcelas || 3;
+	/*Exercicio 2B*/
+	this.valorParcela = function() {
+		var valorParcela = (valorTotal*juros) / (1-(1/Math.pow(1+juros,parcelas)));
+		return parseFloat(valorParcela.toFixed(2));
+	};
+	/*Exercício 2C*/
+	this.valorTotalJuros = function() {
+		var valorTotalJuros = this.valorParcela()*this.parcelas-this.valorTotal;
+		return parseFloat(valorTotalJuros.toFixed(2));
+	};
+};
+
+	/* Exercício 3*/
+	function palindromo(palavra){
+ 	var palavraFinal =  palavra.toLowerCase();
+ 	palavraFinal = palavraFinal.replace(/[|~,-@!#?$.<>"'%¨*£¢¬§{}¹²³ ]/g, "");
+	palavraFinal = palavraFinal.replace(/[áàãäâ]/g, "a");
+	palavraFinal = palavraFinal.replace(/[éèêë]/g, "e");
+	palavraFinal = palavraFinal.replace(/[íìïî]/g, "i");
+	palavraFinal = palavraFinal.replace(/[óòõöô]/g, "o");
+	palavraFinal = palavraFinal.replace(/[úùöû]/g, "u");
+	palavraFinal = palavraFinal.replace(/[ñ]/g, "n");
+	palavraFinal = palavraFinal.replace(/[ýÿ]/g, "y");
+
+	var palavrasPermitidas = ['bacon','verde musgo','dante','ledesma','iluminatti'];
+	if(palavrasPermitidas.indexOf(palavraFinal)!==-1){
+		return true;
+	} else {
+		return false;
+	}
+	return palavrasPermitidas || palavraFinal === palavraFinal.split('').reverse().join('');
+};	
+</script>
+</html>
+

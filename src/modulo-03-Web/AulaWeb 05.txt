@@ -49,18 +49,20 @@ var legolas = new Elfo("elfooaaa", 66);
 var outroelfo = new Elfo("elf", 66);
 
 
-this.atirarflechas = function(){
-	this.flechas--;
-	this.experiencia++;
-}
-
-
 //sobrecarga de construtores
 
 function Elfo(options){
 	options = options || {};
 	this.nome = nome;
 	this.flecha = flecha || 42;
+
+	
+	this.atirarflechas = function(){
+		this.flechas--;
+		this.experiencia++;
+	};
+
+
 }
 
 ---------------------------------
