@@ -152,7 +152,29 @@
 	/*Exercício 1B*/
 	var exA2 = $('#myListItem');
 	/*Exercício 1C*/
-	var exA3 = $('#myListItem');
+	var exA3 = $("label,input.input_text").val( "texto" );
+	/*Exercício 1D*/
+	var exA4 =  $('[alt]').size();
+	/*Exercício 1E*/
+	var exA5 = $("tr:even").not(document.getElementById("myTableCell"))
+    .css("background-color", "red");
+	/*Exercício 1F*/
+	var exA6 = $("h2:contains('B')&&h2:contains('e')");
+	/*Exercício 1G*/
+	var exA7 = $('#myList li').not(".current",".bar");
+	/*Exercício 1H*/
+	var exA8 = $( "h3" ).last();
+	//ou
+	var exA8 = e = $("h3").slice(-3);
+	/*Exercício 1I*/
+	var exA9 = $('#myList li').slice(-2).text().replace(/ /g,'').length;
+
+	/*Exercício 2A*/
+	var ex2A = $('img[alt]');
+	console.log(ex2A);
+	/*Exercício 2B*/
+	var ex2C = $( "input.input_text" ).parent().addClass('template');
+
 </script>
 <!--
 <script src="js/sandbox.js"></script>
