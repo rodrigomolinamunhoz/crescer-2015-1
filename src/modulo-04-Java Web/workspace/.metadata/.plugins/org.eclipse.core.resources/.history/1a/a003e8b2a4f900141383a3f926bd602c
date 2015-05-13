@@ -1,0 +1,31 @@
+package Listator;
+
+import java.util.*;
+
+public class Filme {
+	private Ator nome;
+	List<Ator> listaAtores = new ArrayList<Ator>();  
+	
+	
+	public void insereAtor(Ator ator){
+		this.listaAtores.add(ator);
+	}
+	public static void main(String[] args) {
+	}
+	
+	
+	public void listaAtores(Ator parteNome){
+		List<Ator> novaListaAtores = new ArrayList<Ator>();
+		for(Ator atual : listaAtores) {    
+			if (atual.getNome().contains(parteNome)) {
+				
+			}
+		}
+	}
+	
+	public List<Ator> getNome() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}

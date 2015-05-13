@@ -1,0 +1,31 @@
+package Listator;
+
+import java.util.*;
+
+public class Filme {
+	private String nome;
+	ArrayList<Ator> listaAtores = new ArrayList<Ator>();  
+	
+	public Filme(String nome){
+        this.nome = nome;  
+    }
+	
+	public void inserirAtor(String ator){
+		Ator t = new Ator();
+		this.listaAtores.add(t);
+	}
+	
+	public static void main(String[] args) {
+		
+	}
+	
+	
+	public void listaAtores(String parteNome){
+		List<Ator> novaListaAtores = new ArrayList<Ator>();
+		for(Ator atual : listaAtores) {    
+			if (atual.getNome().contains(parteNome)) {
+				novaListaAtores = atual.getNome();
+			}
+		}
+	}	
+}

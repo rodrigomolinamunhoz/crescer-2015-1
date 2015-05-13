@@ -1,0 +1,20 @@
+package Listator;
+
+import java.util.*;
+
+public class Filme {
+	private String nome;
+	List<Ator> listaAtores = new ArrayList<Ator>(); 
+	
+	public void insereAtor(){
+		this.listaAtores.add("Jorge");
+	}
+	public static void main(String[] args) {
+		
+		for(Ator s : listaAtores) {    
+		   
+		} 
+	}
+	
+	 
+}
