@@ -176,9 +176,20 @@
 	var ex2B = $( "input.input_text" ).parent().addClass('template');
 	/*Exercício 2C*/
 	var ex2C = $('#myList li.current').next().addClass('current');
+	/*Exercício 2D*/
+	var ex2D = $( "#specials" ).append( $('#specials h2').text('Promoções'), $('#specials option[value="friday"]').text('Dimitri') );
+	/*Exercício 2E*/
+	$('#slideshow li').first().addClass('current').siblings().addClass('disabled');
+	 
 
+	/*Exercício 3A*/
+	var ex3A = $('#myList');
+	for (var i = 8; i < 13; i++) {
+	$('<li/>').text('List item ' + i).appendTo(list);} 
+	/*Exercício 3B*/
+	var ex3B = $('#myList li:odd').remove();
 	/*Exercício 3C*/
-	$('div.module').last().after($('<div/>').addClass('module').append($('img:eq(0)').clone()));
+	var ex3C = $('div.module').last().after($('<div/>').addClass('module').append($('img:eq(0)').clone()));
 	
 </script>
 <!--
