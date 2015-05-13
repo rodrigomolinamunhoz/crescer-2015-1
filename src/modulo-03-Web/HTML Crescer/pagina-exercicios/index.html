@@ -150,31 +150,36 @@
 	/*Exercício 1A*/
 	var exA1 = $('.module');
 	/*Exercício 1B*/
-	var exA2 = $('#myListItem');
+	var exA2 = $('#myList li').eq(2);
 	/*Exercício 1C*/
-	var exA3 = $("label,input.input_text").val( "texto" );
+	var exA3 = $('#search label[for=q]');
 	/*Exercício 1D*/
 	var exA4 =  $('[alt]').size();
 	/*Exercício 1E*/
 	var exA5 = $("tr:even").not(document.getElementById("myTableCell"))
-    .css("background-color", "red");
+    .css("background-color", "red"); /*Exercício Bernardo*/ //$(fruits tr:even:not(:'first-child'))
 	/*Exercício 1F*/
-	var exA6 = $("h2:contains('B')&&h2:contains('e')");
+	var exA6 = $("h2:contains('B')&&h2:contains('e')").size();
 	/*Exercício 1G*/
-	var exA7 = $('#myList li').not(".current",".bar");
+	var exA7 = $('#myList li').not(".current");
 	/*Exercício 1H*/
-	var exA8 = $( "h3" ).last();
+	var exA8 = $( "h3" ).last(); /*Exercício Bernardo*/ //$('li:last-of-type img, li:last-of-type h3')
 	//ou
 	var exA8 = e = $("h3").slice(-3);
 	/*Exercício 1I*/
-	var exA9 = $('#myList li').slice(-2).text().replace(/ /g,'').length;
+	var exA9 = $('#myList li').slice(-2).text().replace(/ /g,'').length; /*Exercício Bernardo*/ //$('#myList .current ~ li').text().length;
 
 	/*Exercício 2A*/
 	var ex2A = $('img[alt]');
 	console.log(ex2A);
 	/*Exercício 2B*/
-	var ex2C = $( "input.input_text" ).parent().addClass('template');
+	var ex2B = $( "input.input_text" ).parent().addClass('template');
+	/*Exercício 2C*/
+	var ex2C = $('#myList li.current').next().addClass('current');
 
+	/*Exercício 3C*/
+	$('div.module').last().after($('<div/>').addClass('module').append($('img:eq(0)').clone()));
+	
 </script>
 <!--
 <script src="js/sandbox.js"></script>

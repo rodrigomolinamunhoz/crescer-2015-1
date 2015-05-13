@@ -1,0 +1,12 @@
+http://js2.coffee/
+https://github.com/necolas/normalize.css/
+http://flatuicolors.com/
+http://jsonlint.com/
+http://jqfundamentals.com/
+https://www.codeschool.com/
+http://browserdiet.com/pt/
+http://www.pluralsight.com/
+-----------------------------------------
+setTimeout(function(){ console.log('caiu a ficha'); },2000)
+
+setTimeout(function(){ console.log(new Date()); },2000)
