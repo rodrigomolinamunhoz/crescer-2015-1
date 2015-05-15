@@ -1,1 +1,4 @@
 http://www.guj.com.br/25110-como-chamar-o--metodo-get-desse-objeto-de-outra-classe-vejam-
+--------------------------------------------
+EXERCÍCIO
+https://gist.github.com/marlonbernardes/87d77fae519cb3b5a4c4#file-modulo-04-dia01-java-md
