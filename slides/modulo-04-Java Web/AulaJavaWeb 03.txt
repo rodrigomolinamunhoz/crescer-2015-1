@@ -1,0 +1,17 @@
+Pacote mestrecuca
+---------------------------------------------------------
+Receita
+- String nome
+- List<Ingrediente>
+- List<Instruçoes>
+
+Ingrediente
+- String nome;
+- double quantidade;
+- unidadeMedida (enum) Ex: grama, unidade, xicara, colher_sopa;
+
+Instrução 
+- descrição
+-----------------------------------------------------------
+EXERCÍCIO
+https://github.com/CWISoftware/crescer-2015-1/blob/fa39124f4b3c4d0a7858f593db42facb9a894238/src/modulo-04-java/dia03/exercicio_mestre_cuca.md
