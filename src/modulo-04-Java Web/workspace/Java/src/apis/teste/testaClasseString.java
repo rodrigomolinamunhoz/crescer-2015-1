@@ -20,4 +20,12 @@ public class testaClasseString {
 		assertEquals("Micro", indice);
 	}
 
+	@Test
+	public void splitTest() {
+		String texto = "Rodrigo Molina";
+		String[] esperado = { "Rodrigo", "Molina" };
+		assertEquals(esperado, texto.split(" "));
+
+	}
+
 }
