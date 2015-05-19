@@ -1,22 +1,16 @@
 package mestre.cuca.teste;
 
-import static org.junit.Assert.*;
-import mestre.cuca.ReceitaNaoEncontradaException;
+import mestre.cuca.Principial;
 
 import org.junit.Test;
 
+
 public class TestePrincipal {
-	
-	@Test
-    public void atualizar() {
 
-        try {
-
-        } catch (ReceitaNaoEncontradaException e) {
-            System.out.println(e);
-        }
-        // Assert
-        assertEquals(,);
-    }
+	@Test(expected = NullPointerException.class)
+	public void buscaNomeReceitaInexistente() throws NullPointerException {
+		Principial livro = new Principial();
+		livro.buscaReceitaPeloNome("iuhiuhiu");
+	}
 
 }

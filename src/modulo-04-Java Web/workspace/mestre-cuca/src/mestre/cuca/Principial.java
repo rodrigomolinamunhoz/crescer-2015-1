@@ -7,7 +7,7 @@ public class Principial implements LivroReceitas {
 	UnidadeMedida unidadeMedida;
 
 	public void inserir(Receita receita) {
-		if (receita != null && !receita.getNome().isEmpty()) {
+		if (receita != null && !receita.getNomeReceita().isEmpty()) {
 			this.receita.add(receita);
 		}
 	}
@@ -39,7 +39,7 @@ public class Principial implements LivroReceitas {
 
 	public Receita buscaReceitaPeloNome(String nomeReceita) {
 		for (Receita atual : this.receita) {
-			if (atual.getNome().equals(nomeReceita)) {
+			if (atual.getNomeReceita().equals(nomeReceita)) {
 				return atual;
 			}
 		}
