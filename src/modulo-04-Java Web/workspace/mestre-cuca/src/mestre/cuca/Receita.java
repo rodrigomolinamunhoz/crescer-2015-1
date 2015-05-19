@@ -7,7 +7,8 @@ public class Receita {
 	private List<Ingrediente> listaIngredientes = new ArrayList<>();
 	private List<Instrucao> listaIntrucoes = new ArrayList<>();
 
-	public Receita() {
+	public Receita(String nomeReceita) {
+		this.nomeReceita = nomeReceita;
 	}
 
 	public String getNomeReceita() {
@@ -32,6 +33,24 @@ public class Receita {
 
 	public void setListaIntrucoes(List<Instrucao> listaIntrucoes) {
 		this.listaIntrucoes = listaIntrucoes;
+	}
+
+	public void adicionaIngredientesReceita(Ingrediente listaIngredientes) {
+		if (listaIngredientes != null
+				&& !listaIngredientes.getNomeIngrediente().isEmpty()) {
+			this.listaIngredientes.add(listaIngredientes);
+		}
+	}
+
+	// (50 exp) Crie um método que calcula o valor total de uma
+	// receita. O valor total de uma receita é igual a soma do
+	// valor de todos os ingredientes da receita.
+	public double calculaValorTotalReceita() {
+		double valor = 0;
+		for (Ingrediente atual : this.listaIngredientes) {
+			valor += atual.getValor();
+		}
+		return valor;
 	}
 
 }

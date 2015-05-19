@@ -1,6 +1,14 @@
 package mestre.cuca.teste;
 
+import static org.junit.Assert.assertEquals;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import mestre.cuca.Ingrediente;
 import mestre.cuca.Principial;
+import mestre.cuca.Receita;
+import mestre.cuca.UnidadeMedida;
 
 import org.junit.Test;
 
@@ -11,6 +19,37 @@ public class TestePrincipal {
 	public void buscaNomeReceitaInexistente() throws NullPointerException {
 		Principial livro = new Principial();
 		livro.buscaReceitaPeloNome("iuhiuhiu");
+	}
+	
+	@Test
+	public void testeSomaTotasReceitas() {
+		Principial pri = new Principial();
+		Ingrediente ingre = new Ingrediente("Tomate", 200.0,
+				UnidadeMedida.GRAMA, 1.5);
+		Ingrediente ingre2 = new Ingrediente("Tomate2", 200.0,
+				UnidadeMedida.GRAMA, 1.5);
+		Receita receita = new Receita("Salada");
+		
+		Ingrediente ingre3 = new Ingrediente("Queijo", 200.0,
+				UnidadeMedida.GRAMA, 7.0);
+		Ingrediente ingre4 = new Ingrediente("Queijo", 200.0,
+				UnidadeMedida.GRAMA, 7.0);
+		Receita receita2 = new Receita("Pizza");
+		
+		
+		receita.adicionaIngredientesReceita(ingre);
+		receita.adicionaIngredientesReceita(ingre2);
+		receita2.adicionaIngredientesReceita(ingre3);
+		receita2.adicionaIngredientesReceita(ingre4);
+		
+		List<Receita> listaReceita = new ArrayList<Receita>();
+		listaReceita.add(receita);
+		listaReceita.add(receita2);
+
+		double esperado = 17.0;
+
+		assertEquals(esperado,
+				pri.somaTotasReceitas(listaReceita), 0);
 	}
 
 }

@@ -1,0 +1,9 @@
+Exercícios
+----------------------------------------------------------
+https://github.com/CWISoftware/crescer-2015-1/blob/760850b8ecfd49e7e875a42336151a2083b905c2/src/modulo-04-java/dia04/exercicio_mestre_cuca_2.md
+---------------------------------------------------------
+Contains.
+
+public boolean equals(Object obj){
+	Ingrediente = outro = (Ingrediente)
+}
