@@ -29,7 +29,6 @@ public class TesteReceita {
 
 		double esperado = 3.0;
 
-		assertEquals(esperado,
-				receita.calculaValorTotalReceita(), 0);
+		assertEquals(esperado, receita.calculaValorTotalReceita(), 0);
 	}
 }

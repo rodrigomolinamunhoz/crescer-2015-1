@@ -1,10 +1,10 @@
 package mestre.cuca;
 
 public class Ingrediente {
-	private String nomeIngrediente;
-	private double quantidade;
-	private UnidadeMedida unidadeMedida;
-	private double valor;
+	public String nomeIngrediente;
+	public double quantidade;
+	public UnidadeMedida unidadeMedida;
+	public double valor;
 
 	public Ingrediente(String nomeIngrediente, double quantidade,
 			UnidadeMedida unidadeMedida, double valor) {

@@ -3,9 +3,9 @@ package mestre.cuca;
 import java.util.*;
 
 public class Receita {
-	private String nomeReceita;
-	private List<Ingrediente> listaIngredientes = new ArrayList<>();
-	private List<Instrucao> listaIntrucoes = new ArrayList<>();
+	public String nomeReceita;
+	public List<Ingrediente> listaIngredientes = new ArrayList<>();
+	public List<Instrucao> listaIntrucoes = new ArrayList<>();
 
 	public Receita(String nomeReceita) {
 		this.nomeReceita = nomeReceita;

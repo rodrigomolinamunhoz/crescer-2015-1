@@ -2,11 +2,21 @@ package mestre.cuca;
 
 import java.util.*;
 
-import Filmator.Ator;
+
 
 public class Principial implements LivroReceitas {
 	private List<Receita> receita = new ArrayList<Receita>();
 	UnidadeMedida unidadeMedida;
+
+	
+	
+	public List<Receita> getReceita() {
+		return receita;
+	}
+
+	public void setReceita(List<Receita> receita) {
+		this.receita = receita;
+	}
 
 	public void inserir(Receita receita) {
 		if (receita != null && !receita.getNomeReceita().isEmpty()) {
@@ -63,16 +73,34 @@ public class Principial implements LivroReceitas {
 	// ingrediente.
 	public List<Receita> protecaoAlergicos(List<Ingrediente> listaIngrediente) {
 		List<Receita> novaLista = new ArrayList<Receita>();
-
+		int flag = 0;
 		for (Receita receitaAtual : this.receita) {
 			for (Ingrediente ingredienteAtual : listaIngrediente) {
-				if (ingredienteAtual.getNomeIngrediente().contains(listaIngrediente)) {
-					novaLista.add(ingredienteAtual);
+				if (receitaAtual.getListaIngredientes().contains(
+						ingredienteAtual)) {
+					flag++;
+				} else {
+					novaLista.add(receitaAtual);
 				}
+				flag = 0;
 			}
-
 		}
 		return novaLista;
 	}
-
+	
+	//(200 exp) Lista de compras: faça um método que receba uma lista de receitas e retorne uma "lista de compras",
+	//agrupando todos os ingredientes que possuem o mesmo nome e unidade de medida.
+	public List<Ingrediente> listaDeCompras(List<Receita> listaReceita){
+		List<Ingrediente> listaFinal = new ArrayList<Ingrediente>();
+			for (Receita receitaAtual : listaReceita) {
+				for (Ingrediente ingrediente : receitaAtual.listaIngredientes) {
+					if(!listaFinal.isEmpty()){
+						//Continuar
+					}else{
+						listaFinal.add(ingrediente);
+					}
+				}
+			}
+		return listaFinal;
+	} 
 }
