@@ -1,0 +1,8 @@
+c635728626c0
+
+66e3755e3d66
+
+http://illuminati.instaweb.com.br:6789/autentica
+http://illuminati.instaweb.com.br:6789/exercicios?token=66e3755e3d66
+
+{ "nome": "Exercício 1", "instrucoes": "Faça um POST /exercicios para enviar a resposta correta, no formato { resposta: RESPOSTA }.", "dados": "A resposta é 8" }

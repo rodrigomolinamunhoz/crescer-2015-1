@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+</head>
+<body onload="myFunction()">
+<script>
+function myFunction() {
+/*
+	var nome = JSON.stringify({nome:'Rodrigo Molina'});
+$.ajax({
+	url : 'http://illuminati.instaweb.com.br:6789/autentica',
+	type: 'POST',
+	contentType: 'application/json',
+	dataType: 'JSON',
+	data: nome
+});  
+};*/
+var dados = JSON.stringify( { resposta: 8 });
+$.ajax({
+	url : 'http://illuminati.instaweb.com.br:6789/exercicio?token=2766e3755e3d66',
+	type: 'POST',
+	contentType: 'application/json',
+	dataType: 'json'
+	data: dados
+});
+</script>
+
+</body>
+</html>
+
