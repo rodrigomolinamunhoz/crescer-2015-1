@@ -2,14 +2,10 @@ package mestre.cuca;
 
 import java.util.*;
 
-
-
 public class Principial implements LivroReceitas {
 	private List<Receita> receita = new ArrayList<Receita>();
 	UnidadeMedida unidadeMedida;
 
-	
-	
 	public List<Receita> getReceita() {
 		return receita;
 	}
@@ -73,34 +69,58 @@ public class Principial implements LivroReceitas {
 	// ingrediente.
 	public List<Receita> protecaoAlergicos(List<Ingrediente> listaIngrediente) {
 		List<Receita> novaLista = new ArrayList<Receita>();
-		int flag = 0;
+
 		for (Receita receitaAtual : this.receita) {
 			for (Ingrediente ingredienteAtual : listaIngrediente) {
 				if (receitaAtual.getListaIngredientes().contains(
 						ingredienteAtual)) {
-					flag++;
 				} else {
 					novaLista.add(receitaAtual);
 				}
-				flag = 0;
 			}
 		}
 		return novaLista;
 	}
-	
-	//(200 exp) Lista de compras: faça um método que receba uma lista de receitas e retorne uma "lista de compras",
-	//agrupando todos os ingredientes que possuem o mesmo nome e unidade de medida.
-	public List<Ingrediente> listaDeCompras(List<Receita> listaReceita){
-		List<Ingrediente> listaFinal = new ArrayList<Ingrediente>();
-			for (Receita receitaAtual : listaReceita) {
-				for (Ingrediente ingrediente : receitaAtual.listaIngredientes) {
-					if(!listaFinal.isEmpty()){
-						//Continuar
-					}else{
-						listaFinal.add(ingrediente);
-					}
-				}
+
+	// (200 exp) Lista de compras: faça um método que receba uma lista de
+	// receitas e retorne uma "lista de compras",
+	// agrupando todos os ingredientes que possuem o mesmo nome e unidade de
+	// medida.
+	public Map<String, Double> geraListaDeCompras(List<Receita> receitas) {
+		Map<String, Double> listaDeCompras = new HashMap<>();
+		for (Receita receita : receitas) {
+			for (Ingrediente ingrediente : receita.getListaIngredientes()) {
+				String chave = ingrediente.getNomeIngrediente();
+				double quantidadeAcumulada = listaDeCompras.getOrDefault(chave, 0.0);
+				double quantidadeDoIngrediente = ingrediente.getQuantidade();
+				listaDeCompras.put(chave, quantidadeAcumulada
+						+ quantidadeDoIngrediente);
 			}
-		return listaFinal;
-	} 
+		}
+		return listaDeCompras;
+
+	}
+	
+	// 5KG FEIJAO 1KG QUEIJO E 1 COLHER_SOPA MEL
+	// 1KG ARROZ 500G QUEIJO E 1 COLHER_CHA MEL
+	//---------------
+	
+	// FEIJAO_KG -> 5
+	// QUEIJO_GR -> 100
+	public static void main(String[] args) {
+		Map<String, Double> populacao = new HashMap<String, Double>();
+		populacao.put("RS", 121212.0);
+		populacao.put("SC", 2323232.0);
+		populacao.put("SP", 32.0);
+		
+		
+		//double var = populacao.get("SC");
+		//System.out.println(var);
+		//double var2 = populacao.get("RS");
+		//System.out.println(var2);
+		double var2 = populacao.getOrDefault("SP", 555.0);
+		
+		
+		System.out.println(var2);
+	}
 }
