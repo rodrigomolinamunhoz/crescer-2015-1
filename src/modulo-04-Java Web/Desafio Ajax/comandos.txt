@@ -30,12 +30,33 @@ dados.remove('EU NÃO SOU UM NÚMERO RSRSRS');
 [78, 40, 61, 84, 90, 52, 73, 48, 47, 82, 60, 97, 35, 95, 75, 92, 58, 63, 97, 84, 46, 72, 88, 49, 77, 49, 73, 85, 30, 58, 74, 43, 31, 69, 48, 88, 31, 74, 52, 91, 47, 75, 44, 69, 54, 69, 40, 32, 68, 53, 93, 45, 56, 69, 57, 44, 42, 38, 82, 48, 95, 30, 42, 95, 81, 36, 58, 51, 32, 45, 65]
 -------------------------------------------------------------------------------------
 var resposta = 0;
-var dados (39, 53, 0, 12, 52, 5, 57, 85, 66, 83, 70, 30, 20, 14, 85, 69, 46, 81, 83, 57, 50, 1, 29, 12, 86, 34, 56, 70, 30, 59, 70, 42, 69, 59, 63, 81, 19, 3, 69, 91, 64, 10, 83, 9, 79, 67, 97, 37, 32, 10, 31, 19, 13, 62, 77, 92, 9, 55, 82, 93, 13, 33, 37, 9, 15, 33, 16, 1, 2, 32, 85, 14, 36, 1, 60, 52, 48, 39, 10, 29, 43, 81, 27, 12, 62, 35, 35, 82, 86, 58, 55, 97, 76, 15, 16, 56, 97, 38, 41, 37);
+var dados = new Array(39, 53, 0, 12, 52, 5, 57, 85, 66, 83, 70, 30, 20, 14, 85, 69, 46, 81, 83, 57, 50, 1, 29, 12, 86, 34, 56, 70, 30, 59, 70, 42, 69, 59, 63, 81, 19, 3, 69, 91,64, 10, 83, 9, 79, 67, 97, 37, 32, 10, 31, 19, 13, 62, 77, 92, 9, 55, 82, 93, 13, 33, 37, 9, 15, 33, 16, 1, 2, 32, 85, 14, 36, 1, 60, 52, 48, 39, 10, 29, 43, 81, 27, 12, 62, 35, 35, 82, 86, 58, 55, 97, 76, 15, 16, 56, 97, 38, 41, 37);
 
 	for (i = 0; i < dados.length; i++) { 
-    		if(i%3==0){
-			resposta += dados[i] + ",';
+    		if(dados[i]%3===0){
+			resposta += dados[i];
 		}	
 	}
+--------------------------------------------------------------------------------------
+var teste = [ { "data": 57 }, { "data": 25 }, { "data": 50 }, { "data": 34 }, { "data": 0 }, { "data": 98 }, { "data": 35 }, { "data": 54 }, { "data": 17 }, { "data": 8 }, { "data": 57 }, { "data": 29 }, { "data": 72 }, { "data": 16 }, { "data": 1 }, { "data": 12 }, { "data": 87 }, { "data": 22 }, { "data": 20 }, { "data": 65 }, { "data": 73 }, { "data": 54 }, { "data": 93 }, { "data": 68 }, { "data": 73 }, { "data": 36 }, { "data": 66 }, { "data": 44 }, { "data": 1 }, { "data": 67 }, { "data": 39 }, { "data": 80 }, { "data": 40 }, { "data": 27 }, { "data": 25 }, { "data": 28 }, { "data": 51 }, { "data": 89 }, { "data": 78 }, { "data": 48 }, { "data": 31 }, { "data": 20 }, { "data": 55 }, { "data": 55 }, { "data": 67 }, { "data": 59 }, { "data": 8 }, { "data": 60 }, { "data": 84 }, { "data": 19 }, { "data": 87 }, { "data": 66 }, { "data": 14 }, { "data": 86 }, { "data": 75 }, { "data": 27 }, { "data": 35 }, { "data": 9 }, { "data": 32 }, { "data": 72 }, { "data": 44 }, { "data": 94 }, { "data": 88 }, { "data": 67 }, { "data": 24 }, { "data": 83 }, { "data": 58 }, { "data": 42 }, { "data": 0 }, { "data": 68 }, { "data": 3 }, { "data": 80 }, { "data": 37 }, { "data": 15 }, { "data": 30 }, { "data": 22 }, { "data": 98 }, { "data": 91 }, { "data": 41 }, { "data": 64 }, { "data": 29 }, { "data": 86 }, { "data": 10 }, { "data": 17 }, { "data": 69 }, { "data": 89 }, { "data": 0 }, { "data": 53 }, { "data": 42 }, { "data": 34 }, { "data": 10 }, { "data": 35 }, { "data": 8 }, { "data": 32 }, { "data": 78 }, { "data": 16 }, { "data": 63 }, { "data": 52 }, { "data": 88 }, { "data": 27 } ];
 
-	
+teste.dados[i].data
+
+teste.reduce(function (a, b) {
+
+  return {data: a.data + b.data}; 
+})
+---------------------------------------------------------------------------------------
+var dados = [ { "data": 35, "status": "INCLUIDO" }, { "data": 46, "status": "INCLUIDO" }, { "data": 95, "status": "INCLUIDO" }, { "data": 38, "status": "INCLUIDO" }, { "data": 26, "status": "EXCLUIDO" }, { "data": 69, "status": "INCLUIDO" }, { "data": 29, "status": "EXCLUIDO" }, { "data": 5, "status": "EXCLUIDO" }, { "data": 67, "status": "INCLUIDO" }, { "data": 41, "status": "INCLUIDO" }, { "data": 60, "status": "INCLUIDO" }, { "data": 8, "status": "EXCLUIDO" }, { "data": 33, "status": "INCLUIDO" }, { "data": 67, "status": "INCLUIDO" }, { "data": 78, "status": "INCLUIDO" }, { "data": 5, "status": "EXCLUIDO" }, { "data": 53, "status": "INCLUIDO" }, { "data": 84, "status": "INCLUIDO" }, { "data": 36, "status": "INCLUIDO" }, { "data": 7, "status": "EXCLUIDO" }, { "data": 21, "status": "EXCLUIDO" }, { "data": 95, "status": "INCLUIDO" }, { "data": 10, "status": "EXCLUIDO" }, { "data": 91, "status": "INCLUIDO" }, { "data": 76, "status": "INCLUIDO" }, { "data": 41, "status": "INCLUIDO" }, { "data": 86, "status": "INCLUIDO" }, { "data": 55, "status": "INCLUIDO" }, { "data": 30, "status": "EXCLUIDO" }, { "data": 19, "status": "EXCLUIDO" }, { "data": 69, "status": "INCLUIDO" }, { "data": 94, "status": "INCLUIDO" }, { "data": 81, "status": "INCLUIDO" }, { "data": 77, "status": "INCLUIDO" }, { "data": 21, "status": "EXCLUIDO" }, { "data": 56, "status": "INCLUIDO" }, { "data": 19, "status": "EXCLUIDO" }, { "data": 26, "status": "EXCLUIDO" }, { "data": 71, "status": "INCLUIDO" }, { "data": 49, "status": "INCLUIDO" }, { "data": 30, "status": "EXCLUIDO" }, { "data": 69, "status": "INCLUIDO" }, { "data": 88, "status": "INCLUIDO" }, { "data": 92, "status": "INCLUIDO" }, { "data": 27, "status": "EXCLUIDO" }, { "data": 71, "status": "INCLUIDO" }, { "data": 64, "status": "INCLUIDO" }, { "data": 98, "status": "INCLUIDO" }, { "data": 30, "status": "EXCLUIDO" }, { "data": 18, "status": "EXCLUIDO" }, { "data": 67, "status": "INCLUIDO" }, { "data": 45, "status": "INCLUIDO" }, { "data": 62, "status": "INCLUIDO" }, { "data": 82, "status": "INCLUIDO" }, { "data": 67, "status": "INCLUIDO" }, { "data": 5, "status": "EXCLUIDO" }, { "data": 95, "status": "INCLUIDO" }, { "data": 63, "status": "INCLUIDO" }, { "data": 36, "status": "INCLUIDO" }, { "data": 74, "status": "INCLUIDO" }, { "data": 84, "status": "INCLUIDO" }, { "data": 20, "status": "EXCLUIDO" }, { "data": 27, "status": "EXCLUIDO" }, { "data": 84, "status": "INCLUIDO" }, { "data": 48, "status": "INCLUIDO" }, { "data": 51, "status": "INCLUIDO" }, { "data": 66, "status": "INCLUIDO" }, { "data": 50, "status": "INCLUIDO" }, { "data": 40, "status": "INCLUIDO" }, { "data": 77, "status": "INCLUIDO" }, { "data": 80, "status": "INCLUIDO" }, { "data": 77, "status": "INCLUIDO" }, { "data": 30, "status": "EXCLUIDO" }, { "data": 94, "status": "INCLUIDO" }, { "data": 33, "status": "INCLUIDO" }, { "data": 10, "status": "EXCLUIDO" }, { "data": 2, "status": "EXCLUIDO" }, { "data": 17, "status": "EXCLUIDO" }, { "data": 94, "status": "INCLUIDO" }, { "data": 25, "status": "EXCLUIDO" }, { "data": 30, "status": "EXCLUIDO" }, { "data": 34, "status": "INCLUIDO" }, { "data": 39, "status": "INCLUIDO" }, { "data": 82, "status": "INCLUIDO" }, { "data": 89, "status": "INCLUIDO" }, { "data": 22, "status": "EXCLUIDO" }, { "data": 94, "status": "INCLUIDO" }, { "data": 88, "status": "INCLUIDO" }, { "data": 81, "status": "INCLUIDO" }, { "data": 67, "status": "INCLUIDO" }, { "data": 92, "status": "INCLUIDO" }, { "data": 5, "status": "EXCLUIDO" }, { "data": 93, "status": "INCLUIDO" }, { "data": 38, "status": "INCLUIDO" }, { "data": 67, "status": "INCLUIDO" }, { "data": 40, "status": "INCLUIDO" }, { "data": 90, "status": "INCLUIDO" }, { "data": 45, "status": "INCLUIDO" }, { "data": 66, "status": "INCLUIDO" }, { "data": 39, "status": "INCLUIDO" } ];
+
+dados[i].status
+
+for (i = 0; i < dados.length; i++) { 
+    		if(dados[i].status==="INCLUIDO"){
+			resposta += dados[i].data;
+		}	
+	}
+--------------------------------------------------------------------------------------------
+"Parabéns! Apenas diga a frase: CASA SUJA, CHÃO SUJO (em voz alta) para ganhar o seu prêmio"
+--------------------------------------------------------------------------------------------
+
