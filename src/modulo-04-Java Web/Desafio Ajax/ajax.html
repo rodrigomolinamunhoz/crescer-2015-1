@@ -1,28 +1,74 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 </head>
-<body onload="myFunction()">
+<body>
 <script>
-function myFunction() {
 /*
+$(function(){
 	var nome = JSON.stringify({nome:'Rodrigo Molina'});
-$.ajax({
-	url : 'http://illuminati.instaweb.com.br:6789/autentica',
-	type: 'POST',
-	contentType: 'application/json',
-	dataType: 'JSON',
-	data: nome
+	$.ajax({
+		url : 'http://illuminati.instaweb.com.br:6789/autentica',
+		type: 'POST',
+		contentType: 'application/json',
+		dataType: 'JSON',
+		data: nome
+	})
 });  
-};*/
-var dados = JSON.stringify( { resposta: 8 });
-$.ajax({
-	url : 'http://illuminati.instaweb.com.br:6789/exercicio?token=2766e3755e3d66',
-	type: 'POST',
-	contentType: 'application/json',
-	dataType: 'json'
-	data: dados
+*/
+/*
+$(function(){
+	var resposta = { resposta: 8 };
+	$.ajax({
+		url : 'http://illuminati.instaweb.com.br:6789/exercicios?token=c635728626c0',
+		type: 'POST',
+		contentType: 'application/json',
+		data: JSON.stringify(resposta)
+	})
+});
+*/
+/*
+$(function(){
+	var resposta = { resposta: 10 };
+	$.ajax({
+		url : 'http://illuminati.instaweb.com.br:6789/exercicios?token=c635728626c0',
+		type: 'POST',
+		contentType: 'application/json',
+		data: JSON.stringify(resposta)
+	})
+});
+*/
+/*
+$(function(){
+	var dados = { resposta: 186 };
+	$.ajax({
+		url : 'http://illuminati.instaweb.com.br:6789/exercicios?token=c635728626c0',
+		type: 'POST',
+		contentType: 'application/json',
+		data: JSON.stringify(dados)
+	})
+});
+*/
+/*
+$(function(){
+	var dados = { resposta: 4973 };
+	$.ajax({
+		url : 'http://illuminati.instaweb.com.br:6789/exercicios?token=c635728626c0',
+		type: 'POST',
+		contentType: 'application/json',
+		data: JSON.stringify(dados)
+	})
+});
+*/
+$(function(){
+	var dados = { resposta: 1689 };
+	$.ajax({
+		url : 'http://illuminati.instaweb.com.br:6789/exercicios?token=c635728626c0',
+		type: 'POST',
+		contentType: 'application/json',
+		data: JSON.stringify(dados)
+	})
 });
 </script>
 
