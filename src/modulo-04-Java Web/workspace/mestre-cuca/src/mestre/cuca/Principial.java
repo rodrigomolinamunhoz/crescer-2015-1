@@ -4,7 +4,6 @@ import java.util.*;
 
 public class Principial implements LivroReceitas {
 	private List<Receita> receita = new ArrayList<Receita>();
-	UnidadeMedida unidadeMedida;
 
 	public List<Receita> getReceita() {
 		return receita;
@@ -36,7 +35,7 @@ public class Principial implements LivroReceitas {
 		try {
 			receita.remove(buscaReceitaPeloNome(nomeReceita));
 		} catch (Exception e) {
-			System.out.println(e);
+			throw new RuntimeException(e);
 		}
 	}
 
@@ -91,36 +90,35 @@ public class Principial implements LivroReceitas {
 		for (Receita receita : receitas) {
 			for (Ingrediente ingrediente : receita.getListaIngredientes()) {
 				String chave = ingrediente.getNomeIngrediente();
-				double quantidadeAcumulada = listaDeCompras.getOrDefault(chave, 0.0);
+				double quantidadeAcumulada = listaDeCompras.getOrDefault(chave,
+						0.0);
 				double quantidadeDoIngrediente = ingrediente.getQuantidade();
 				listaDeCompras.put(chave, quantidadeAcumulada
 						+ quantidadeDoIngrediente);
 			}
 		}
 		return listaDeCompras;
-
 	}
-	
+
 	// 5KG FEIJAO 1KG QUEIJO E 1 COLHER_SOPA MEL
 	// 1KG ARROZ 500G QUEIJO E 1 COLHER_CHA MEL
-	//---------------
-	
+	// ---------------
+
 	// FEIJAO_KG -> 5
 	// QUEIJO_GR -> 100
-	public static void main(String[] args) {
-		Map<String, Double> populacao = new HashMap<String, Double>();
-		populacao.put("RS", 121212.0);
-		populacao.put("SC", 2323232.0);
-		populacao.put("SP", 32.0);
-		
-		
-		//double var = populacao.get("SC");
-		//System.out.println(var);
-		//double var2 = populacao.get("RS");
-		//System.out.println(var2);
-		double var2 = populacao.getOrDefault("SP", 555.0);
-		
-		
-		System.out.println(var2);
-	}
+	// public static void main(String[] args) {
+	// Map<String, Double> populacao = new HashMap<String, Double>();
+	// populacao.put("RS", 121212.0);
+	// populacao.put("SC", 2323232.0);
+	// populacao.put("SP", 32.0);
+	//
+	// // double var = populacao.get("SC");
+	// // System.out.println(var);
+	// // double var2 = populacao.get("RS");
+	// // System.out.println(var2);
+	// double var2 = populacao.getOrDefault("SP", 555.0);
+	//
+	// System.out.println(var2);
+	// }
+
 }

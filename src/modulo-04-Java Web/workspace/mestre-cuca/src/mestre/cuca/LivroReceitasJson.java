@@ -1,45 +1,35 @@
 package mestre.cuca;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.*;
-
+import org.codehaus.jackson.map.*;
 
 public class LivroReceitasJson implements LivroReceitas {
 	
-	private static final String jsonFilePath="C:\\Users\\nikos7\\Desktop\\filesForExamples\\jsonFile.json";
-
-	public static void main(String[] args) {
-
-		LivroReceitas student = new LivroReceitas();
-
-		Gson gson = new Gson();
-
-		String jsonRepresentation = gson.toJson(student);
-
-		try {
-
-			FileWriter Filewriter = new FileWriter(jsonFilePath);
-			Filewriter.write(jsonRepresentation);
-			Filewriter.close();
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		System.out.println(jsonRepresentation);
-
+	public LivroReceitasJson(String caminho) throws IOException {
+	    carregaReceitasDeArquivoJson(caminho);
 	}
- 
+
+	private void carregaReceitasDeArquivoJson(String caminho) throws IOException{
+	    File arquivo = new File(caminho);
+	    if(arquivo.exists()){
+	        receitas =  mapper.readValue(arquivo, List.class);
+	    }
+	}
+	
+	LivroReceitasJson livro = new LivroReceitasJson("/Users/Rodrigo/Documents/Projeto Crescer/Git/crescer-2015-1/src/modulo-04-Java Web/Arquivos JSON/receitas.json");
 
 	@Override
-	public void inserir(Receita receita) {	
+	public void inserir(Receita receita) {
 	}
 
 	@Override
-	public void atualizar(String nomeReceita, Receita receitaAtualizada) {	
+	public void atualizar(String nomeReceita, Receita receitaAtualizada) {
 	}
 
 	@Override
-	public void excluir(String nomeReceita) {		
+	public void excluir(String nomeReceita) {
 	}
 
 	@Override
@@ -51,5 +41,5 @@ public class LivroReceitasJson implements LivroReceitas {
 	public Receita buscaReceitaPeloNome(String nomeReceita) {
 		return null;
 	}
-	
+
 }

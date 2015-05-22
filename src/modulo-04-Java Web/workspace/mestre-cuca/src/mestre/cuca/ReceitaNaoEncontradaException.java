@@ -1,9 +1,9 @@
 package mestre.cuca;
 
-public class ReceitaNaoEncontradaException extends Exception {   
+public class ReceitaNaoEncontradaException extends RuntimeException {   
 	    
-	    public ReceitaNaoEncontradaException() {
-	        super("deu jabulani");
+	    public ReceitaNaoEncontradaException(String nomeReceita) {
+	        super(String.format("deu jabulani", nomeReceita));
 	    }
 	
 }

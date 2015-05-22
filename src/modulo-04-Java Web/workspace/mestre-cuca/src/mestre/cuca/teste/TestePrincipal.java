@@ -1,9 +1,12 @@
 package mestre.cuca.teste;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import mestre.cuca.Ingrediente;
 import mestre.cuca.Principial;
@@ -28,7 +31,6 @@ public class TestePrincipal {
 				UnidadeMedida.GRAMA, 1.5);
 		Ingrediente ingre2 = new Ingrediente("Tomate2", 200.0,
 				UnidadeMedida.GRAMA, 1.5);
-		
 
 		Ingrediente ingre3 = new Ingrediente("Queijo", 200.0,
 				UnidadeMedida.GRAMA, 7.0);
@@ -55,7 +57,7 @@ public class TestePrincipal {
 		Principial pri = new Principial();
 		Receita receita2 = new Receita("Arroz");
 		Receita receita = new Receita("Salada");
-		
+
 		Ingrediente ingre = new Ingrediente("Tomate", 200.0,
 				UnidadeMedida.GRAMA, 1.5);
 		Ingrediente ingre2 = new Ingrediente("Queijo", 200.0,
@@ -64,24 +66,53 @@ public class TestePrincipal {
 				UnidadeMedida.GRAMA, 5.0);
 		List<Receita> listaReceitaEsperada = new ArrayList<Receita>();
 		List<Ingrediente> listaIngredientesAlergico = new ArrayList<Ingrediente>();
-		
+
 		listaIngredientesAlergico.add(ingre3);
 		listaReceitaEsperada.add(receita2);
 
 		pri.inserir(receita);
 		pri.inserir(receita2);
 
-		
 		receita2.adicionaIngredientesReceita(ingre);
 		receita2.adicionaIngredientesReceita(ingre2);
-		
+
 		receita.adicionaIngredientesReceita(ingre);
 		receita.adicionaIngredientesReceita(ingre2);
 		receita.adicionaIngredientesReceita(ingre3);
 
-
 		assertEquals(listaReceitaEsperada,
 				pri.protecaoAlergicos(listaIngredientesAlergico));
+	}
+
+	@Test
+	public void testeGeraListaDeCompras() {
+		Principial pri = new Principial();
+
+		Receita receita = new Receita("Salada");
+		Ingrediente alface = new Ingrediente("Alface", 200.0,
+				UnidadeMedida.GRAMA, 1.5);
+		Ingrediente tomate = new Ingrediente("Tomate", 200.0,
+				UnidadeMedida.GRAMA, 7.0);
+		receita.adicionaIngredientesReceita(alface);
+		receita.adicionaIngredientesReceita(tomate);
+		pri.inserir(receita);
+
+		Receita receita2 = new Receita("Arroz e Salada");
+		Ingrediente arroz = new Ingrediente("Arroz", 200.0,
+				UnidadeMedida.GRAMA, 1.5);
+		Ingrediente tomate2 = new Ingrediente("Tomate", 200.0,
+				UnidadeMedida.GRAMA, 7.0);
+		receita2.adicionaIngredientesReceita(arroz);
+		receita2.adicionaIngredientesReceita(tomate2);
+		pri.inserir(receita2);
+
+		Map<String, Double> listaDeCompras = pri.geraListaDeCompras(Arrays
+				.asList(receita, receita2));
+
+		assertEquals(3, listaDeCompras.size());
+		assertTrue(listaDeCompras.containsKey(new Ingrediente("Alface", UnidadeMedida.GRAMA)));
+		assertTrue(listaDeCompras.containsKey(new Ingrediente("Arroz",	UnidadeMedida.GRAMA)));
+		assertTrue(listaDeCompras.containsKey(new Ingrediente("Tomate", UnidadeMedida.GRAMA)));
 	}
 
 }
