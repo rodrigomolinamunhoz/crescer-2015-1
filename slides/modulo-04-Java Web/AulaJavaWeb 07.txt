@@ -1,0 +1,40 @@
+MVC
+---------------------------------------------
+Frameworks
+Spring MVC
+GWT
+Play Framework
+Rails
+Django
+Struts
+JSP
+ASP.NET MVC
+
+View
+JSP
+Mustache
+Velocity
+Freemarker
+
+---------------------------------------------
+Projeto Java Filmator
+Maven <- http://mvnrepository.com/
+--Escopo projeto
+TELAS
+Cadastro de Filmes
+nome
+genero
+faixa etária
+ano lançamento
+sinopse
+imagem
+Exclusão de Filmes
+Consulta de Filmes(Filtros)
+	
+Controllers
+cadastro_filme
+consulta_filme
+
+---------------------------------------------
+Teste de JavaScript <- http://jasmine.github.io/
+

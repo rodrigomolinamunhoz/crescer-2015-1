@@ -1,11 +1,16 @@
 package mestre.cuca;
-
 import java.io.File;
 import java.io.IOException;
-import java.util.*;
-import org.codehaus.jackson.map.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 
 public class LivroReceitasJson implements LivroReceitas {
+	
+	ObjectMapper mapper = new ObjectMapper();
+	private List<Receita> receitas = new ArrayList<Receita>();
 	
 	public LivroReceitasJson(String caminho) throws IOException {
 	    carregaReceitasDeArquivoJson(caminho);
