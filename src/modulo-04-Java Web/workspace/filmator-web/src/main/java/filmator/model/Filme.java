@@ -5,10 +5,17 @@ public class Filme {
 	private String nome;
 	private int faixaEtaria;
 	private int anoLancamento;
-	private String sipnose;
+	private String sinopse;
 	private String imagem;
 	private Genero genero;
 	
+	public Filme(){
+	}
+	
+	public Filme(String nome) {
+		this.nome = nome;
+	}
+
 	public int getFaixaEtaria() {
 		return faixaEtaria;
 	}
@@ -25,12 +32,13 @@ public class Filme {
 		this.anoLancamento = anoLancamento;
 	}
 
-	public String getSipnose() {
-		return sipnose;
+
+	public String getSinopse() {
+		return sinopse;
 	}
 
-	public void setSipnose(String sipnose) {
-		this.sipnose = sipnose;
+	public void setSinopse(String sinopse) {
+		this.sinopse = sinopse;
 	}
 
 	public String getImagem() {
@@ -41,11 +49,19 @@ public class Filme {
 		this.imagem = imagem;
 	}
 
-	public Filme(String nome) {
+	public String getNome() {
+		return nome;
+	}
+	
+	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
-	public String getNome() {
-		return nome;
+	public Genero getGenero() {
+		return genero;
+	}
+
+	public void setGenero(Genero genero) {
+		this.genero = genero;
 	}
 }

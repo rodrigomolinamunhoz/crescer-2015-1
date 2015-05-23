@@ -1,17 +1,19 @@
 package filmator.dao;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+
 import java.util.List;
 
 import filmator.model.Filme;
 
 public class FilmeDao {
+	List<Filme> listaDeFilmes = new ArrayList<Filme>();
 
-	public List<Filme> buscaTodosFilmes(){
-		//Imagina que estes dados estao vindo do banco
-		return Arrays.asList(new Filme("O poderoso chefão"),
-			new Filme("O poderoso chefão II"),
-			new Filme("O poderoso chefão III"));
+	public List<Filme> buscaTodosFilmes() {
+		return listaDeFilmes;
+	}
+
+	public void salvar(Filme filme) {
+		listaDeFilmes.add(filme);
 	}
 }
- 

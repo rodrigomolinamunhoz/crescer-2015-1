@@ -6,22 +6,29 @@
 </head>
 <body>
 	<h1>ALOOOOOOOOOO GALERAAAAAAAA</h1>
-	<form action="/cadastro" method="post">
+	<form action="/salvar" method="post">
 		<label>Nome Filme:</label>
 		<input name="nome"></input> 
+		<label>Gênero</label>
 		<select	name="genero">
-			<option value="COMEDIA">{(descricao)}</option>
+			{{#generos}}
+				<option value="{{.}}">{{descricao}}</option>
+			{{/generos}}
 		</select>
 		<label>Faixa Etária:</label>
 		<input name="faixaEtaria"></input>
 		<label>Ano Lançamento:</label>
 		<input name="anoLancamento"></input>
 		<label>Sipnose:</label>
-		<input name="sipnose"></input>
+		<textarea name="sinopse"></textarea>
 		<label>Escolha imagem</label>
-		<input type="file" name="img" accept="image/png|image/jpg">
+		<input name="imagem"></input>
 		<button>Salvar</button>
 	</form>
+	<h2>Lista de filmes</h2>
+		{{#filmes}}
+				<li>{{nome}} - {{faixaEtaria}} - {{anoLancamento}} - {{sinopse}} - {{imagem}} - {{genero.descricao}}</li>
+		{{/filmes}}
 
 
 
