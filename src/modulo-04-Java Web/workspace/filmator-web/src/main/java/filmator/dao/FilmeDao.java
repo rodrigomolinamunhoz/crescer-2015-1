@@ -16,4 +16,13 @@ public class FilmeDao {
 	public void salvar(Filme filme) {
 		listaDeFilmes.add(filme);
 	}
+
+	public Filme buscaFilmePeloNome(String nomeFilme) {
+		for (Filme filmeAtual : this.listaDeFilmes) {
+			if (filmeAtual.getNome().equals(nomeFilme)) {
+				return filmeAtual;
+			}
+		}
+		throw new NullPointerException();
+	}
 }

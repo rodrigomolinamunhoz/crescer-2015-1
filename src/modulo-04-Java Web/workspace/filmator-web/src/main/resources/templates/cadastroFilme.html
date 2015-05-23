@@ -1,36 +1,106 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
+<title>Filmator</title>
 <meta charset="utf-8">
-<title>Cadastro de Filme</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
 </head>
 <body>
-	<h1>ALOOOOOOOOOO GALERAAAAAAAA</h1>
-	<form action="/salvar" method="post">
-		<label>Nome Filme:</label>
-		<input name="nome"></input> 
-		<label>Gênero</label>
-		<select	name="genero">
-			{{#generos}}
-				<option value="{{.}}">{{descricao}}</option>
-			{{/generos}}
-		</select>
-		<label>Faixa Etária:</label>
-		<input name="faixaEtaria"></input>
-		<label>Ano Lançamento:</label>
-		<input name="anoLancamento"></input>
-		<label>Sipnose:</label>
-		<textarea name="sinopse"></textarea>
-		<label>Escolha imagem</label>
-		<input name="imagem"></input>
-		<button>Salvar</button>
-	</form>
-	<h2>Lista de filmes</h2>
-		{{#filmes}}
-				<li>{{nome}} - {{faixaEtaria}} - {{anoLancamento}} - {{sinopse}} - {{imagem}} - {{genero.descricao}}</li>
-		{{/filmes}}
-
-
-
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-6 col-md-4"></div>
+			<div class="col-xs-6 col-md-4">
+				<h2>Cadastro de Filme</h2>
+				<form role="form" action="/salvar" method="post">
+					<div class="form-group">
+						<label>Nome do Filme:</label> <input class="form-control"
+							name="nome" required>
+					</div>
+					<select class="form-control" name="genero" required>
+						{{#generos}}
+						<option value="{{.}}">{{descricao}}</option> {{/generos}}
+					</select>
+					<div class="form-group">
+						<label>Faixa Etária:</label> <input class="form-control"
+							name="faixaEtaria" required>
+					</div>
+					<div class="form-group">
+						<label>Ano Lançmento:</label> <input class="form-control"
+							name="anoLancamento" required>
+					</div>
+					<div class="form-group">
+						<label>Sinopse:</label>
+						<textarea class="form-control" rows="5" name="sinopse" required></textarea>
+					</div>
+					<button type="submit" class="btn btn-success">Salvar</button>
+				</form>
+			<h2>Lista de filmes</h2>
+			</div>
+			<table class="table table-condensed">
+				<thead>
+					<tr class="success">
+						<th>Nome</th>
+						<th>Gênero</th>
+						<th>Faixa Etária</th>
+						<th>Ano de Lançamento</th>
+						<th>Sinopse</th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#filmes}}
+					<tr>
+						<td class="active">{{nome}}</td>
+						<td class="active">{{genero.descricao}}</td>
+						<td class="active">{{faixaEtaria}}</td>
+						<td class="active">{{anoLancamento}}</td>
+						<td class="active">{{sinopse}}</td>
+					</tr>
+					{{/filmes}}
+				</tbody>
+			</table>
+			<div class="col-xs-6 col-md-4"></div>
+			</div>
+			<div class="row">
+			<div class="col-xs-6 col-md-4"></div>
+			<div class="col-xs-6 col-md-4">
+				<h2>Buscar Filmes!</h2>
+				<form role="form" action="/buscar" method="post">
+					<div class="form-group">
+						<label>Nome do Filme:</label> <input class="form-control"
+							name="nome" required>
+					</div>
+					<button type="submit" class="btn btn-success">Buscar</button>
+				</form>
+				<h2>Resultado da Busca</h2>
+				</div>
+				<table class="table table-condensed">
+					<thead>
+						<tr class="success">
+							<th>Nome</th>
+							<th>Gênero</th>
+							<th>Faixa Etária</th>
+							<th>Ano de Lançamento</th>
+							<th>Sinopse</th>
+						</tr>
+					</thead>
+					<tbody>
+						{{#filmePeloNome}}
+						<tr>
+							<td class="active">{{nome}}</td>
+							<td class="active">{{genero.descricao}}</td>
+							<td class="active">{{faixaEtaria}}</td>
+							<td class="active">{{anoLancamento}}</td>
+							<td class="active">{{sinopse}}</td>
+						</tr>
+						{{/filmePeloNome}}
+					</tbody>
+				</table>
+				<div class="col-xs-6 col-md-4"></div>
+		</div>
+	</div>
 </body>
 </html>

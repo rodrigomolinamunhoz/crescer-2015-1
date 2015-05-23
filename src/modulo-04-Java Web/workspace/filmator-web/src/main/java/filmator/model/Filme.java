@@ -6,7 +6,6 @@ public class Filme {
 	private int faixaEtaria;
 	private int anoLancamento;
 	private String sinopse;
-	private String imagem;
 	private Genero genero;
 	
 	public Filme(){
@@ -39,14 +38,6 @@ public class Filme {
 
 	public void setSinopse(String sinopse) {
 		this.sinopse = sinopse;
-	}
-
-	public String getImagem() {
-		return imagem;
-	}
-
-	public void setImagem(String imagem) {
-		this.imagem = imagem;
 	}
 
 	public String getNome() {
