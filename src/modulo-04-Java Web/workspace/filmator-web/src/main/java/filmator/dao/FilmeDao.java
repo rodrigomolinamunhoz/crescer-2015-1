@@ -23,6 +23,6 @@ public class FilmeDao {
 				return filmeAtual;
 			}
 		}
-		throw new NullPointerException();
+		throw new FilmeNaoEncontradoException(nomeFilme);
 	}
 }

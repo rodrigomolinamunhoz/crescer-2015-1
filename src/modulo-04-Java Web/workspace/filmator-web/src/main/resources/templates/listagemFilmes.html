@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<title>Filmator|Listagem</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-6 col-md-4"></div>
+			<div class="col-xs-6 col-md-4">
+			<h2>Lista de filmes</h2>
+			</div>
+			<table class="table table-condensed">
+				<thead>
+					<tr class="success">
+						<th>Nome do Filme</th>
+						<th>Gênero</th>
+						<th>Faixa Etária</th>
+						<th>Ano de Lançamento</th>
+						<th>Sinopse</th>
+						<th>URL da Imagem</th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#filmes}}
+					<tr>
+						<td class="active">{{nome}}</td>
+						<td class="active">{{genero.descricao}}</td>
+						<td class="active">{{faixaEtaria}}</td>
+						<td class="active">{{anoLancamento}}</td>
+						<td class="active">{{sinopse}}</td>
+						<td class="active">{{imagem}}</td>
+					</tr>
+					{{/filmes}}
+				</tbody>
+			</table>
+		    <button type="submit" class="btn btn-danger" onclick="history.go(-1);">Voltar</button> 
+		    <form action="/" method="get">
+		    	</br>
+				<button type="submit" class="btn btn-info">Cadastrar Filme</button>
+			</form>
+			<div class="col-xs-6 col-md-4"></div>
+		</div>
+	</div>
+</body>
+</html>
