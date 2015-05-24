@@ -5,6 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/estilo.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
@@ -24,7 +25,7 @@
 						<th>Faixa Etária</th>
 						<th>Ano de Lançamento</th>
 						<th>Sinopse</th>
-						<th>URL da Imagem</th>
+						<th>Imagem</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -35,7 +36,11 @@
 						<td class="active">{{faixaEtaria}}</td>
 						<td class="active">{{anoLancamento}}</td>
 						<td class="active">{{sinopse}}</td>
-						<td class="active">{{imagem}}</td>
+						<td class="active">
+							<a href="{{imagem}}">
+           						 <button type="button" class="glyphicon glyphicon-picture"></button>
+       				     	</a>
+						</td>
 					</tr>
 					{{/filmes}}
 				</tbody>

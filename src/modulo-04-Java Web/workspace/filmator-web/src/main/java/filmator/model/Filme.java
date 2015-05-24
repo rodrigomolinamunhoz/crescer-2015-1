@@ -4,7 +4,7 @@ public class Filme {
 
 	private String nome;
 	private String faixaEtaria;
-	private int anoLancamento;
+	private String anoLancamento;
 	private String sinopse;
 	private String imagem;
 	private Genero genero;
@@ -16,11 +16,11 @@ public class Filme {
 		this.nome = nome;
 	}
 
-	public int getAnoLancamento() {
+	public String getAnoLancamento() {
 		return anoLancamento;
 	}
 
-	public void setAnoLancamento(int anoLancamento) {
+	public void setAnoLancamento(String anoLancamento) {
 		this.anoLancamento = anoLancamento;
 	}
 
