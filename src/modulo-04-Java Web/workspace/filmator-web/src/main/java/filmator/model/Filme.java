@@ -15,6 +15,15 @@ public class Filme {
 	public Filme(String nome) {
 		this.nome = nome;
 	}
+	
+	public Filme(String nome, String faixaEtaria, String anoLancamento, String sinopse, String imagem, Genero genero) {
+		this.nome = nome;
+		this.faixaEtaria = faixaEtaria;
+		this.anoLancamento = anoLancamento;
+		this.sinopse = sinopse;
+		this.imagem = imagem;
+		this.genero = genero;
+	}
 
 	public String getAnoLancamento() {
 		return anoLancamento;

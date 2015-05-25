@@ -1,5 +1,6 @@
 package filmator.controller;
 
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
@@ -15,7 +16,9 @@ import filmator.model.Genero;
 
 @Controller
 public class HomeController {
-
+	//Injeção de dependência
+	
+	@Inject
 	FilmeDao dao = new FilmeDao();
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -26,8 +29,8 @@ public class HomeController {
 
 	@RequestMapping(value = "/salvar", method = RequestMethod.POST)
 	public String salvar(Filme filme, Model model) {
-		dao.salvar(filme);
-		model.addAttribute("filmes", dao.buscaTodosFilmes());
+		dao.inserir(filme);
+		model.addAttribute("filmes", dao.buscaTodosFilmesJava8());
 		return "listagemFilmes";
 	}
 
@@ -36,11 +39,11 @@ public class HomeController {
 		return "buscarFilme";
 	}
 
-	@RequestMapping(value = "/buscar", method = RequestMethod.POST)
-	public String buscar(String nome, Model model) {
-		model.addAttribute("filmes", dao.buscaFilmePeloNome(nome));
-		return "listagemFilmes";
-	}
+//	@RequestMapping(value = "/buscar", method = RequestMethod.POST)
+//	public String buscar(String nome, Model model) {
+//		model.addAttribute("filmes", dao.buscaTodosFilmesJava8(nome));
+//		return "listagemFilmes";
+//	}
 
 	@ExceptionHandler()
 	public String iHandleExceptions(HttpServletRequest request, FilmeNaoEncontradoException e) {
