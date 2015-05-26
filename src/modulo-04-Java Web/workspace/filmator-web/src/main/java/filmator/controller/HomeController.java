@@ -17,11 +17,15 @@ import filmator.model.Genero;
 @Controller
 public class HomeController {
 	//Injeção de dependência
-	
 	@Inject
 	FilmeDao dao = new FilmeDao();
-
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String telaLogin() {
+		return "telaLogin";
+	}
+
+	@RequestMapping(value = "/formularioCadastro", method = RequestMethod.GET)
 	public String homeFilme(Model model) {
 		model.addAttribute("generos", Genero.values());
 		return "cadastroFilme";
@@ -39,11 +43,11 @@ public class HomeController {
 		return "buscarFilme";
 	}
 
-//	@RequestMapping(value = "/buscar", method = RequestMethod.POST)
-//	public String buscar(String nome, Model model) {
-//		model.addAttribute("filmes", dao.buscaTodosFilmesJava8(nome));
-//		return "listagemFilmes";
-//	}
+	@RequestMapping(value = "/buscar", method = RequestMethod.POST)
+	public String buscar(String nome, Model model) {
+		model.addAttribute("filmes", dao.buscaFilmePorNome(nome));
+		return "listagemFilmes";
+	}
 
 	@ExceptionHandler()
 	public String iHandleExceptions(HttpServletRequest request, FilmeNaoEncontradoException e) {
