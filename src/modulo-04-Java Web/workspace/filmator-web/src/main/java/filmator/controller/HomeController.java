@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import filmator.dao.FilmeDao;
 import filmator.dao.FilmeNaoEncontradoException;
-import filmator.dao.UsuariosDao;
 import filmator.model.Filme;
-import filmator.model.FormularioLogin;
 import filmator.model.Genero;
 
 @Controller
@@ -21,19 +19,7 @@ public class HomeController {
 	//Injeção de dependência
 	@Inject
 	FilmeDao dao;
-	@Inject
-	UsuariosDao daoUsuarios;
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String telaLogin() {
-		return "telaLogin";
-	}
-	
-	@RequestMapping(value = "/validalogin", method = RequestMethod.POST)
-	public String validarLogin(FormularioLogin form, Model model) {
-		model.addAttribute("Usuarios", daoUsuarios.validaLogin(form.getLogin(),form.getSenha()));
-		return "cadastroFilme";
-	}
 	
 	@RequestMapping(value = "/formularioCadastro", method = RequestMethod.GET)
 	public String homeFilme(Model model) {
