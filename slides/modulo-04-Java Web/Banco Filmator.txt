@@ -1,0 +1,12 @@
+CREATE TABLE usuarios ( 
+  cod_usuario int(5) auto_increment not null, 
+  nome_usuario varchar2(255), 
+  login varchar2(255) not null, 
+  senha varchar2(40) not null, 
+  admin_sist int(1) not null, 
+  CONSTRAINT usuarios_pk 
+    PRIMARY KEY (cod_usuario, login) 
+);
+
+INSERT INTO usuarios (nome_usuario, login, senha, admin_sist) values('Rodrigo Molina', 'admin', 123456, 1);
+INSERT INTO usuarios (nome_usuario, login, senha, admin_sist) values('Vitor de Castro', 'vitor', 123456, 0);
