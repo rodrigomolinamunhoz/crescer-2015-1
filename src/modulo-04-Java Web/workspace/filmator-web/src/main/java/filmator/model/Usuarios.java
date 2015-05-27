@@ -12,13 +12,11 @@ public class Usuarios {
 
 	}
 
-	// public Usuarios(int codigoUsuario, String nomeUsuario, String loginUsuario, String senhaUsuario, int adminSistema){
-	// this.codigoUsuario = codigoUsuario;
-	// this.nomeUsuario = nomeUsuario;
-	// this.loginUsuario = loginUsuario;
-	// this.senhaUsuario = senhaUsuario;
-	// this.adminSistema = adminSistema;
-	// }
+	 public Usuarios(String loginUsuario, String senhaUsuario){
+	 this.loginUsuario = loginUsuario;
+	 this.senhaUsuario = senhaUsuario;
+
+	 }
 
 	public int getCodigoUsuario() {
 		return codigoUsuario;

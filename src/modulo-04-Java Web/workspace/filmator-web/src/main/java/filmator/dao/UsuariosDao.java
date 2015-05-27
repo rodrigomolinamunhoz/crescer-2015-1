@@ -12,23 +12,26 @@ import org.springframework.stereotype.Component;
 
 import filmator.model.Usuarios;
 
-
 @Component
 public class UsuariosDao {
 
 	@Inject
 	private JdbcTemplate jdbcTemplate;
-	
-	public List<Usuarios> validaLogin(String login, String senha) {
-		return jdbcTemplate.query("SELECT login, senha FROM usuarios WHERE login = (?) AND senha = (?)", new RowMapper<Usuarios>() {
-					public Usuarios mapRow(ResultSet rs, int arg1) throws SQLException {
-						Usuarios usuario = new Usuarios();
-						usuario.setLoginUsuario(rs.getString("loginUsuario"));
-						usuario.setSenhaUsuario(rs.getString("senhaUsuario"));
-						return usuario;
-					}
-				}, login, senha );
 
+	public Usuarios validaLogin(String loginUsuario, String senhaUsuario) {
+		List<Usuarios> usuarioExistente = jdbcTemplate.query("select login, senha, admin_sist from usuarios where login = ? and senha = ?", new RowMapper<Usuarios>() {
+							@Override
+							public Usuarios mapRow(ResultSet rs, int arg1) throws SQLException {
+								Usuarios usuario = new Usuarios();
+								usuario.setLoginUsuario(rs.getString("login"));
+								usuario.setSenhaUsuario(rs.getString("senha"));
+								usuario.setAdminSistema(rs.getInt("admin_sist"));
+								return usuario;
+							}
+						}, loginUsuario, senhaUsuario);
+		
+		//return usuarioExistente.get(0);
+		return usuarioExistente.isEmpty() ? null : usuarioExistente.get(0);
 	}
-
+	
 }
