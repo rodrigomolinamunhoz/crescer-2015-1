@@ -30,7 +30,6 @@ public class UsuariosDao {
 							}
 						}, loginUsuario, senhaUsuario);
 		
-		//return usuarioExistente.get(0);
 		return usuarioExistente.isEmpty() ? null : usuarioExistente.get(0);
 	}
 	
