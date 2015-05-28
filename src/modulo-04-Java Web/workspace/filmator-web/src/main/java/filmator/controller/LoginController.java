@@ -1,7 +1,6 @@
 package filmator.controller;
 
 import javax.inject.Inject;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -10,7 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import org.springframework.web.bind.annotation.RequestParam;
+
+
 
 import filmator.dao.UsuariosDao;
 import filmator.model.Usuarios;
@@ -21,22 +21,27 @@ public class LoginController {
 	UsuariosDao dao;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String telaLogin(@RequestParam("redir_url") String redirectUrl, HttpServletRequest request, HttpSession session) {
+	public String telaLogin(HttpServletRequest request, HttpSession session) {
 		if (request.getSession().getAttribute("usuarioLogado") != null) {
-			return "redirect:" + redirectUrl;
+			return "indexAdmin";
 		} else {
 			return "telaLogin";
 		}
 	}
-
-	@RequestMapping(value = "/cadastroFilme", method = RequestMethod.GET)
+	
+	@RequestMapping(value = "/indexAdmin", method = RequestMethod.GET)
 	public String telaCadastroFilme() {
-		return "cadastroFilme";
+		return "indexAdmin";
 	}
 
-	@RequestMapping(value = "/listagemFilmes", method = RequestMethod.GET)
+	@RequestMapping(value = "/cadastroUsuarioLogin", method = RequestMethod.GET)
+	public String telaoUsuarioLogin() {
+		return "telaCadastroUsuarioLogin";
+	}
+
+	@RequestMapping(value = "/indexUsuario", method = RequestMethod.GET)
 	public String telaListagemFilme() {
-		return "listagemFilmes";
+		return "indexUsuario";
 	}
 
 	@RequestMapping(value = "/validaLogin", method = RequestMethod.POST)
@@ -46,10 +51,11 @@ public class LoginController {
 		if (usuarioExiste != null) {
 			if (usuarioExiste.getAdminSistema() == 1) {
 				session.setAttribute("usuarioLogado", usuario);
-				return "redirect:/cadastroFilme";
+				//Usuarios usuarioLogado = (Usuarios) session.getAttribute("usuarioLogado");
+				return "redirect:/indexAdmin";
 			} else {
 				session.setAttribute("usuarioLogado", usuario);
-				return "redirect:/listagemFilmes";
+				return "redirect:/indexUsuario";
 			}
 		} else {
 			return "telaLogin";
@@ -61,5 +67,17 @@ public class LoginController {
 		session.invalidate();
 		return "/";
 	}
+	
+//	@RequestMapping(value = "/avaliar", method = RequestMethod.POST)
+//	public String avaliar @RequestParam (int id_filme, int nota){
+//		dao.atualiza no banco.
+//		
+//		
+//	}
+//	
+//	$.ajax(){
+//		url + $('#nota').val()
+//		type: post
+//	}
 
 }

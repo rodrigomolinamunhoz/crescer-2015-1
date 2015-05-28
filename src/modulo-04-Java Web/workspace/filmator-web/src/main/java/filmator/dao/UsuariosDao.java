@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
+
 import filmator.model.Usuarios;
 
 @Component
@@ -31,6 +32,14 @@ public class UsuariosDao {
 						}, loginUsuario, senhaUsuario);
 		
 		return usuarioExistente.isEmpty() ? null : usuarioExistente.get(0);
+	}
+
+	public void inserirUsuariologin(Usuarios usuario) {
+		jdbcTemplate
+				.update("INSERT INTO usuarios (nome_usuario, login, senha, admin_sist) VALUES (?,?,?, 0)",
+						usuario.getNomeUsuario(),
+						usuario.getLoginUsuario(),
+						usuario.getSenhaUsuario());
 	}
 	
 }

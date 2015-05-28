@@ -13,6 +13,7 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 		String uri = request.getRequestURI();
 		if (uri.endsWith("/")||
 			uri.endsWith("validaLogin")||
+			uri.endsWith("cadastroUsuarioLogin")||
 			uri.endsWith("script")||
 			uri.contains("resources")) {
 			return true;
