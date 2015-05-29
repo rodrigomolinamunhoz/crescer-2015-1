@@ -33,6 +33,12 @@ public class HomeController {
 		model.addAttribute("filmes", dao.buscaTodosFilmesJava8());
 		return "listagemFilmes";
 	}
+	
+	@RequestMapping(value = "/buscarTodosFilmes", method = RequestMethod.GET)
+	public String listarFilmes(Model model) {
+		model.addAttribute("filmes", dao.buscaTodosFilmesJava8());
+		return "listagemFilmes";
+	}	
 
 	@RequestMapping(value = "/telaBusca", method = RequestMethod.GET)
 	public String telaBuscar() {
@@ -49,6 +55,14 @@ public class HomeController {
 	public String iHandleExceptions(HttpServletRequest request, FilmeNaoEncontradoException e) {
 		request.setAttribute("exception", e);
 		return "erroBuscaFilme";
+	}
+	
+	@RequestMapping(value = "/deletarFilme", method = RequestMethod.GET)
+	public String deletaFilme(int idFilme, Model model) {
+		System.out.println(idFilme);
+		dao.excluirFilme(idFilme);
+		model.addAttribute("filmes", dao.buscaTodosFilmesJava8());
+		return "listagemFilmes";
 	}
 
 }

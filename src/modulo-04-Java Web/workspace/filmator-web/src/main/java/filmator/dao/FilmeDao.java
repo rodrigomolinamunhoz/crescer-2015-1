@@ -29,11 +29,12 @@ public class FilmeDao {
 
 	public List<Filme> buscaTodosFilmesJava8() {
 		return jdbcTemplate
-				.query("SELECT nome, genero, anoLancamento, faixaEtaria, sinopse, imagem FROM Filme",
+				.query("SELECT idFilme, nome, genero, anoLancamento, faixaEtaria, sinopse, imagem FROM Filme",
 						new RowMapper<Filme>() {
 							public Filme mapRow(ResultSet rs, int arg1)
 									throws SQLException {
 								Filme filme2 = new Filme();
+								filme2.setIdFilme(rs.getInt("idFilme"));
 								filme2.setNome(rs.getString("nome"));
 								filme2.setAnoLancamento(rs.getString("anoLancamento"));
 								filme2.setFaixaEtaria(rs.getString("faixaEtaria"));
@@ -47,11 +48,12 @@ public class FilmeDao {
 	}
 
 	public List<Filme> buscaFilmePorNome(String nomeFilme) {
-		return jdbcTemplate.query("SELECT nome, genero, anoLancamento, faixaEtaria, sinopse, imagem FROM Filme WHERE nome like ?",
+		return jdbcTemplate.query("SELECT idFilme, nome, genero, anoLancamento, faixaEtaria, sinopse, imagem FROM Filme WHERE nome like ?",
 				new RowMapper<Filme>() {
 					public Filme mapRow(ResultSet rs, int arg1)
 							throws SQLException {
 						Filme filme2 = new Filme();
+						filme2.setIdFilme(rs.getInt("idFilme"));
 						filme2.setNome(rs.getString("nome"));
 						filme2.setAnoLancamento(rs.getString("anoLancamento"));
 						filme2.setFaixaEtaria(rs.getString("faixaEtaria"));
@@ -62,6 +64,10 @@ public class FilmeDao {
 					}
 				}, "%" + nomeFilme + "%" );
 
+	}
+	
+	public void excluirFilme(int idFilme) {
+		jdbcTemplate.update("DELETE FROM filme WHERE idFilme = ?", idFilme);
 	}
 
 }

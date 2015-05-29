@@ -5,27 +5,28 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 {{> script}}
+<link rel="stylesheet" href="../css/estiloFundo.css">
 </head>
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-12 col-md-4"></div>
-			<div class="col-xs-12 col-md-4">
+			<div class="col-xs-3 col-md-4"></div>
+			<div class="col-xs-6 col-md-4">
+			</br>
 				<div class="panel panel-default">
 		        	<div class="panel-heading">
 						<h2>Buscar Filmes</h2>
 						<form role="form" action="/buscar" method="post">
 							<div class="form-group">
-								<label>Nome do Filme:</label> <input class="form-control"
-									name="nome" required>
+								<label>Nome do Filme:</label>
+								<input class="form-control"	name="nome" required autofocus>
 							</div>
 							<button type="submit" class="btn btn-success">Buscar</button>
-						</form>
-						</br>
-						<button type="submit" class="btn btn-danger" onclick="history.go(-1);">Voltar</button>
+					<button type="submit" class="btn btn-danger" onclick="history.go(-1);">Voltar</button>
+						</form>				
 				</div>
 			</div>
-			<div class="col-xs-12 col-md-4"></div>
+			<div class="col-xs-3 col-md-4"></div>
 		</div>
 	</div>
 </body>

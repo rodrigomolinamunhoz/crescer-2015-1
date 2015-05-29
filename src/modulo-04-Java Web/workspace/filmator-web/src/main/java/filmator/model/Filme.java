@@ -2,6 +2,7 @@ package filmator.model;
 
 public class Filme {
 
+	private int idFilme;
 	private String nome;
 	private String faixaEtaria;
 	private String anoLancamento;
@@ -62,5 +63,13 @@ public class Filme {
 
 	public void setFaixaEtaria(String faixaEtaria) {
 		this.faixaEtaria = faixaEtaria;
+	}
+
+	public int getIdFilme() {
+		return idFilme;
+	}
+
+	public void setIdFilme(int idFilme) {
+		this.idFilme = idFilme;
 	}
 }

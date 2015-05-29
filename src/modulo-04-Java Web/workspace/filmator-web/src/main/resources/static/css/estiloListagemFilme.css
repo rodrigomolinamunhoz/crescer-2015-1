@@ -1,6 +1,8 @@
-/*body {
-  background: url("../img/fundo-avengers.png");
-}*/
 th, td {
    text-align: center;   
+}
+.img_listagem{
+	width: 75px;
+	height: 75px;
+	border-radius: 10px;
 }

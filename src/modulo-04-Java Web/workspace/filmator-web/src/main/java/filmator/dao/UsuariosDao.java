@@ -11,6 +11,9 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
 
+
+
+
 import filmator.model.Usuarios;
 
 @Component
@@ -40,6 +43,24 @@ public class UsuariosDao {
 						usuario.getNomeUsuario(),
 						usuario.getLoginUsuario(),
 						usuario.getSenhaUsuario());
+	}
+
+	public List<Usuarios> buscaTodosUsuarios() {
+		return jdbcTemplate
+				.query("SELECT cod_usuario, nome_usuario, login, senha, admin_sist FROM usuarios",
+						new RowMapper<Usuarios>() {
+							public Usuarios mapRow(ResultSet rs, int arg1)
+									throws SQLException {
+								Usuarios usuario = new Usuarios();
+								usuario.setCodigoUsuario(rs.getInt("cod_usuario"));
+								usuario.setNomeUsuario(rs.getString("nome_usuario"));
+								usuario.setLoginUsuario(rs.getString("login"));
+								usuario.setSenhaUsuario(rs.getString("senha"));
+								usuario.setAdminSistema(rs.getInt("admin_sist"));
+								return usuario;
+							}
+
+						});
 	}
 	
 }

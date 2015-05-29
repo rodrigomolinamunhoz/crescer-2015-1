@@ -5,56 +5,58 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Filmator|Cadastro</title>
 {{> script}}
+<link rel="stylesheet" href="../css/estiloFundo.css">
 </head>
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-12 col-md-4"></div>
-			<div class="col-xs-12 col-md-4">
-			  <p>Bem vindo,</p> 
-				<h2>Cadastro de Filme</h2>
-				<form role="form" action="/salvar" method="post">
-					<div class="form-group">
-						<label>Nome do Filme:</label> <input class="form-control"
-							name="nome" required>
+			<div class="col-xs-3 col-md-4"></div>
+			<div class="col-xs-6 col-md-4">
+				<div class="panel panel-default">
+			        <div class="panel-heading">
+						<h2>Cadastro de Filme</h2>
+						<form role="form" action="/salvar" method="post">
+							<div class="form-group">
+								<label>Nome do Filme:</label>
+								<input class="form-control" name="nome" required autofocus>
+							</div>
+							<label>Gênero:</label>
+							<select class="form-control" name="genero" required>
+								{{#generos}}
+									<option value="{{.}}">{{descricao}}</option> 
+								{{/generos}}
+							</select>
+							<label>Faixa Etária:</label>
+							<div class="form-group">
+									<select class="form-control"
+									name="faixaEtaria" required>
+									<option value="Livre">Livre para todas as idades</option>
+									<option value="10 anos">Não recomendado para menores de 10 anos.</option>
+									<option value="12 anos">Não recomendado para menores de	12 anos.</option>
+									<option value="14 anos">Não recomendado para menores de 14 anos.</option>
+									<option value="16 anos">Não recomendado para menores de	16 anos.</option>
+									<option value="18 anos">Proibida a entrada de menores de 18 anos.</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label>Ano de Lançamento:</label>
+								<input class="form-control" min="1960" max="2016" type="number" name="anoLancamento" required>
+							</div>
+							<div class="form-group">
+								<label>Sinopse:</label>
+								<textarea class="form-control" rows="5" name="sinopse" required></textarea>
+							</div>
+							<div class="form-group">
+								<label>URL da Imagem</label>
+								<input class="form-control" type="url" name="imagem"required>
+							</div>
+							<button type="submit" class="btn btn-success">Salvar</button>
+							<button type="submit" class="btn btn-danger" onclick="history.go(-1);">Voltar</button>
+						</form>	
 					</div>
-					<label>Gênero:</label>
-					<select class="form-control" name="genero" required>
-						{{#generos}}
-							<option value="{{.}}">{{descricao}}</option> 
-						{{/generos}}
-					</select>
-					<label>Faixa Etária:</label>
-					<div class="form-group">
-							<select class="form-control"
-							name="faixaEtaria" required>
-							<option value="Livre">Livre para todas as idades</option>
-							<option value="10 anos">Não recomendado para menores de 10 anos.</option>
-							<option value="12 anos">Não recomendado para menores de	12 anos.</option>
-							<option value="14 anos">Não recomendado para menores de 14 anos.</option>
-							<option value="16 anos">Não recomendado para menores de	16 anos.</option>
-							<option value="18 anos">Proibida a entrada de menores de 18 anos.</option>
-						</select>
-					</div>
-					<div class="form-group">
-						<label>Ano de Lançamento:</label> <input class="form-control" min="1960" max="2016"
-							type="number" name="anoLancamento" required>
-					</div>
-					<div class="form-group">
-						<label>Sinopse:</label>
-						<textarea class="form-control" rows="5" name="sinopse" required></textarea>
-					</div>
-					<div class="form-group">
-						<label>URL da Imagem</label> <input class="form-control" type="url" name="imagem"required>
-					</div>
-					<button type="submit" class="btn btn-success">Salvar</button>
-				</form>
-				</br>
-					<a href="http://localhost:8787/telaBusca" class="btn btn-info">Buscar Filme</a>
-					<!-- <a href="http://localhost:8787/login" class="btn btn-info">login</a>  -->
- 					<a href="http://localhost:8787/logout" class="btn btn-danger">Sair do sistema</a>
+				</div>			
 			</div>
-			<div class="col-xs-12 col-md-4"></div>
+			<div class="col-xs-3 col-md-4"></div>
 		</div>
 	</div>
 </body>
