@@ -37,8 +37,8 @@ public class LoginController {
 		return "indexAdmin";
 	}
 
-	@RequestMapping(value = "/cadastroUsuarioLogin", method = RequestMethod.GET)
-	public String telaoUsuarioLogin() {
+	@RequestMapping(value = "/teste", method = RequestMethod.GET)
+	public String telaUsuarioLogin() {
 		return "telaCadastroUsuarioLogin";
 	}
 

@@ -63,4 +63,8 @@ public class UsuariosDao {
 						});
 	}
 	
+	public void excluirUsuario(int codigoUsuario) {
+		jdbcTemplate.update("DELETE FROM usuarios WHERE cod_usuario = ?", codigoUsuario);
+	}
+	
 }

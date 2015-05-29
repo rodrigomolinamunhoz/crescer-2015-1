@@ -5,7 +5,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 {{> script}}
-<link rel="stylesheet" href="../css/estiloFundo.css">
+<link rel="stylesheet" href="../css/jquery.autocomplete.css">
+<script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="../js/jquery.autocomplete.min.js"></script>
+
 </head>
 <body>
 	<div class="container">
@@ -16,18 +19,44 @@
 				<div class="panel panel-default">
 		        	<div class="panel-heading">
 						<h2>Buscar Filmes</h2>
-						<form role="form" action="/buscar" method="post">
+						<form role="form" action="/buscar" method="get">
 							<div class="form-group">
 								<label>Nome do Filme:</label>
-								<input class="form-control"	name="nome" required autofocus>
+								<!-- <input class="form-control" id="busca" name="nome" required autofocus> -->
+					<input class="form-control" id="busca" name="nome" required autofocus>
 							</div>
-							<button type="submit" class="btn btn-success">Buscar</button>
+							<!-- <button type="submit" class="btn btn-success">Buscar</button> -->	
+						<button type="submit" class="btn btn-success">Buscar</button>		
 					<button type="submit" class="btn btn-danger" onclick="history.go(-1);">Voltar</button>
-						</form>				
+						</form>	
 				</div>
 			</div>
 			<div class="col-xs-3 col-md-4"></div>
 		</div>
 	</div>
+<script>
+  $(document).ready(function() {
+ 
+	$('#busca').autocomplete({
+		serviceUrl: '${pageContext.request.contextPath}/buscar',
+		paramName: "nome",
+		delimiter: ",",
+	   transformResult: function(response) {
+ 
+		return {      	
+		  //must convert json to javascript object before process
+		  suggestions: $.map($.parseJSON(response), function(item) {
+ 
+		      return { value: item.nome };
+		   })
+ 
+		 };
+ 
+            }
+ 
+	 });
+ 
+  });
+</script>
 </body>
 </html>

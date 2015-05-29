@@ -41,12 +41,6 @@ public class HomeController {
 		return "buscarFilme";
 	}
 
-	@RequestMapping(value = "/buscar", method = RequestMethod.POST)
-	public String buscar(String nome, Model model) {
-		model.addAttribute("filmes", dao.buscaFilmePorNome(nome));
-		return "listagemFilmes";
-	}
-
 	@ExceptionHandler()
 	public String iHandleExceptions(HttpServletRequest request, FilmeNaoEncontradoException e) {
 		request.setAttribute("exception", e);

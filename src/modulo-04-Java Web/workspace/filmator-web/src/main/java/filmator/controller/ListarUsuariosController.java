@@ -30,4 +30,32 @@ public class ListarUsuariosController {
 			return "telaLogin";
 		}
 	}
+	
+	@RequestMapping(value = "/listagemUsuarios", method = RequestMethod.GET)
+	public String listaUsuarios(HttpSession session, Model model){
+		Usuarios usuarioAdmin = (Usuarios) session.getAttribute("usuarioAdmin");
+		Usuarios usuarioNormal = (Usuarios) session.getAttribute("usuarioNormal");
+		if (usuarioAdmin != null) {
+			model.addAttribute("usuarios", dao.buscaTodosUsuarios());
+			return "listagemUsuarios";
+		} else if (usuarioNormal != null ) {
+			return "indexUsuario";
+		} else {
+			return "telaLogin";
+		}
+	}
+	
+	@RequestMapping(value = "/deletarUsuario", method = RequestMethod.GET)
+	public String deletaFilme(HttpSession session, int codigoUsuario, Model model) {
+		Usuarios usuarioAdmin = (Usuarios) session.getAttribute("usuarioAdmin");
+		Usuarios usuarioNormal = (Usuarios) session.getAttribute("usuarioNormal");
+		if (usuarioAdmin != null) {
+			dao.excluirUsuario(codigoUsuario);
+			return "redirect:/listagemUsuarios";
+		} else if (usuarioNormal != null ) {
+			return "indexUsuario";
+		} else {
+			return "telaLogin";
+		}
+	}
 }
