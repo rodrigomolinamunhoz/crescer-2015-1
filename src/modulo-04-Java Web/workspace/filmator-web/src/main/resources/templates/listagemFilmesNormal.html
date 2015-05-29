@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<title>Filmator|Listagem</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{{> script}}
+<link rel="stylesheet" href="../css/estiloListagemFilme.css">
+<link rel="stylesheet" href="../css/estiloFundo.css">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-6 col-md-4"></div>
+			<div class="panel panel-default">
+			    <div class="panel-heading">
+				<div class="col-xs-6 col-md-4">
+					<h2>Lista de filmes</h2>
+					</div>
+					<table class="table table-condensed">
+						<thead>
+							<tr class="success">
+								<th>Nome do Filme</th>
+								<th>Gênero</th>
+								<th>Faixa Etária</th>
+								<th>Ano de Lançamento</th>
+								<th>Sinopse</th>
+								<th>Imagem</th>
+							</tr>
+						</thead>
+						<tbody>
+							{{#filmes}}
+							<tr>
+								<td class="active">{{nome}}</td>
+								<td class="active">{{genero.descricao}}</td>
+								<td class="active">{{faixaEtaria}}</td>
+								<td class="active">{{anoLancamento}}</td>
+								<td class="active">{{sinopse}}</td>
+								<td class="active">
+									<img class="img_listagem" src="{{imagem}}">
+								</td>
+							</tr>
+							{{/filmes}}
+						</tbody>
+					</table>
+				    <button type="submit" class="btn btn-danger" onclick="history.go(-1);">Voltar</button>	
+					</form>
+				</div>
+			</div>
+			<div class="col-xs-6 col-md-4"></div>
+		</div>
+	</div>
+</body>
+</html>

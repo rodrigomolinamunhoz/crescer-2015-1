@@ -19,9 +19,12 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 			return true;
 		}
 
-		if (request.getSession().getAttribute("usuarioLogado") != null) {
+		if (request.getSession().getAttribute("usuarioAdmin") != null) {
+			return true;
+		} else if (request.getSession().getAttribute("usuarioNormal") != null){
 			return true;
 		}
+		
 		response.sendRedirect("/");
 		return false;
 	}

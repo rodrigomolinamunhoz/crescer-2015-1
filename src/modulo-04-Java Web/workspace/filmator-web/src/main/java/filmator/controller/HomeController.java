@@ -2,6 +2,7 @@ package filmator.controller;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import filmator.dao.FilmeDao;
 import filmator.dao.FilmeNaoEncontradoException;
-import filmator.model.Filme;
 import filmator.model.Genero;
+import filmator.model.Usuarios;
 
 @Controller
 public class HomeController {
@@ -22,24 +23,19 @@ public class HomeController {
 	
 	
 	@RequestMapping(value = "/formularioCadastro", method = RequestMethod.GET)
-	public String homeFilme(Model model) {
-		model.addAttribute("generos", Genero.values());
-		return "cadastroFilme";
-	}
-
-	@RequestMapping(value = "/salvar", method = RequestMethod.POST)
-	public String salvar(Filme filme, Model model) {
-		dao.inserir(filme);
-		model.addAttribute("filmes", dao.buscaTodosFilmesJava8());
-		return "listagemFilmes";
+	public String homeFilme(HttpSession session, Model model) {
+		Usuarios usuarioAdmin = (Usuarios) session.getAttribute("usuarioAdmin");
+		Usuarios usuarioNormal = (Usuarios) session.getAttribute("usuarioNormal");
+		if (usuarioAdmin != null) {
+			model.addAttribute("generos", Genero.values());
+			return "cadastroFilme";
+		} else if (usuarioNormal != null ) {
+			return "indexUsuario";
+		} else {
+			return "telaLogin";
+		}
 	}
 	
-	@RequestMapping(value = "/buscarTodosFilmes", method = RequestMethod.GET)
-	public String listarFilmes(Model model) {
-		model.addAttribute("filmes", dao.buscaTodosFilmesJava8());
-		return "listagemFilmes";
-	}	
-
 	@RequestMapping(value = "/telaBusca", method = RequestMethod.GET)
 	public String telaBuscar() {
 		return "buscarFilme";
@@ -55,14 +51,6 @@ public class HomeController {
 	public String iHandleExceptions(HttpServletRequest request, FilmeNaoEncontradoException e) {
 		request.setAttribute("exception", e);
 		return "erroBuscaFilme";
-	}
-	
-	@RequestMapping(value = "/deletarFilme", method = RequestMethod.GET)
-	public String deletaFilme(int idFilme, Model model) {
-		System.out.println(idFilme);
-		dao.excluirFilme(idFilme);
-		model.addAttribute("filmes", dao.buscaTodosFilmesJava8());
-		return "listagemFilmes";
 	}
 
 }

@@ -1,7 +1,6 @@
 package filmator.controller;
 
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -21,9 +20,13 @@ public class LoginController {
 	UsuariosDao dao;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String telaLogin(HttpServletRequest request, HttpSession session) {
-		if (request.getSession().getAttribute("usuarioLogado") != null) {
+	public String telaLogin(HttpSession session) {
+		Usuarios usuarioAdmin = (Usuarios) session.getAttribute("usuarioAdmin");
+		Usuarios usuarioNormal = (Usuarios) session.getAttribute("usuarioNormal");
+		if (usuarioAdmin != null) {
 			return "indexAdmin";
+		} else if (usuarioNormal != null ) {
+			return "indexUsuario";
 		} else {
 			return "telaLogin";
 		}
@@ -40,21 +43,27 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/indexUsuario", method = RequestMethod.GET)
-	public String telaListagemFilme() {
-		return "indexUsuario";
+	public String telaListagemFilme(HttpSession session) {
+		Usuarios usuarioAdmin = (Usuarios) session.getAttribute("usuarioAdmin");
+		Usuarios usuarioNormal = (Usuarios) session.getAttribute("usuarioNormal");
+		if (usuarioAdmin != null) {
+			return "indexAdmin";
+		} else if (usuarioNormal != null ) {
+			return "indexUsuario";
+		} else {
+			return "telaLogin";
+		}
 	}
 
 	@RequestMapping(value = "/validaLogin", method = RequestMethod.POST)
 	public String validar(Model model, HttpSession session, Usuarios usuario) {
-		Usuarios usuarioExiste = dao.validaLogin(usuario.getLoginUsuario(),
-				usuario.getSenhaUsuario());
+		Usuarios usuarioExiste = dao.validaLogin(usuario.getLoginUsuario(), usuario.getSenhaUsuario());
 		if (usuarioExiste != null) {
 			if (usuarioExiste.getAdminSistema() == 1) {
-				session.setAttribute("usuarioLogado", usuario);
-				//Usuarios usuarioLogado = (Usuarios) session.getAttribute("usuarioLogado");
+				session.setAttribute("usuarioAdmin", usuario);
 				return "redirect:/indexAdmin";
 			} else {
-				session.setAttribute("usuarioLogado", usuario);
+				session.setAttribute("usuarioNormal", usuario);
 				return "redirect:/indexUsuario";
 			}
 		} else {
