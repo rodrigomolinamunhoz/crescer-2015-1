@@ -29,7 +29,7 @@ public class FilmeDao {
 
 	public List<Filme> buscaTodosFilmesJava8() {
 		return jdbcTemplate
-				.query("SELECT idFilme, nome, genero, anoLancamento, faixaEtaria, sinopse, imagem FROM Filme",
+				.query("SELECT f.idfilme, f.nome, f.genero, f.faixaetaria, f.anolancamento, f.sinopse, f.imagem, (SELECT AVG(nota) FROM avaliacao a WHERE a.idfilme = f.idfilme) AS media FROM filme f",
 						new RowMapper<Filme>() {
 							public Filme mapRow(ResultSet rs, int arg1)
 									throws SQLException {
@@ -41,6 +41,7 @@ public class FilmeDao {
 								filme2.setGenero(Genero.valueOf(rs.getString("genero")));
 								filme2.setSinopse(rs.getString("sinopse"));
 								filme2.setImagem(rs.getString("imagem"));
+								filme2.setMedia(rs.getDouble("media"));
 								return filme2;
 							}
 

@@ -23,13 +23,14 @@ public class UsuariosDao {
 	private JdbcTemplate jdbcTemplate;
 
 	public Usuarios validaLogin(String loginUsuario, String senhaUsuario) {
-		List<Usuarios> usuarioExistente = jdbcTemplate.query("select login, senha, admin_sist from usuarios where login = ? and senha = ?", new RowMapper<Usuarios>() {
+		List<Usuarios> usuarioExistente = jdbcTemplate.query("select login, senha, admin_sist, cod_usuario from usuarios where login = ? and senha = ?", new RowMapper<Usuarios>() {
 							@Override
 							public Usuarios mapRow(ResultSet rs, int arg1) throws SQLException {
 								Usuarios usuario = new Usuarios();
 								usuario.setLoginUsuario(rs.getString("login"));
 								usuario.setSenhaUsuario(rs.getString("senha"));
 								usuario.setAdminSistema(rs.getInt("admin_sist"));
+								usuario.setCodigoUsuario(rs.getInt("cod_usuario"));
 								return usuario;
 							}
 						}, loginUsuario, senhaUsuario);
@@ -37,7 +38,7 @@ public class UsuariosDao {
 		return usuarioExistente.isEmpty() ? null : usuarioExistente.get(0);
 	}
 
-	public void inserirUsuariologin(Usuarios usuario) {
+	public void inserirUsuarioLogin(Usuarios usuario) {
 		jdbcTemplate
 				.update("INSERT INTO usuarios (nome_usuario, login, senha, admin_sist) VALUES (?,?,?, 0)",
 						usuario.getNomeUsuario(),

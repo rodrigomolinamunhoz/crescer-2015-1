@@ -14,7 +14,7 @@
 				<div class="panel panel-default">
 	        		<div class="panel-heading">
 						<h2>Cadastre-se</h2>
-						<form id="formCadastro" role="form" method="post">
+						<form action="/cadastroUsuarioLogin" role="form" method="post">
 							<div class="form-group">
 								<label>Nome Completo</label> 
 								<input class="form-control"	name="nomeUsuario" required>
@@ -27,15 +27,16 @@
 								<label>Senha</label>
 								<input class="form-control" type="password" name="senhaUsuario" required>
 							</div>
-							<button type="submit" class="btn btn-success" id="warn-me">Cadastrar</button>
-							<button type="submit" class="btn btn-danger" onclick="history.go(-2);">Voltar</button>
+							<button type="submit" class="btn btn-success">Cadastrar</button>	
+							<!-- <button type="submit" class="btn btn-danger" onclick="history.go(-2);">Voltar</button> -->
 						</form>
+					</br>
+						<a href="/"><button type="submit" class="btn btn-danger">Voltar</button></a>
 					</div>
 				</div>
 			</div>
 			<div class="col-xs-3 col-md-4"></div>
 		</div>
 	</div>
-	<script>
 </body>
 </html>

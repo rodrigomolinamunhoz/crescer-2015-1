@@ -8,5 +8,32 @@ CREATE TABLE usuarios (
     PRIMARY KEY (cod_usuario, login) 
 );
 
+
 INSERT INTO usuarios (nome_usuario, login, senha, admin_sist) values('Rodrigo Molina', 'admin', 123456, 1);
 INSERT INTO usuarios (nome_usuario, login, senha, admin_sist) values('Vitor de Castro', 'vitor', 123456, 0);
+
+
+CREATE TABLE filme( 
+  idfilme int(5) auto_increment not null, 
+  nome varchar2(255) not null,   
+  genero varchar2(50) not null,
+  faixaetaria varchar2(50) not null,
+  anolancamento varchar2(4) not null,
+  sinopse varchar2(700) not null,
+  imagem varchar2(400) not null,  
+  CONSTRAINT pk_filme 
+    PRIMARY KEY (idfilme)
+);
+
+CREATE TABLE avaliacao( 
+  id_avaliacao int(10) auto_increment not null, 
+  idfilme int(5) not null, 
+  cod_usuario int(10) not null, 
+ nota double not null,    
+  CONSTRAINT pk_avaliacao 
+    PRIMARY KEY (id_avaliacao),
+  CONSTRAINT fk_filme FOREIGN KEY (idfilme)
+    REFERENCES filme(idfilme),
+  CONSTRAINT fk_usuarios FOREIGN KEY (cod_usuario)
+    REFERENCES usuarios(cod_usuario)
+);

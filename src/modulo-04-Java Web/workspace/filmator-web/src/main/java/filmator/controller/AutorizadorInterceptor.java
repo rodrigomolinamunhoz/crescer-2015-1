@@ -12,7 +12,8 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 
 		String uri = request.getRequestURI();
 		if (uri.endsWith("/")||
-			uri.endsWith("teste")||
+			uri.endsWith("telaCadastroUsuarioLogin")||
+			uri.endsWith("cadastroUsuarioLogin")||
 			uri.endsWith("validaLogin")||
 			uri.endsWith("script")||
 			uri.contains("resources")) {

@@ -37,7 +37,7 @@ public class LoginController {
 		return "indexAdmin";
 	}
 
-	@RequestMapping(value = "/teste", method = RequestMethod.GET)
+	@RequestMapping(value = "/telaCadastroUsuarioLogin", method = RequestMethod.GET)
 	public String telaUsuarioLogin() {
 		return "telaCadastroUsuarioLogin";
 	}
@@ -60,10 +60,10 @@ public class LoginController {
 		Usuarios usuarioExiste = dao.validaLogin(usuario.getLoginUsuario(), usuario.getSenhaUsuario());
 		if (usuarioExiste != null) {
 			if (usuarioExiste.getAdminSistema() == 1) {
-				session.setAttribute("usuarioAdmin", usuario);
+				session.setAttribute("usuarioAdmin", usuarioExiste);
 				return "redirect:/indexAdmin";
 			} else {
-				session.setAttribute("usuarioNormal", usuario);
+				session.setAttribute("usuarioNormal", usuarioExiste);
 				return "redirect:/indexUsuario";
 			}
 		} else {
@@ -76,17 +76,4 @@ public class LoginController {
 		session.invalidate();
 		return "/";
 	}
-	
-//	@RequestMapping(value = "/avaliar", method = RequestMethod.POST)
-//	public String avaliar @RequestParam (int id_filme, int nota){
-//		dao.atualiza no banco.
-//		
-//		
-//	}
-//	
-//	$.ajax(){
-//		url + $('#nota').val()
-//		type: post
-//	}
-
 }

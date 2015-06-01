@@ -9,6 +9,7 @@ public class Filme {
 	private String sinopse;
 	private String imagem;
 	private Genero genero;
+	private double media;
 
 	public Filme() {
 	}
@@ -71,5 +72,13 @@ public class Filme {
 
 	public void setIdFilme(int idFilme) {
 		this.idFilme = idFilme;
+	}
+
+	public double getMedia() {
+		return media;
+	}
+
+	public void setMedia(double media) {
+		this.media = media;
 	}
 }

@@ -8,7 +8,6 @@
 <link rel="stylesheet" href="../css/estiloListagemFilme.css">
 <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>
 <link href="../css/raterater.css" rel="stylesheet"/>
-<script src="https://code.jquery.com/jquery-1.4.1.min.js"></script>
 <script src="../js/raterater.jquery.js"></script>
 <style>
 .raterater-layer { font-size:20px; }
@@ -58,11 +57,12 @@
 								<th>Sinopse</th>
 								<th>Imagem</th>
 								<th>Avaliação</th>
+								<th>Média</th>
 							</tr>
 						</thead>
 						<tbody>
 							{{#filmes}}
-							<tr>
+							<tr value="{{idFilme}}">
 								<td class="active">{{nome}}</td>
 								<td class="active">{{genero.descricao}}</td>
 								<td class="active">{{faixaEtaria}}</td>
@@ -72,8 +72,11 @@
 									<img class="img_listagem" src="{{imagem}}">
 								</td>
 								<td class="active">
-									<div class="ratebox" data-id="1" data-rating="2.2"></div>
-									<div class="ratebox" data-id="2" data-rating="3.6"></div>
+									<div id="estrela" class="ratebox" data-id="{{idFilme}}" data-rating="">
+									</div>
+								</td>
+								<td class="active media{{idFilme}}" >
+									{{media}}
 								</td>
 							</tr>
 							{{/filmes}}
@@ -89,7 +92,17 @@
 	<script>
 	$( '.ratebox' ).raterater( { submitFunction: 'rateAlert', allowChange: true } );
 		function rateAlert(id, rating){
-    		alert( 'Rating for ' + id + ' is ' + rating + ' stars!' );
+    		$.ajax({
+					url: '/avaliacaoFilme?idFilme=' + id  + '&nota=' + rating,
+					type: 'POST'
+			 }).done(function(){
+				$.ajax({
+					url:'/mediaAvaliacao?idFilme='+id,
+					type:'GET'
+				}).done(function(data){
+					$('tr .media' + id).text(data[0].media);
+				})
+			})
 		}
 	</script>
 </body>
