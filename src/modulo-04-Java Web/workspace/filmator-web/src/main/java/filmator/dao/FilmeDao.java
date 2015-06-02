@@ -29,7 +29,7 @@ public class FilmeDao {
 
 	public List<Filme> buscaTodosFilmesJava8() {
 		return jdbcTemplate
-				.query("SELECT f.idfilme, f.nome, f.genero, f.faixaetaria, f.anolancamento, f.sinopse, f.imagem, (SELECT AVG(nota) FROM avaliacao a WHERE a.idfilme = f.idfilme) AS media FROM filme f",
+				.query("SELECT f.idfilme, f.nome, f.genero, f.faixaetaria, f.anolancamento, f.sinopse, f.imagem, (SELECT CONVERT(AVG(nota), DECIMAL(20,2)) FROM avaliacao a WHERE a.idfilme = f.idfilme) AS media FROM filme f",
 						new RowMapper<Filme>() {
 							public Filme mapRow(ResultSet rs, int arg1)
 									throws SQLException {

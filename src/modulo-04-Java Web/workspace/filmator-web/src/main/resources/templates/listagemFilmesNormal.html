@@ -46,7 +46,7 @@
 			    <div class="panel-heading">
 				<div class="col-xs-6 col-md-4">
 					<h2>Lista de filmes</h2>
-					</div>
+				</div>
 					<table class="table table-condensed">
 						<thead>
 							<tr class="success">
@@ -62,7 +62,7 @@
 						</thead>
 						<tbody>
 							{{#filmes}}
-							<tr value="{{idFilme}}">
+							<tr>
 								<td class="active">{{nome}}</td>
 								<td class="active">{{genero.descricao}}</td>
 								<td class="active">{{faixaEtaria}}</td>
@@ -72,10 +72,10 @@
 									<img class="img_listagem" src="{{imagem}}">
 								</td>
 								<td class="active">
-									<div id="estrela" class="ratebox" data-id="{{idFilme}}" data-rating="">
+									<div class="ratebox" data-id="{{idFilme}}" data-rating="">
 									</div>
 								</td>
-								<td class="active media{{idFilme}}" >
+								<td class="active media{{idFilme}}">
 									{{media}}
 								</td>
 							</tr>
@@ -90,17 +90,17 @@
 		</div>
 	</div>
 	<script>
-	$( '.ratebox' ).raterater( { submitFunction: 'rateAlert', allowChange: true } );
-		function rateAlert(id, rating){
+	$( '.ratebox' ).raterater( { submitFunction: 'avaliacaoMedia', allowChange: true } );
+		function avaliacaoMedia(idFilme, nota){
     		$.ajax({
-					url: '/avaliacaoFilme?idFilme=' + id  + '&nota=' + rating,
+					url: '/avaliacaoFilme?idFilme=' + idFilme  + '&nota=' + nota,
 					type: 'POST'
 			 }).done(function(){
 				$.ajax({
-					url:'/mediaAvaliacao?idFilme='+id,
+					url:'/mediaAvaliacao?idFilme='+idFilme,
 					type:'GET'
-				}).done(function(data){
-					$('tr .media' + id).text(data[0].media);
+				}).done(function(resultado){
+					$('tr .media' + idFilme).text(resultado[0].media.toFixed(2));
 				})
 			})
 		}
