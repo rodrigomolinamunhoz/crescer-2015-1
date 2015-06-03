@@ -1,0 +1,28 @@
+CRIANDO UM PROJETO DO ZERO NO VISUAL STUDIO 2013
+1 - New project
+2 - Other Project Types
+3 - Visual Studio Solutions
+4 - Visual c#
+5 - Class Library
+------------------------------------------------
+Lei de Deméter
+-----------------------------------------------
+CRIANDO REFERENCIA DA MESMA SOLUTION
+
+1 - Clicar em "References" do projeto.
+2 - Add References
+3 - Solution
+4 - Projects
+5 - Selecionar a referência
+------------------------------------------------
+Int anulavel = Para definir um valor como NULL 
+em uma variável int é colocado um "?" quando adicionado 
+o atributo.
+------------------------------------------------
+IMPORANDO XML
+1 - No windows explorer colocar a XML
+2 - No VS dar um "Refresh"
+3 - clicar em "Include From Project"
+4 - Para ele aparecer na pasta big ir em Pripriedades
+do XML 
+5 - selecionar "copy if newer".
