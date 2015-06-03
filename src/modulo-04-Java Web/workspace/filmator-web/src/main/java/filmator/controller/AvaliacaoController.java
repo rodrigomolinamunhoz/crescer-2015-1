@@ -27,9 +27,14 @@ public class AvaliacaoController {
 		if (usuarioAdmin != null) {
 			return "listagemFilmes";
 		} else if (usuarioNormal != null) {
-			Avaliacao avaliacao = new Avaliacao(idFilme, nota, usuarioNormal.getCodigoUsuario());
-			dao.inserirAvaliacao(avaliacao);
-			return "listagemFilmesNormal";
+			if (dao.verificaVoto(idFilme, usuarioNormal.getCodigoUsuario(), nota).isEmpty()) {
+				Avaliacao avaliacao = new Avaliacao(idFilme, nota, usuarioNormal.getCodigoUsuario());
+				dao.inserirAvaliacao(avaliacao);
+				return "listagemFilmesNormal";
+			} else {
+				dao.atualizaVoto(idFilme, usuarioNormal.getCodigoUsuario(), nota);
+				return "listagemFilmesNormal";
+			}
 		} else {
 			return "telaLogin";
 		}

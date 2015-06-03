@@ -1,6 +1,5 @@
 package filmator.controller;
 
-import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
@@ -9,8 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import filmator.dao.FilmeDao;
 import filmator.model.Filme;
@@ -21,6 +18,11 @@ public class ListarFilmesController {
 
 	@Inject
 	FilmeDao dao;
+	
+	@RequestMapping(value = "/telaBusca", method = RequestMethod.GET)
+	public String telaBuscar() {
+		return "buscarFilme";
+	}
 	
 	@RequestMapping(value = "/salvar", method = RequestMethod.POST)
 	public String salvar(HttpSession session, Filme filme, Model model) {
@@ -52,25 +54,19 @@ public class ListarFilmesController {
 		}
 	}
 	
-//	@RequestMapping(value = "/buscar", method = RequestMethod.GET)
-//	public String buscar(HttpSession session, String nome, Model model) {
-//		Usuarios usuarioAdmin = (Usuarios) session.getAttribute("usuarioAdmin");
-//		Usuarios usuarioNormal = (Usuarios) session.getAttribute("usuarioNormal");
-//		if (usuarioAdmin != null) {
-//			model.addAttribute("filmes", dao.buscaFilmePorNome(nome));
-//			return "listagemFilmes";
-//		} else if (usuarioNormal != null ) {
-//			model.addAttribute("filmes", dao.buscaFilmePorNome(nome));
-//			return "listagemFilmesNormal";
-//		} else {
-//			return "telaLogin";
-//		}
-//	}
-	
 	@RequestMapping(value = "/buscar", method = RequestMethod.GET)
-	public @ResponseBody
-	List<Filme> buscar(@RequestParam String nome) {
-		return dao.buscaFilmePorNome(nome);
+	public String buscar(HttpSession session, String nome, Model model) {
+		Usuarios usuarioAdmin = (Usuarios) session.getAttribute("usuarioAdmin");
+		Usuarios usuarioNormal = (Usuarios) session.getAttribute("usuarioNormal");
+		if (usuarioAdmin != null) {
+			model.addAttribute("filmes", dao.buscaFilmePorNome(nome));
+			return "listagemFilmes";
+		} else if (usuarioNormal != null ) {
+			model.addAttribute("filmes", dao.buscaFilmePorNome(nome));
+			return "listagemFilmesNormal";
+		} else {
+			return "telaLogin";
+		}
 	}
 	
 	@RequestMapping(value = "/deletarFilme", method = RequestMethod.GET)
