@@ -18,29 +18,31 @@ public class AvaliacaoDao {
 	@Inject
 	private JdbcTemplate jdbcTemplate;
 	
-	public void inserirAvaliacao(Avaliacao avaliacao){
-		jdbcTemplate.update( "INSERT INTO avaliacao (idfilme, nota, cod_usuario) VALUES (?, ?, ?)",
-				avaliacao.getIdFilme(),
-				avaliacao.getNota(),
-				avaliacao.getCodigoUsuario());
+	public void inserirAvaliacao(int idFilme, int idUsuario, double nota){
+		List<Avaliacao> avaliacoes =  verificaVoto(idFilme, idUsuario, nota);
+		if (avaliacoes.size() == 0) {
+			jdbcTemplate.update( "INSERT INTO avaliacao (idfilme, cod_usuario, nota) VALUES (?, ?, ?)",
+					idFilme, idUsuario, nota);
+		} else {
+			jdbcTemplate.update("UPDATE avaliacao SET nota = ? WHERE idfilme = ? AND cod_usuario = ?",
+					nota, idFilme, idUsuario);
+		}
 	}
 	
 	public List<Avaliacao> verificaVoto(int idFilme, int idUsuario, double nota) {
-		return jdbcTemplate.query("SELECT idfilme, cod_usuario, nota FROM avaliacao WHERE idfilme = ? AND cod_usuario = ?", new RowMapper<Avaliacao>(){
+		List<Avaliacao> avaliacoes =  jdbcTemplate.query("SELECT * FROM avaliacao WHERE idfilme = ? AND cod_usuario = ?", new RowMapper<Avaliacao>(){
 			@Override
 			public Avaliacao mapRow(ResultSet rs, int arg1) throws SQLException{
 				Avaliacao avaliacao = new Avaliacao();
 				avaliacao.setIdFilme(rs.getInt("idfilme"));
 				avaliacao.setCodigoUsuario(rs.getInt("cod_usuario"));
 				avaliacao.setNota(rs.getDouble("nota"));
+				avaliacao.setIdAvaliacao(rs.getInt("id_avaliacao"));
 				return avaliacao; 	
 			}
-		}, idUsuario, idFilme);
-	}
-	
-	public void atualizaVoto(int idFilme, int idUsuario, double nota){
-		jdbcTemplate.update("UPDATE avaliacao SET nota = ? WHERE idfilme = ? AND cod_usuario = ?",
-		idFilme, idUsuario, nota);
+		},idFilme,idUsuario);
+		
+		return avaliacoes;
 	}
 
 	public List<Avaliacao> mediaVotoAvaliacao(int idFilme) {

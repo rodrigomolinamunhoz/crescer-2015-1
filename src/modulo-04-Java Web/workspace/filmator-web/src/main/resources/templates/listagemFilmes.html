@@ -7,7 +7,7 @@
 {{> script}}
 <link rel="stylesheet" href="../css/estiloListagemFilme.css">
 </head>
-<body>
+<body onload="mediaFilme">
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-6 col-md-4"></div>
@@ -25,6 +25,7 @@
 								<th>Ano de Lançamento</th>
 								<th>Sinopse</th>
 								<th>Imagem</th>
+								<th>Média Filme</th>
 								<th>Ação</th>
 							</tr>
 						</thead>
@@ -39,6 +40,9 @@
 								<td class="active">
 									<img class="img_listagem" src="{{imagem}}">
 								</td>
+								<td class="active media{{idFilme}}">
+									{{media}}
+								</td>
 								<td class="active">
 			<a href="/deletarFilme?idFilme={{idFilme}}"><button class="glyphicon glyphicon-trash"></button></a>
 								</td>
@@ -46,12 +50,22 @@
 							{{/filmes}}
 						</tbody>
 					</table>
-				    <button type="submit" class="btn btn-danger" onclick="history.go(-2);">Voltar</button>	
+				    <button type="submit" class="btn btn-danger" onclick="history.go(-1);">Voltar</button>	
 					</form>
 				</div>
 			</div>
 			<div class="col-xs-6 col-md-4"></div>
 		</div>
 	</div>
+<script>
+function mediaFilme(idFilme) {
+		$.ajax({
+			url:'/mediaAvaliacao?idFilme='+idFilme,
+			type:'GET'
+		}).done(function(resultado){
+			$('tr .media' + idFilme).text(resultado[0].media.toFixed(2));
+		});
+}
+</script>
 </body>
 </html>

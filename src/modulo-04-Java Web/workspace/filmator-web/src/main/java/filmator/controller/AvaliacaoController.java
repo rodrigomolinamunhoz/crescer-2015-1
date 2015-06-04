@@ -24,20 +24,14 @@ public class AvaliacaoController {
 	public String avaliarFilme(HttpSession session, int idFilme, double nota) {
 		Usuarios usuarioAdmin = (Usuarios) session.getAttribute("usuarioAdmin");
 		Usuarios usuarioNormal = (Usuarios) session.getAttribute("usuarioNormal");
-		if (usuarioAdmin != null) {
-			return "listagemFilmes";
-		} else if (usuarioNormal != null) {
-			if (dao.verificaVoto(idFilme, usuarioNormal.getCodigoUsuario(), nota).isEmpty()) {
-				Avaliacao avaliacao = new Avaliacao(idFilme, nota, usuarioNormal.getCodigoUsuario());
-				dao.inserirAvaliacao(avaliacao);
-				return "listagemFilmesNormal";
+			if (usuarioAdmin != null) {
+				return "listagemFilmes";
+			} else if (usuarioNormal != null ) {
+				dao.inserirAvaliacao(idFilme, usuarioNormal.getCodigoUsuario(), nota);
+				return "listagemFilmesNormal";	
 			} else {
-				dao.atualizaVoto(idFilme, usuarioNormal.getCodigoUsuario(), nota);
-				return "listagemFilmesNormal";
+				return "telaLogin";
 			}
-		} else {
-			return "telaLogin";
-		}
 	}
 	
 	@ResponseBody
