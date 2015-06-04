@@ -15,6 +15,9 @@
 			<div class="panel panel-default">
 			    <div class="panel-heading">
 			     	<form class="form-signin" action="/validaLogin" method="post">
+			     		<div class="erro">
+ 							 <strong>{{erro}}</strong>
+						</div>
 			        	<h2 class="form-signin-heading">Login</h2>
 				        <input type="text" class="form-control" name="loginUsuario" placeholder="Usuário" required autofocus>
 				        <input type="password" class="form-control" name="senhaUsuario" placeholder="Senha" required>

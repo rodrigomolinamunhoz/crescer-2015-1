@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 
+
 import filmator.dao.UsuariosDao;
 import filmator.model.Usuarios;
 
@@ -20,7 +21,7 @@ public class LoginController {
 	UsuariosDao dao;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String telaLogin(HttpSession session) {
+	public String telaLogin(HttpSession session, Model model) {
 		Usuarios usuarioAdmin = (Usuarios) session.getAttribute("usuarioAdmin");
 		Usuarios usuarioNormal = (Usuarios) session.getAttribute("usuarioNormal");
 		if (usuarioAdmin != null) {
@@ -28,6 +29,7 @@ public class LoginController {
 		} else if (usuarioNormal != null ) {
 			return "indexUsuario";
 		} else {
+			model.addAttribute("erro", "");
 			return "telaLogin";
 		}
 	}
@@ -67,6 +69,7 @@ public class LoginController {
 				return "redirect:/indexUsuario";
 			}
 		} else {
+			model.addAttribute("erro", "Usuário ou senha incorretos!!");
 			return "telaLogin";
 		}
 	}
