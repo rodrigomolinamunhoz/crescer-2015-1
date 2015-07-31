@@ -1,0 +1,14 @@
+CRIANDO UM BANCO NO SQL MANEGEMENT STUDIO E UTILIZANDO NO VISUAL STUDIO
+-----------------------------------------------------------------------
+1 - Data Connections
+2 - Add Connection
+3 - Selecionar tipo do banco "SQL Server"
+4 - . ou ./SQLEXPRESS
+5 - Seleciona o Banco que foi criado no SQL Management Studio.
+6 - Testa Conexão 
+7 - Refresh
+------------------------------------------------------------------------
+CRIANDO UM DIAGRAMA NO SQL MANAGEMENT
+
+1 - Botão direito na pasta Database Diagrams.
+2 - Botão direito no diagrama new table.

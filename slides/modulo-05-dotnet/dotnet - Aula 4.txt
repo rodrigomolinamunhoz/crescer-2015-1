@@ -1,0 +1,5 @@
+Cria entidade - classe abstrata
+todas a classes herdarem de entidade
+Cria a referencia no projeto turborango.web
+New Scaffoldeld Item na pasta controller
+Criar na html botao para Contato.
